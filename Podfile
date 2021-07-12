@@ -6,11 +6,12 @@ target 'FBUApp' do
   use_frameworks!
 
   # Pods for FBUApp
+pod 'Parse'
 
   target 'FBUAppTests' do
     inherit! :search_paths
     # Pods for testing
-pod 'Parse'
+
   end
 
   target 'FBUAppUITests' do

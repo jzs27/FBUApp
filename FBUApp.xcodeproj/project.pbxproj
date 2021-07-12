@@ -189,6 +189,7 @@
 				A5941CDE269CD4E60086BA9C /* Sources */,
 				A5941CDF269CD4E60086BA9C /* Frameworks */,
 				A5941CE0269CD4E60086BA9C /* Resources */,
+				7D5427C1A2C6C52612FBAA0A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,7 +208,6 @@
 				A5941CF9269CD4E70086BA9C /* Sources */,
 				A5941CFA269CD4E70086BA9C /* Frameworks */,
 				A5941CFB269CD4E70086BA9C /* Resources */,
-				B6453DD9C0331F0EB7207069 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +227,7 @@
 				A5941D04269CD4E70086BA9C /* Sources */,
 				A5941D05269CD4E70086BA9C /* Frameworks */,
 				A5941D06269CD4E70086BA9C /* Resources */,
+				B1460A5A55E84BE9C228D55F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,21 +308,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B6453DD9C0331F0EB7207069 /* [CP] Embed Pods Frameworks */ = {
+		7D5427C1A2C6C52612FBAA0A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FBUAppTests/Pods-FBUAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp/Pods-FBUApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FBUAppTests/Pods-FBUAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp/Pods-FBUApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FBUAppTests/Pods-FBUAppTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FBUApp/Pods-FBUApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1460A5A55E84BE9C228D55F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp-FBUAppUITests/Pods-FBUApp-FBUAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp-FBUAppUITests/Pods-FBUApp-FBUAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FBUApp-FBUAppUITests/Pods-FBUApp-FBUAppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E64BBFB51D851B9198F49542 /* [CP] Check Pods Manifest.lock */ = {
