@@ -99,8 +99,11 @@ Message their renter and manage thee reservation.
   * Reservation Screen
 
 **Wireframes**
-Link to Figma
-https://www.figma.com/file/mRJo5bSrMdbovp7APpCfG5/FBU-App-Design?node-id=0%3A1
+
+
+Click [here](https://www.figma.com/file/mRJo5bSrMdbovp7APpCfG5/FBU-App-Design?node-id=0%3A1) to go to my Figma file displaying the Wireframes.
+
+
 
 ### 3. Schema
 
@@ -136,20 +139,6 @@ Vehicle
 
 * Reservation Screen
 (Read/GET) Query logged in reservation object
-
-```
-let query = PFQuery(className:"Reservation")
-query.whereKey("author", equalTo: currentUser)
-query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
-   if let error = error {
-      print(error.localizedDescription)
-   } else if let reservations = reservations {
-      print("Successfully retrieved \(reservations.count) reservations.")
-  // TODO: Do something with reservations...
-   }
-}
-
-```
 (Update/PUT) Update reservation object
 
 * Vehicle Registration Screen
