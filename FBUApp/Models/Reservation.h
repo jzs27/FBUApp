@@ -6,19 +6,16 @@
 //
 
 #import <Parse/Parse.h>
+#import "Vehicle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Reservation : PFObject<PFSubclassing>
-
-@property (nonatomic, strong) NSString *postID;
-@property (nonatomic, strong) NSString *brand;
-@property (nonatomic, strong) NSString *model;
-@property (nonatomic, strong) NSString *location;
-@property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) PFUser *rentee;
 @property (nonatomic, strong) PFUser *renter;
+@property (nonatomic,strong) NSDate *startRentDate;
+@property (nonatomic,strong) NSDate *endRentDate;
+@property (nonatomic,strong) Vehicle *vehicle;
 
 @end
 

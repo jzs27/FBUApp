@@ -13,25 +13,33 @@
 @dynamic brand;
 @dynamic location;
 @dynamic image;
-@dynamic price;
+@dynamic rate;
 @dynamic owner;
 @dynamic model;
+@dynamic availableEndDate;
+@dynamic availableStartDate;
+
 
 + (nonnull NSString *)parseClassName {
     return @"Vehicle";
 }
 
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    
+    
+    //brand model etc from API?
     
     Vehicle *newVehicle = [Vehicle new];
     newVehicle.image = [self getPFFileFromImage:image];
-    newVehicle.price =  @(0); //do I send it into function?
+    newVehicle.rate =  rate; //do I send it into function?
     newVehicle.owner = [PFUser currentUser];
+    newVehicle.location = location;
+    newVehicle.availableEndDate = availableEndDate;
+    newVehicle.availableStartDate = availableStartDate;
+    
     [newVehicle saveInBackgroundWithBlock: completion];
 }
-
-
 
 
 

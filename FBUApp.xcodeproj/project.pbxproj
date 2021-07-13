@@ -221,22 +221,10 @@
 		A5941D68269CFEF10086BA9C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A5941D88269DE4460086BA9C /* Profile View Controllers */,
+				A5941D87269DE4170086BA9C /* Other  */,
 				A5941D86269D030E0086BA9C /* Reservations View Controllers */,
 				A5941D85269D03000086BA9C /* Home View Controllers */,
-				A5941D69269CFF0C0086BA9C /* LoginViewController.h */,
-				A5941D6A269CFF0C0086BA9C /* LoginViewController.m */,
-				A5941D6C269CFF1C0086BA9C /* SignUpViewController.h */,
-				A5941D6D269CFF1C0086BA9C /* SignUpViewController.m */,
-				A5941D6F269CFFFA0086BA9C /* HomeViewController.h */,
-				A5941D70269CFFFA0086BA9C /* HomeViewController.m */,
-				A5941D75269D00210086BA9C /* ProfileViewController.h */,
-				A5941D76269D00210086BA9C /* ProfileViewController.m */,
-				A5941D78269D01850086BA9C /* CalendarViewController.h */,
-				A5941D79269D01850086BA9C /* CalendarViewController.m */,
-				A5941D7B269D02610086BA9C /* SelectVehicleViewController.h */,
-				A5941D7C269D02610086BA9C /* SelectVehicleViewController.m */,
-				A5941D7E269D02A80086BA9C /* ConfirmVehicleViewController.h */,
-				A5941D7F269D02A80086BA9C /* ConfirmVehicleViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -244,6 +232,14 @@
 		A5941D85269D03000086BA9C /* Home View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A5941D6F269CFFFA0086BA9C /* HomeViewController.h */,
+				A5941D70269CFFFA0086BA9C /* HomeViewController.m */,
+				A5941D78269D01850086BA9C /* CalendarViewController.h */,
+				A5941D79269D01850086BA9C /* CalendarViewController.m */,
+				A5941D7B269D02610086BA9C /* SelectVehicleViewController.h */,
+				A5941D7C269D02610086BA9C /* SelectVehicleViewController.m */,
+				A5941D7E269D02A80086BA9C /* ConfirmVehicleViewController.h */,
+				A5941D7F269D02A80086BA9C /* ConfirmVehicleViewController.m */,
 			);
 			path = "Home View Controllers";
 			sourceTree = "<group>";
@@ -257,6 +253,26 @@
 				A5941D82269D02D40086BA9C /* DetailsViewController.m */,
 			);
 			path = "Reservations View Controllers";
+			sourceTree = "<group>";
+		};
+		A5941D87269DE4170086BA9C /* Other  */ = {
+			isa = PBXGroup;
+			children = (
+				A5941D6A269CFF0C0086BA9C /* LoginViewController.m */,
+				A5941D69269CFF0C0086BA9C /* LoginViewController.h */,
+				A5941D6C269CFF1C0086BA9C /* SignUpViewController.h */,
+				A5941D6D269CFF1C0086BA9C /* SignUpViewController.m */,
+			);
+			path = "Other ";
+			sourceTree = "<group>";
+		};
+		A5941D88269DE4460086BA9C /* Profile View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5941D76269D00210086BA9C /* ProfileViewController.m */,
+				A5941D75269D00210086BA9C /* ProfileViewController.h */,
+			);
+			path = "Profile View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
