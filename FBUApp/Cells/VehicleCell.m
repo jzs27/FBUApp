@@ -6,6 +6,7 @@
 //
 
 #import "VehicleCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation VehicleCell
 
@@ -18,6 +19,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setVehicle:(Vehicle *)vehicle{
+    _vehicle = vehicle;
+    
+    PFFileObject *image = self.vehicle.image;
+    NSURL *imageURL = [NSURL URLWithString:image.url];
+    [self.vehicleView setImageWithURL:imageURL];
+
 }
 
 @end

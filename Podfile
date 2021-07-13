@@ -8,6 +8,7 @@ target 'FBUApp' do
   # Pods for FBUApp
 pod 'Parse'
 pod 'JTAppleCalendar'
+pod 'AFNetworking'
 
   target 'FBUAppTests' do
     inherit! :search_paths
