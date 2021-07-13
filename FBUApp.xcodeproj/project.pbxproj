@@ -177,6 +177,7 @@
 		A5941CE4269CD4E60086BA9C /* FBUApp */ = {
 			isa = PBXGroup;
 			children = (
+				A5941D8D269E212C0086BA9C /* Cells */,
 				A5941D89269DFB6D0086BA9C /* Delegates */,
 				A5941D68269CFEF10086BA9C /* View Controllers */,
 				A5941D5B269CE8B90086BA9C /* Models */,
@@ -286,6 +287,13 @@
 				A5941CE5269CD4E60086BA9C /* AppDelegate.h */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		A5941D8D269E212C0086BA9C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

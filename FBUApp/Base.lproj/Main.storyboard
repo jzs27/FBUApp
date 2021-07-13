@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hdE-4C-y4j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EZl-wP-2Ie">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -143,7 +143,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="8wv-e3-reG"/>
                     <connections>
-                        <segue destination="EZl-wP-2Ie" kind="show" identifier="fromHome" id="yBy-6v-jh2"/>
+                        <segue destination="EZl-wP-2Ie" kind="presentation" identifier="fromHome" id="yBy-6v-jh2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuZ-9G-3Dk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -155,8 +155,26 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="6Wy-5B-BlG" customClass="CalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="njB-4j-8Me">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7m-tJ-o2v">
+                                <rect key="frame" x="73" y="218" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="prevAct:" destination="6Wy-5B-BlG" eventType="touchUpInside" id="rFO-uJ-kwI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzo-QB-hfc">
+                                <rect key="frame" x="265" y="218" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextAct:" destination="6Wy-5B-BlG" eventType="touchUpInside" id="VbL-sb-gxJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uTh-Bf-W85"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -167,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zio-kl-uf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1358" y="2411"/>
+            <point key="canvasLocation" x="-1358.4615384615383" y="2410.6635071090045"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="gsA-Qe-nd2">
@@ -232,7 +250,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Reservations" id="727-UK-JvR"/>
                     <connections>
-                        <segue destination="O0h-zE-omV" kind="show" identifier="fromReservations" id="NbO-39-BsY"/>
+                        <segue destination="O0h-zE-omV" kind="presentation" identifier="fromReservations" id="NbO-39-BsY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64o-Sq-k1U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

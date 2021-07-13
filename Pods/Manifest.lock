@@ -1,22 +1,26 @@
 PODS:
   - Bolts/Tasks (1.9.1)
+  - JTAppleCalendar (8.0.3)
   - Parse (1.19.2):
     - Parse/Core (= 1.19.2)
   - Parse/Core (1.19.2):
     - Bolts/Tasks (= 1.9.1)
 
 DEPENDENCIES:
+  - JTAppleCalendar
   - Parse
 
 SPEC REPOS:
   trunk:
     - Bolts
+    - JTAppleCalendar
     - Parse
 
 SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
 
-PODFILE CHECKSUM: c2deb17f323d6ed0926a92e36356ff3a080c1262
+PODFILE CHECKSUM: 7450c2cabae73782b2886512d4981c039e7e625d
 
 COCOAPODS: 1.10.1
