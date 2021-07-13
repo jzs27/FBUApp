@@ -174,12 +174,9 @@
 		A5941CE4269CD4E60086BA9C /* FBUApp */ = {
 			isa = PBXGroup;
 			children = (
+				A5941D89269DFB6D0086BA9C /* Delegates */,
 				A5941D68269CFEF10086BA9C /* View Controllers */,
 				A5941D5B269CE8B90086BA9C /* Models */,
-				A5941CE5269CD4E60086BA9C /* AppDelegate.h */,
-				A5941CE6269CD4E60086BA9C /* AppDelegate.m */,
-				A5941CE8269CD4E60086BA9C /* SceneDelegate.h */,
-				A5941CE9269CD4E60086BA9C /* SceneDelegate.m */,
 				A5941CEE269CD4E60086BA9C /* Main.storyboard */,
 				A5941CF1269CD4E70086BA9C /* Assets.xcassets */,
 				A5941CF3269CD4E70086BA9C /* LaunchScreen.storyboard */,
@@ -273,6 +270,17 @@
 				A5941D75269D00210086BA9C /* ProfileViewController.h */,
 			);
 			path = "Profile View Controllers";
+			sourceTree = "<group>";
+		};
+		A5941D89269DFB6D0086BA9C /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A5941CE9269CD4E60086BA9C /* SceneDelegate.m */,
+				A5941CE8269CD4E60086BA9C /* SceneDelegate.h */,
+				A5941CE6269CD4E60086BA9C /* AppDelegate.m */,
+				A5941CE5269CD4E60086BA9C /* AppDelegate.h */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
