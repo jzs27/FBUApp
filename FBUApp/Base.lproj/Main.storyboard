@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFc-CW-GiA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kPI-2w-Tpi">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -32,11 +32,17 @@
                                 <rect key="frame" x="162" y="497" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Xo-UO-he7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nE4-JO-sH5">
                                 <rect key="frame" x="168" y="622" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="didTapSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vsJ-A3-ef8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -44,7 +50,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="wIz-F2-IyP"/>
                     <connections>
-                        <segue destination="mFc-CW-GiA" kind="presentation" identifier="fromLogin" id="dK1-l8-BbS"/>
+                        <outlet property="passwordTextField" destination="tmH-YP-SX8" id="n9W-YY-4q9"/>
+                        <outlet property="usernameTextField" destination="2v4-MA-ijL" id="ZwO-K5-4bS"/>
+                        <segue destination="mFc-CW-GiA" kind="presentation" identifier="fromLoginToHome" id="dK1-l8-BbS"/>
+                        <segue destination="kT3-YE-qit" kind="show" identifier="fromLoginToSignUp" id="zH1-8F-RXR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,17 +67,41 @@
                     <view key="view" contentMode="scaleToFill" id="DFY-3s-zlm">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6XP-8F-Nwk">
+                                <rect key="frame" x="147" y="320" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkC-ha-Lkz">
+                                <rect key="frame" x="168" y="476" width="54" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="didTapSignUp:" destination="uJL-s7-6Sx" eventType="touchUpInside" id="d3l-ly-v2l"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lfI-XU-ApI">
+                                <rect key="frame" x="147" y="219" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gpe-3z-JkA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="h1d-qf-P0t"/>
                     <connections>
+                        <outlet property="passwordTextField" destination="6XP-8F-Nwk" id="fJe-jk-tB4"/>
+                        <outlet property="usernameTextField" destination="lfI-XU-ApI" id="Ya5-0b-PQ7"/>
                         <segue destination="mFc-CW-GiA" kind="presentation" identifier="fromSignUp" id="pRN-Re-PXh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4S-h2-ZI9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="88"/>
+            <point key="canvasLocation" x="2453.8461538461538" y="87.440758293838854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BHq-rF-Mtz">
@@ -217,6 +250,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kT3-YE-qit" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dQc-Y3-xb3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WDd-Q3-64i">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -329,7 +363,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dK1-l8-BbS"/>
+        <segue reference="pRN-Re-PXh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
