@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,13 +11,23 @@
 		30C2394C27F76CB1BC2D8160 /* Pods_FBUAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABCDC28C50BE8C063C36793 /* Pods_FBUAppTests.framework */; };
 		A5941CE7269CD4E60086BA9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CE6269CD4E60086BA9C /* AppDelegate.m */; };
 		A5941CEA269CD4E60086BA9C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CE9269CD4E60086BA9C /* SceneDelegate.m */; };
-		A5941CED269CD4E60086BA9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CEC269CD4E60086BA9C /* ViewController.m */; };
 		A5941CF0269CD4E60086BA9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5941CEE269CD4E60086BA9C /* Main.storyboard */; };
 		A5941CF2269CD4E70086BA9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5941CF1269CD4E70086BA9C /* Assets.xcassets */; };
 		A5941CF5269CD4E70086BA9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5941CF3269CD4E70086BA9C /* LaunchScreen.storyboard */; };
 		A5941CF8269CD4E70086BA9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CF7269CD4E70086BA9C /* main.m */; };
 		A5941D02269CD4E70086BA9C /* FBUAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D01269CD4E70086BA9C /* FBUAppTests.m */; };
 		A5941D0D269CD4E70086BA9C /* FBUAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D0C269CD4E70086BA9C /* FBUAppUITests.m */; };
+		A5941D64269CF7490086BA9C /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D63269CF7490086BA9C /* Reservation.m */; };
+		A5941D67269CF7570086BA9C /* Vehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D66269CF7570086BA9C /* Vehicle.m */; };
+		A5941D6B269CFF0C0086BA9C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D6A269CFF0C0086BA9C /* LoginViewController.m */; };
+		A5941D6E269CFF1C0086BA9C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D6D269CFF1C0086BA9C /* SignUpViewController.m */; };
+		A5941D71269CFFFA0086BA9C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D70269CFFFA0086BA9C /* HomeViewController.m */; };
+		A5941D74269D00100086BA9C /* ReservationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D73269D00100086BA9C /* ReservationsViewController.m */; };
+		A5941D77269D00210086BA9C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D76269D00210086BA9C /* ProfileViewController.m */; };
+		A5941D7A269D01850086BA9C /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D79269D01850086BA9C /* CalendarViewController.m */; };
+		A5941D7D269D02610086BA9C /* SelectVehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D7C269D02610086BA9C /* SelectVehicleViewController.m */; };
+		A5941D80269D02A80086BA9C /* ConfirmVehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D7F269D02A80086BA9C /* ConfirmVehicleViewController.m */; };
+		A5941D83269D02D40086BA9C /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D82269D02D40086BA9C /* DetailsViewController.m */; };
 		CACDADDC2F6F7714348AB92D /* Pods_FBUApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D513AD403B5284048E00F701 /* Pods_FBUApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +59,6 @@
 		A5941CE6269CD4E60086BA9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A5941CE8269CD4E60086BA9C /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		A5941CE9269CD4E60086BA9C /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		A5941CEB269CD4E60086BA9C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A5941CEC269CD4E60086BA9C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A5941CEF269CD4E60086BA9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5941CF1269CD4E70086BA9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5941CF4269CD4E70086BA9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +70,28 @@
 		A5941D08269CD4E70086BA9C /* FBUAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBUAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5941D0C269CD4E70086BA9C /* FBUAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBUAppUITests.m; sourceTree = "<group>"; };
 		A5941D0E269CD4E70086BA9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5941D62269CF7490086BA9C /* Reservation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reservation.h; sourceTree = "<group>"; };
+		A5941D63269CF7490086BA9C /* Reservation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reservation.m; sourceTree = "<group>"; };
+		A5941D65269CF7570086BA9C /* Vehicle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vehicle.h; sourceTree = "<group>"; };
+		A5941D66269CF7570086BA9C /* Vehicle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vehicle.m; sourceTree = "<group>"; };
+		A5941D69269CFF0C0086BA9C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A5941D6A269CFF0C0086BA9C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A5941D6C269CFF1C0086BA9C /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		A5941D6D269CFF1C0086BA9C /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		A5941D6F269CFFFA0086BA9C /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		A5941D70269CFFFA0086BA9C /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		A5941D72269D00100086BA9C /* ReservationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReservationsViewController.h; sourceTree = "<group>"; };
+		A5941D73269D00100086BA9C /* ReservationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReservationsViewController.m; sourceTree = "<group>"; };
+		A5941D75269D00210086BA9C /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A5941D76269D00210086BA9C /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A5941D78269D01850086BA9C /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		A5941D79269D01850086BA9C /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		A5941D7B269D02610086BA9C /* SelectVehicleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectVehicleViewController.h; sourceTree = "<group>"; };
+		A5941D7C269D02610086BA9C /* SelectVehicleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectVehicleViewController.m; sourceTree = "<group>"; };
+		A5941D7E269D02A80086BA9C /* ConfirmVehicleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmVehicleViewController.h; sourceTree = "<group>"; };
+		A5941D7F269D02A80086BA9C /* ConfirmVehicleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmVehicleViewController.m; sourceTree = "<group>"; };
+		A5941D81269D02D40086BA9C /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		A5941D82269D02D40086BA9C /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		BABCDC28C50BE8C063C36793 /* Pods_FBUAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10FD91B8EEB9134A0289F23 /* Pods-FBUApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBUApp.release.xcconfig"; path = "Target Support Files/Pods-FBUApp/Pods-FBUApp.release.xcconfig"; sourceTree = "<group>"; };
 		D513AD403B5284048E00F701 /* Pods_FBUApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +136,6 @@
 				022874C70F4E42DF192C22E4 /* Pods-FBUAppTests.debug.xcconfig */,
 				94023BFD649C3F32C51ED33C /* Pods-FBUAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -145,12 +174,12 @@
 		A5941CE4269CD4E60086BA9C /* FBUApp */ = {
 			isa = PBXGroup;
 			children = (
+				A5941D68269CFEF10086BA9C /* View Controllers */,
+				A5941D5B269CE8B90086BA9C /* Models */,
 				A5941CE5269CD4E60086BA9C /* AppDelegate.h */,
 				A5941CE6269CD4E60086BA9C /* AppDelegate.m */,
 				A5941CE8269CD4E60086BA9C /* SceneDelegate.h */,
 				A5941CE9269CD4E60086BA9C /* SceneDelegate.m */,
-				A5941CEB269CD4E60086BA9C /* ViewController.h */,
-				A5941CEC269CD4E60086BA9C /* ViewController.m */,
 				A5941CEE269CD4E60086BA9C /* Main.storyboard */,
 				A5941CF1269CD4E70086BA9C /* Assets.xcassets */,
 				A5941CF3269CD4E70086BA9C /* LaunchScreen.storyboard */,
@@ -176,6 +205,58 @@
 				A5941D0E269CD4E70086BA9C /* Info.plist */,
 			);
 			path = FBUAppUITests;
+			sourceTree = "<group>";
+		};
+		A5941D5B269CE8B90086BA9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5941D62269CF7490086BA9C /* Reservation.h */,
+				A5941D63269CF7490086BA9C /* Reservation.m */,
+				A5941D65269CF7570086BA9C /* Vehicle.h */,
+				A5941D66269CF7570086BA9C /* Vehicle.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5941D68269CFEF10086BA9C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5941D86269D030E0086BA9C /* Reservations View Controllers */,
+				A5941D85269D03000086BA9C /* Home View Controllers */,
+				A5941D69269CFF0C0086BA9C /* LoginViewController.h */,
+				A5941D6A269CFF0C0086BA9C /* LoginViewController.m */,
+				A5941D6C269CFF1C0086BA9C /* SignUpViewController.h */,
+				A5941D6D269CFF1C0086BA9C /* SignUpViewController.m */,
+				A5941D6F269CFFFA0086BA9C /* HomeViewController.h */,
+				A5941D70269CFFFA0086BA9C /* HomeViewController.m */,
+				A5941D75269D00210086BA9C /* ProfileViewController.h */,
+				A5941D76269D00210086BA9C /* ProfileViewController.m */,
+				A5941D78269D01850086BA9C /* CalendarViewController.h */,
+				A5941D79269D01850086BA9C /* CalendarViewController.m */,
+				A5941D7B269D02610086BA9C /* SelectVehicleViewController.h */,
+				A5941D7C269D02610086BA9C /* SelectVehicleViewController.m */,
+				A5941D7E269D02A80086BA9C /* ConfirmVehicleViewController.h */,
+				A5941D7F269D02A80086BA9C /* ConfirmVehicleViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A5941D85269D03000086BA9C /* Home View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Home View Controllers";
+			sourceTree = "<group>";
+		};
+		A5941D86269D030E0086BA9C /* Reservations View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5941D73269D00100086BA9C /* ReservationsViewController.m */,
+				A5941D72269D00100086BA9C /* ReservationsViewController.h */,
+				A5941D81269D02D40086BA9C /* DetailsViewController.h */,
+				A5941D82269D02D40086BA9C /* DetailsViewController.m */,
+			);
+			path = "Reservations View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,10 +496,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5941CED269CD4E60086BA9C /* ViewController.m in Sources */,
+				A5941D80269D02A80086BA9C /* ConfirmVehicleViewController.m in Sources */,
+				A5941D64269CF7490086BA9C /* Reservation.m in Sources */,
+				A5941D67269CF7570086BA9C /* Vehicle.m in Sources */,
+				A5941D6B269CFF0C0086BA9C /* LoginViewController.m in Sources */,
+				A5941D7D269D02610086BA9C /* SelectVehicleViewController.m in Sources */,
 				A5941CE7269CD4E60086BA9C /* AppDelegate.m in Sources */,
+				A5941D77269D00210086BA9C /* ProfileViewController.m in Sources */,
 				A5941CF8269CD4E70086BA9C /* main.m in Sources */,
+				A5941D6E269CFF1C0086BA9C /* SignUpViewController.m in Sources */,
 				A5941CEA269CD4E60086BA9C /* SceneDelegate.m in Sources */,
+				A5941D74269D00100086BA9C /* ReservationsViewController.m in Sources */,
+				A5941D83269D02D40086BA9C /* DetailsViewController.m in Sources */,
+				A5941D71269CFFFA0086BA9C /* HomeViewController.m in Sources */,
+				A5941D7A269D01850086BA9C /* CalendarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
