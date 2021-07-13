@@ -147,6 +147,8 @@ int thisMonth;//1-12
 
 -(void) selectDate: (id) sender {
     UIButton* btn = (UIButton *) sender;
+    
+    
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setDay:[btn.currentTitle integerValue]];
@@ -155,11 +157,13 @@ int thisMonth;//1-12
     NSDate * newDate = [calendar dateFromComponents:components];
     //Formats date to YYYY-MM-DD
     NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    [dateFormat setDateFormat:@"YYYY-MM-dd"];
     
     [dateFormat stringFromDate:newDate];
     
-    NSLog(@"Date 1%d",dateFormat);
+    //NSDate is new date
+    
+    
 }
 
 
