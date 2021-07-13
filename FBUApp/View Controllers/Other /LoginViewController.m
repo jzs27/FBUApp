@@ -7,6 +7,8 @@
 
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "Vehicle.h"
+#import "Reservation.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -42,12 +44,14 @@
         } else {
             NSLog(@"User logged in successfully");
             [self clearFields];
-            [self performSegueWithIdentifier:@"fromLogin" sender:nil];
-        
+            [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
+            
         }
     }];
     
 }
+
+
 
 - (void)registerUser {
 //go to Sign Up Screen
