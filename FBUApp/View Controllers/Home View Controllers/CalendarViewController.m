@@ -8,7 +8,6 @@
 #import "CalendarViewController.h"
 
 
-
 @interface CalendarViewController ()
 
 @end
@@ -53,7 +52,6 @@ int thisMonth;//1-12
 }
 
 
-
 /*
  This is the method called to create the calendar
  */
@@ -89,14 +87,11 @@ int thisMonth;//1-12
         thisYear--;
     }
     [self moreDateInfo];
-    
-    
-    
+
 }
 
 -(void)moreDateInfo{
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-   
     //get first day of month's weekday
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
@@ -113,14 +108,13 @@ int thisMonth;//1-12
    
     int newWeekDay=weekday-1;//make weekday zero based
     
-    NSLog(@"Day week %d",newWeekDay);
     
     //coordinates for displaying the buttons
     int yVal=175;
     int yCount=1;
     //Display name of month++++++++++++++++++++++++++++++++++++++++++++
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    NSLog(@"%@",[[formatter monthSymbols] objectAtIndex:(thisMonth - 1)]);
+    //NSLog(@"%@",[[formatter monthSymbols] objectAtIndex:(thisMonth - 1)]);
     monthly.text=[[formatter monthSymbols] objectAtIndex:(thisMonth - 1)];
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
@@ -141,21 +135,18 @@ int thisMonth;//1-12
         int popInt=startD;
         addProject.frame = CGRectMake(xCoord, yCoord, 35, 25);
         [addProject setTitle:[NSString stringWithFormat:@"%d", startD] forState:UIControlStateNormal];
-        [addProject addTarget:self action:@selector(popupInfo:) forControlEvents:UIControlEventTouchUpInside];
+        [addProject addTarget:self action:@selector(selectDate:) forControlEvents:UIControlEventTouchUpInside];
         [addProject setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         addProject.tag = startD;
         
         addProject.backgroundColor = [UIColor grayColor];
         [self.view addSubview:addProject];
     }
-    
-    
 
 }
 
--(void) popupInfo: (id) sender {
+-(void) selectDate: (id) sender {
     UIButton* btn = (UIButton *) sender;
-    
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setDay:[btn.currentTitle integerValue]];
@@ -165,7 +156,10 @@ int thisMonth;//1-12
     //Formats date to YYYY-MM-DD
     NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
-
+    
+    [dateFormat stringFromDate:newDate];
+    
+    NSLog(@"Date 1%d",dateFormat);
 }
 
 
