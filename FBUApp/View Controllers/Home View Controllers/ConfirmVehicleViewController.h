@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ConfirmVehicleViewController : UIViewController
-@property Vehicle *vehicle;
+
+@property (nonatomic) Vehicle *vehicle;
+@property NSDate *startDate;
+@property NSDate *endDate;
 
 @end
 

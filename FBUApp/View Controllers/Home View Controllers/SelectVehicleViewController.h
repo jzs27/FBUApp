@@ -11,7 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SelectVehicleViewController : UIViewController
 
-@property NSMutableArray *arrayOfData;
+@property NSDate *startDate;
+@property NSDate *endDate;
 
 @end
 

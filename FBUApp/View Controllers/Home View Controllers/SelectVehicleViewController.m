@@ -31,7 +31,9 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self onTimer];
-//    NSLog(@"Number in array");
+//    NSLog(@"Dates:");
+//    NSLog(@"%@", self.startDate);
+//    NSLog(@"%@", self.endDate);
 //    NSLog(@"%lu", (unsigned long)self.arrayOfData.count);
 }
 
@@ -59,6 +61,8 @@
     UINavigationController *navController  = [segue destinationViewController];
     ConfirmVehicleViewController *confirmVehicleViewController = [navController topViewController];
     confirmVehicleViewController.vehicle = vehicle;
+    confirmVehicleViewController.startDate = self.startDate;
+    confirmVehicleViewController.endDate = self.endDate;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

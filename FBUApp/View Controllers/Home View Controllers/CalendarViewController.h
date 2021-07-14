@@ -11,7 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CalendarViewController : UIViewController
 
-@property NSMutableArray *arrayOfData;
+@property NSMutableArray *arrayOfDates;
+@property NSDate *startDate;
+@property NSDate *endDate;
+@property bool *firstDate;
 @property (weak, nonatomic) IBOutlet UILabel *monthly;
 
 @end

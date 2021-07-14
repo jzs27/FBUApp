@@ -27,6 +27,7 @@ int thisMonth;//1-12
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self myCalView];
+    self.firstDate = YES;
 
 }
 - (IBAction)nextAct:(id)sender {
@@ -149,15 +150,30 @@ int thisMonth;//1-12
     NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"YYYY-MM-dd"];
     
-    [dateFormat stringFromDate:newDate];
+    if (self.firstDate==YES){
+        self.startDate = newDate;
+        self.firstDate = NO;
+    }
+    else{
+        self.endDate = newDate;
+    }
+    
+//    [self.arrayOfDates addObject:newDate];
+//    NSLog(@"This is the array of dates:");
+//    NSLog(@"%lu", (unsigned long)self.arrayOfDates.count);
+    
+    
+    //[dateFormat stringFromDate:newDate];
     
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    self.arrayOfData = sender;
+    //self.arrayOfDates = sender;
     UINavigationController *navController  = [segue destinationViewController];
     SelectVehicleViewController *selectVehicleViewController = [navController topViewController];
-    selectVehicleViewController.arrayOfData = self.arrayOfData;
+    selectVehicleViewController.startDate = self.startDate;
+    selectVehicleViewController.endDate = self.endDate;
+    
 }
 
 - (IBAction)didTapConfirmDates:(id)sender {
