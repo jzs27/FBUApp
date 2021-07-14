@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VehicleCell : UITableViewCell
 
-@property Vehicle *vehicle;
+@property (nonatomic) Vehicle *vehicle;
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;

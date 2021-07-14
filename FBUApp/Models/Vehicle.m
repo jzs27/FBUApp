@@ -10,12 +10,13 @@
 @implementation Vehicle
 
 @dynamic postID;
-@dynamic brand;
+@dynamic make;
 @dynamic location;
 @dynamic image;
 @dynamic rate;
 @dynamic owner;
 @dynamic model;
+@dynamic year;
 @dynamic availableEndDate;
 @dynamic availableStartDate;
 
@@ -25,10 +26,7 @@
 }
 
 
-+ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    
-    
-    //brand model etc from API?
++ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withMake:(NSString*)make withModel:(NSString*)model withYear:(NSString*)year withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Vehicle *newVehicle = [Vehicle new];
     newVehicle.image = [self getPFFileFromImage:image];
@@ -37,6 +35,9 @@
     newVehicle.location = location;
     newVehicle.availableEndDate = availableEndDate;
     newVehicle.availableStartDate = availableStartDate;
+    newVehicle.make = make;
+    newVehicle.model = model;
+    newVehicle.year = year;
     
     [newVehicle saveInBackgroundWithBlock: completion];
 }
