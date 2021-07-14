@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
 
-
 @end
 
 @implementation SelectVehicleViewController
@@ -43,7 +42,6 @@
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
             [self.tableView reloadData];
-           
 
         } else {
             NSLog(@"%@", error.localizedDescription);
