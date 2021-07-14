@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
 
+
 @end
 
 @implementation SelectVehicleViewController
@@ -30,6 +31,8 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self onTimer];
+//    NSLog(@"Number in array");
+//    NSLog(@"%lu", (unsigned long)self.arrayOfData.count);
 }
 
 - (void)onTimer {

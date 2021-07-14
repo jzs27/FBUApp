@@ -181,6 +181,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UN-I7-CC5">
+                                <rect key="frame" x="146" y="548" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm Dates"/>
+                                <connections>
+                                    <action selector="didTapConfirmDates:" destination="6Wy-5B-BlG" eventType="touchUpInside" id="DEY-Cd-l24"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uTh-Bf-W85"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -209,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOC-En-hpl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="2411"/>
+            <point key="canvasLocation" x="1285" y="3085"/>
         </scene>
         <!--Select Vehicle View Controller-->
         <scene sceneID="6rf-Bk-RIT">
@@ -280,10 +288,44 @@
                     <view key="view" contentMode="scaleToFill" id="oCE-5F-c69">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JQj-PK-rBV">
+                                <rect key="frame" x="60" y="171" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4n-Ap-Mca">
+                                <rect key="frame" x="146" y="338" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wo-Eg-SeX">
+                                <rect key="frame" x="146" y="404" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-9S-cbk">
+                                <rect key="frame" x="99" y="514" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm Reservation"/>
+                                <connections>
+                                    <action selector="didTapConfirmButton:" destination="xJi-07-iml" eventType="touchUpInside" id="xO9-Eq-uuG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="EZe-sZ-SDM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="XbG-gp-p7W"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="d4n-Ap-Mca" id="APC-IJ-pdf"/>
+                        <outlet property="priceLabel" destination="9Wo-Eg-SeX" id="jbR-9R-dj3"/>
+                        <outlet property="vehicleView" destination="JQj-PK-rBV" id="vyL-S9-MvS"/>
+                        <segue destination="NbS-RH-vEh" kind="presentation" identifier="fromConfirmVehicle" id="jaj-lS-uW5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfi-sk-oo8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -294,7 +336,7 @@
             <objects>
                 <viewController id="NbS-RH-vEh" customClass="ReservationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hs1-db-vKZ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dEN-lv-T4V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -437,7 +479,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHU-gZ-LDE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-188" y="2411"/>
+            <point key="canvasLocation" x="209" y="3085"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Liy-qJ-hsy">
@@ -498,6 +540,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dK1-l8-BbS"/>
+        <segue reference="jaj-lS-uW5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>

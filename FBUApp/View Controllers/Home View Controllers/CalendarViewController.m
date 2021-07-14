@@ -8,6 +8,8 @@
 // interface header
 #import "CalendarViewController.h"
 
+#import "SelectVehicleViewController.h"
+
 
 @interface CalendarViewController ()
 
@@ -123,7 +125,7 @@ int thisMonth;//1-12
         }
         
         //Creates the buttons and gives them each a tag (id)
-        int popInt=startD;
+        //int popInt=startD;
         addProject.frame = CGRectMake(xCoord, yCoord, 35, 25);
         [addProject setTitle:[NSString stringWithFormat:@"%d", startD] forState:UIControlStateNormal];
         [addProject addTarget:self action:@selector(selectDate:) forControlEvents:UIControlEventTouchUpInside];
@@ -148,8 +150,20 @@ int thisMonth;//1-12
     [dateFormat setDateFormat:@"YYYY-MM-dd"];
     
     [dateFormat stringFromDate:newDate];
-    //NSDate is newdate*
+    
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.arrayOfData = sender;
+    UINavigationController *navController  = [segue destinationViewController];
+    SelectVehicleViewController *selectVehicleViewController = [navController topViewController];
+    selectVehicleViewController.arrayOfData = self.arrayOfData;
+}
+
+- (IBAction)didTapConfirmDates:(id)sender {
+    [self performSegueWithIdentifier:@"fromCalendar" sender:nil];
+}
+
 
 /*
 #pragma mark - Navigation

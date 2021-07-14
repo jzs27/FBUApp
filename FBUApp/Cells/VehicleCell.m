@@ -31,8 +31,6 @@
     [self.vehicleView setImageWithURL:imageURL];
     self.rateLabel.text = [NSString stringWithFormat:@"%@",self.vehicle.rate];
     self.infoLabel.text = self.vehicle.make;
-    //NSLog(@"%@",self.infoLabel.text);
-
 }
 
 @end
