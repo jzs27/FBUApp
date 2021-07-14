@@ -5,8 +5,13 @@
 //  Created by jessicasyl on 7/12/21.
 //
 
+//interface header
 #import "HomeViewController.h"
+
+// standard includes
 #import <Parse/Parse.h>
+
+// relative includes
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 
@@ -18,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 }
 
 - (IBAction)didTapLogout:(id)sender {

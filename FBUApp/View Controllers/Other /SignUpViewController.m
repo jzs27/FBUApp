@@ -5,10 +5,14 @@
 //  Created by jessicasyl on 7/12/21.
 //
 
+// interface header
 #import "SignUpViewController.h"
+
+//standard includes
 #import <Parse/Parse.h>
 
 @interface SignUpViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property UIAlertController *alert;
@@ -20,18 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 - (IBAction)didTapSignUp:(id)sender {
     [self registerUser];
 }
 
-
-
 -(void)registerUser{
     PFUser *newUser = [PFUser user];
 
-    // set user properties
     newUser.username = self.usernameTextField.text;
     newUser.password = self.passwordTextField.text;
 
@@ -42,17 +43,15 @@
             [self clearFields];
             [self createAlert:error.localizedDescription];
 
-            
-        
         } else {
             NSLog(@"User registered successfully");
             [self clearFields];
             [self performSegueWithIdentifier:@"fromSignUp" sender:nil];
             
-            // manually segue to logged in view
         }
     }];
 }
+
 -(void) createAlert:(NSString *)error{
     self.alert = [UIAlertController alertControllerWithTitle:@"Error" message:error preferredStyle:(UIAlertControllerStyleAlert)];
     self.okAction = [UIAlertAction actionWithTitle:@"OK"
@@ -65,7 +64,6 @@
     }];
 }
 
-
 -(void)clearFields{
     self.usernameTextField.text = @"";
     self.passwordTextField.text=@"";
@@ -73,10 +71,8 @@
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
 */
 

@@ -5,6 +5,7 @@
 //  Created by jessicasyl on 7/12/21.
 //
 
+// interface header
 #import "CalendarViewController.h"
 
 
@@ -23,18 +24,14 @@ int thisMonth;//1-12
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self grabData];
     [self myCalView];
-    
-    // Do any additional setup after loading the view.
+
 }
 - (IBAction)nextAct:(id)sender {
     thisMonth++;
     [self removeTags];
     [self updateCalNow];
 }
-
-
 
 - (IBAction)prevAct:(id)sender {
     thisMonth--;
@@ -51,11 +48,7 @@ int thisMonth;//1-12
 
 }
 
-
-/*
- This is the method called to create the calendar
- */
-
+//this method creates the calendar
 -(void)myCalView{
     thisYear = [[[NSCalendar currentCalendar]
                  components:NSCalendarUnitYear fromDate:[NSDate date]]
@@ -76,7 +69,7 @@ int thisMonth;//1-12
     return numberOfDaysInMonth;
 }
 
--(void)updateCalNow{// try to condense this so only one method is used instead of two
+-(void)updateCalNow{
     if(thisMonth>12){
         thisMonth=1;
         thisYear++;
@@ -105,9 +98,7 @@ int thisMonth;//1-12
     //Get number of days in the month
     numDays=[self getCurrDateInfo:newDate];
     
-   
     int newWeekDay=weekday-1;//make weekday zero based
-    
     
     //coordinates for displaying the buttons
     int yVal=175;
@@ -119,7 +110,6 @@ int thisMonth;//1-12
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
     //use for loop to display each day
-    
     for(int startD=1; startD<=numDays;startD++){
         UIButton *addProject = [UIButton buttonWithType: UIButtonTypeRoundedRect];
         
@@ -131,6 +121,7 @@ int thisMonth;//1-12
             newWeekDay=0;
             yCount++;
         }
+        
         //Creates the buttons and gives them each a tag (id)
         int popInt=startD;
         addProject.frame = CGRectMake(xCoord, yCoord, 35, 25);
@@ -138,17 +129,14 @@ int thisMonth;//1-12
         [addProject addTarget:self action:@selector(selectDate:) forControlEvents:UIControlEventTouchUpInside];
         [addProject setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         addProject.tag = startD;
-        
         addProject.backgroundColor = [UIColor grayColor];
         [self.view addSubview:addProject];
     }
-
 }
 
 -(void) selectDate: (id) sender {
     UIButton* btn = (UIButton *) sender;
-    
-    
+
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setDay:[btn.currentTitle integerValue]];
@@ -160,22 +148,14 @@ int thisMonth;//1-12
     [dateFormat setDateFormat:@"YYYY-MM-dd"];
     
     [dateFormat stringFromDate:newDate];
-    
-    //NSDate is new date
-    
-    
+    //NSDate is newdate*
 }
-
-
-
 
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
 */
 

@@ -5,17 +5,22 @@
 //  Created by jessicasyl on 7/12/21.
 //
 
+//interface header
 #import "LoginViewController.h"
+
+//standard includes
 #import <Parse/Parse.h>
+
+//relative includes
 #import "Vehicle.h"
 #import "Reservation.h"
 
 @interface LoginViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property UIAlertController *alert;
 @property UIAlertAction *okAction;
-
 
 @end
 
@@ -23,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
@@ -51,15 +56,12 @@
     
 }
 
-
-
 - (void)registerUser {
-//go to Sign Up Screen
     [self performSegueWithIdentifier:@"fromLoginToSignUp" sender:nil];
             
 }
 
-//creates custom error alert
+
 -(void) createAlert:(NSString *)error{
     self.alert = [UIAlertController alertControllerWithTitle:@"Error" message:error preferredStyle:(UIAlertControllerStyleAlert)];
     self.okAction = [UIAlertAction actionWithTitle:@"OK"
@@ -72,20 +74,16 @@
     }];
 }
 
-
 -(void)clearFields{
     self.usernameTextField.text = @"";
     self.passwordTextField.text=@"";
 }
 
-
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+   
 }
 */
 

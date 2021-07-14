@@ -5,16 +5,21 @@
 //  Created by jessicasyl on 7/12/21.
 //
 
+// interface header
 #import "SelectVehicleViewController.h"
+
+// standard includes
 #import <Parse/Parse.h>
+
+// relative includes
 #import "Vehicle.h"
 #import "VehicleCell.h"
 #import "ConfirmVehicleViewController.h"
 
 @interface SelectVehicleViewController ()<UITableViewDataSource,UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSArray *arrayOfVehicles;
-
 
 @end
 
@@ -24,19 +29,18 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    // Do any additional setup after loading the view.
 }
 
 - (void)onTimer {
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
-    // fetch data asynchronously
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
-            self.arrayOfVehicles=vehicles;
+            self.arrayOfVehicles = vehicles;
             [self.tableView reloadData];
-            // do something with the array of object returned by the call
+
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
@@ -49,16 +53,14 @@
     Vehicle *vehicle = sender;
     UINavigationController *navController  = [segue destinationViewController];
     ConfirmVehicleViewController *confirmVehicleViewController = [navController topViewController];
-    confirmVehicleViewController.vehicle= vehicle;
+    confirmVehicleViewController.vehicle = vehicle;
 }
 
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-     VehicleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VehicleCell" forIndexPath:indexPath];
+    VehicleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VehicleCell" forIndexPath:indexPath];
     Vehicle *vehicle = self.arrayOfVehicles[indexPath.section];
     cell.vehicle = vehicle;
     return cell;
-    
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -69,9 +71,5 @@
     Vehicle *vehicle = self.arrayOfVehicles[indexPath.row];
     [self performSegueWithIdentifier:@"fromSelectVehicle" sender:vehicle];
 }
-
-
-
-
 
 @end
