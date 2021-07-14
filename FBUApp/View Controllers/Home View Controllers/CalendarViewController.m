@@ -29,9 +29,6 @@ int thisMonth;//1-12
     [self myCalView];
     self.firstDate = YES;
     
-    NSLog(@"Location:");
-    NSLog(@"%@", self.location);
-    
 
 }
 - (IBAction)nextAct:(id)sender {
@@ -170,6 +167,7 @@ int thisMonth;//1-12
     SelectVehicleViewController *selectVehicleViewController = [navController topViewController];
     selectVehicleViewController.startDate = self.startDate;
     selectVehicleViewController.endDate = self.endDate;
+    selectVehicleViewController.location = self.location;
 }
 
 - (IBAction)didTapConfirmDates:(id)sender {

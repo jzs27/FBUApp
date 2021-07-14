@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSDate *startDate;
 @property NSDate *endDate;
+@property NSString *location;
 
 @end
 

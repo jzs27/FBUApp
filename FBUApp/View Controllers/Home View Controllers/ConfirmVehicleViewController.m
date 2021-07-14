@@ -34,14 +34,12 @@
     
 }
 - (IBAction)didTapConfirmButton:(id)sender {
-    PFUser *user = [PFUser currentUser];
-    [Reservation createReservation:user withVehicle:self.vehicle withStartDate:self.startDate withEndDate:self.endDate withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    PFUser *renter = self.vehicle.owner;
+    [Reservation createReservation:renter withVehicle:self.vehicle withStartDate:self.startDate withEndDate:self.endDate withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (error) {
             
         } else {
             NSLog(@"Yo it succeeded!");
-            [self dismissViewControllerAnimated:YES completion:nil];
-            
         }
     }];
     
