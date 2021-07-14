@@ -28,6 +28,10 @@ int thisMonth;//1-12
     [super viewDidLoad];
     [self myCalView];
     self.firstDate = YES;
+    
+    NSLog(@"Location:");
+    NSLog(@"%@", self.location);
+    
 
 }
 - (IBAction)nextAct:(id)sender {
@@ -157,14 +161,7 @@ int thisMonth;//1-12
     else{
         self.endDate = newDate;
     }
-    
-//    [self.arrayOfDates addObject:newDate];
-//    NSLog(@"This is the array of dates:");
-//    NSLog(@"%lu", (unsigned long)self.arrayOfDates.count);
-    
-    
-    //[dateFormat stringFromDate:newDate];
-    
+
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -173,7 +170,6 @@ int thisMonth;//1-12
     SelectVehicleViewController *selectVehicleViewController = [navController topViewController];
     selectVehicleViewController.startDate = self.startDate;
     selectVehicleViewController.endDate = self.endDate;
-    
 }
 
 - (IBAction)didTapConfirmDates:(id)sender {

@@ -14,8 +14,13 @@
 // relative includes
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
+#import "CalendarViewController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<UIPickerViewDataSource,UIPickerViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *locationPickerView;
+@property NSMutableArray *locations;
+@property NSMutableArray *arrayOfLocations;
 
 @end
 
@@ -23,7 +28,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.locationPickerView.dataSource = self;
+    self.locationPickerView.delegate = self;
+    //[self onTimer];
+    
+    
+    
+    self.arrayOfLocations = [NSArray arrayWithObjects:@"Houston",@"Dallas",@"Austin", nil];
 }
 
 - (IBAction)didTapLogout:(id)sender {
@@ -37,19 +48,64 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         sceneDelegate.window.rootViewController = loginViewController;
-        
     }];
+}
+
+- (void)onTimer {
+    [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
+    query.limit = 20;
+    [query selectKeys:[NSArray arrayWithObject:@"location"]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *locations, NSError *error) {
+        if (locations != nil) {
+            self.locations = locations;
+            NSLog(@"%@",self.locations);
+            //[self.tableView reloadData];
+
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+
+
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    UINavigationController *navController  = [segue destinationViewController];
+    CalendarViewController *calendarVehicleViewController = [navController topViewController];
+    calendarVehicleViewController.location = self.location;
     
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
+    return 1;
 }
-*/
+
+- (NSInteger)pickerView:(nonnull UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.arrayOfLocations.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView
+             titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return self.arrayOfLocations[row]; //Or, your suitable title; like Choice-a, etc.
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView
+      didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component {
+ 
+    self.location = self.arrayOfLocations[row];
+    CalendarViewController *objOtherViewController = [CalendarViewController new];
+    objOtherViewController.location = self.location;
+    [self performSegueWithIdentifier:@"fromHome" sender:nil];
+
+}
+
 
 @end

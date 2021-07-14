@@ -31,10 +31,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self onTimer];
-//    NSLog(@"Dates:");
-//    NSLog(@"%@", self.startDate);
-//    NSLog(@"%@", self.endDate);
-//    NSLog(@"%lu", (unsigned long)self.arrayOfData.count);
+    
 }
 
 - (void)onTimer {
@@ -46,7 +43,7 @@
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
             [self.tableView reloadData];
-            //NSLog(@"%@",self.arrayOfVehicles);
+           
 
         } else {
             NSLog(@"%@", error.localizedDescription);
