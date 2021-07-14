@@ -16,6 +16,7 @@
 #import "Reservation.h"
 
 @interface ConfirmVehicleViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
@@ -28,11 +29,8 @@
     [super viewDidLoad];
     [self setVehicle:self.vehicle];
     
-    NSLog(@"Dates:");
-    NSLog(@"%@", self.startDate);
-    NSLog(@"%@", self.endDate);
-    
 }
+
 - (IBAction)didTapConfirmButton:(id)sender {
     PFUser *renter = self.vehicle.owner;
     [Reservation createReservation:renter withVehicle:self.vehicle withStartDate:self.startDate withEndDate:self.endDate withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
@@ -52,10 +50,7 @@
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     self.infoLabel.text = self.vehicle.make;
-    
 }
-
-
 
 /*
 #pragma mark - Navigation

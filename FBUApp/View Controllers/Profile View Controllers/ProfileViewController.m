@@ -10,10 +10,12 @@
 #import "ProfileViewController.h"
 
 #import <Parse/Parse.h>
+
 #import "Vehicle.h"
 #import "ProfileVehicleCell.h"
 
 @interface ProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
 
@@ -27,6 +29,7 @@
     self.tableView.delegate = self;
     [self onTimer];
 }
+
 - (IBAction)didTapRegister:(id)sender {
     [self performSegueWithIdentifier:@"fromProfile" sender:nil];
 }
@@ -35,7 +38,6 @@
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
-    //[query whereKey:@"location" equalTo:self.location];
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
@@ -50,7 +52,6 @@
 /*
 #pragma mark - Navigation
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
 }
@@ -63,10 +64,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ProfileVehicleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileVehicleCell" forIndexPath:indexPath];
     Vehicle *vehicle = self.arrayOfVehicles[indexPath.row];
-    //cell.vehicle = vehicle;
     return cell;
 }
-
-
 
 @end

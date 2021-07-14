@@ -26,6 +26,7 @@
     [super viewDidLoad];
     
 }
+
 - (IBAction)didTapVehicle:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;

@@ -30,9 +30,6 @@
     [super viewDidLoad];
     self.locationPickerView.dataSource = self;
     self.locationPickerView.delegate = self;
-    //[self onTimer];
-    
-    
     
     self.arrayOfLocations = [NSArray arrayWithObjects:@"Houston",@"Dallas",@"Austin", nil];
 }
@@ -60,17 +57,11 @@
         if (locations != nil) {
             self.locations = locations;
             NSLog(@"%@",self.locations);
-            //[self.tableView reloadData];
-
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
 }
-
-
-
-
 
 #pragma mark - Navigation
 
@@ -81,7 +72,6 @@
     calendarVehicleViewController.location = self.location;
     
 }
-
 
 - (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
     return 1;
@@ -104,8 +94,6 @@
     CalendarViewController *objOtherViewController = [CalendarViewController new];
     objOtherViewController.location = self.location;
     [self performSegueWithIdentifier:@"fromHome" sender:nil];
-
 }
-
 
 @end

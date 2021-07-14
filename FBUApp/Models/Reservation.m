@@ -9,9 +9,7 @@
 
 @implementation Reservation
 
-
 @dynamic vehicle;
-
 @dynamic endRentDate;
 @dynamic rentee;
 @dynamic renter;
@@ -20,7 +18,6 @@
 + (nonnull NSString *)parseClassName {
     return @"Reservation";
 }
-
 
 + (void) createReservation:( PFUser*)renter withVehicle:(Vehicle*)vehicle withStartDate:(NSDate*)startDate withEndDate:(NSDate*)endDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
@@ -31,12 +28,7 @@
     newReservation.startRentDate =startDate;
     newReservation.endRentDate = endDate;
     
-    
     [newReservation saveInBackgroundWithBlock: completion];
 }
-
-
-
-
 
 @end

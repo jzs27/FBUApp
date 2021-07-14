@@ -4,12 +4,10 @@
 //
 //  Created by jessicasyl on 7/12/21.
 //
-
 // interface header
 #import "CalendarViewController.h"
 
 #import "SelectVehicleViewController.h"
-
 
 @interface CalendarViewController ()
 
@@ -28,9 +26,9 @@ int thisMonth;//1-12
     [super viewDidLoad];
     [self myCalView];
     self.firstDate = YES;
-    
 
 }
+
 - (IBAction)nextAct:(id)sender {
     thisMonth++;
     [self removeTags];
@@ -49,7 +47,6 @@ int thisMonth;//1-12
         [[self.view viewWithTag:x] removeFromSuperview];
         x++;
     }
-
 }
 
 //this method creates the calendar
@@ -62,7 +59,6 @@ int thisMonth;//1-12
     NSDateComponents *comps2 = [cal components:NSCalendarUnitMonth fromDate:[NSDate date]];
     thisMonth=[comps2 month];
     [self moreDateInfo];
-    
 }
 
 -(NSUInteger)getCurrDateInfo:(NSDate *)myDate{
@@ -173,7 +169,6 @@ int thisMonth;//1-12
 - (IBAction)didTapConfirmDates:(id)sender {
     [self performSegueWithIdentifier:@"fromCalendar" sender:nil];
 }
-
 
 /*
 #pragma mark - Navigation

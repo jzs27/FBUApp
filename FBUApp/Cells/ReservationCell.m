@@ -14,7 +14,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -29,7 +28,6 @@
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     self.locationLabel.text = self.reservation.vehicle.location;
-    //self.dateLabel.text = self.reservation.startRentDate;
     
 }
 

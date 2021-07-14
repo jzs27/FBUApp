@@ -42,7 +42,6 @@
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
             [self.tableView reloadData];
-
         } else {
             NSLog(@"%@", error.localizedDescription);
         }

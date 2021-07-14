@@ -31,9 +31,11 @@
     [super viewDidLoad];
     
 }
+
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
 }
+
 - (IBAction)didTapSignUp:(id)sender {
     [self registerUser];
 }
@@ -51,7 +53,7 @@
             NSLog(@"User logged in successfully");
             [self clearFields];
             [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
-            //[self addVehicle];
+            
         }
     }];
     
@@ -78,22 +80,6 @@
 -(void)clearFields{
     self.usernameTextField.text = @"";
     self.passwordTextField.text=@"";
-}
-
--(void)addVehicle{
-    PFUser *owner = [PFUser currentUser];
-    NSDate *date = [NSDate date];
-    UIImage *img = [UIImage imageNamed:@"2020-Honda-HR-V-3.png"];
-    [Vehicle createVehicle:img withLocation:@"Los Angeles" withMake:@"Honda" withModel:@"Corolla" withYear:@"2019" withRate:@30 withOwner:owner withAvailableStartDate:date withAvailableEndDate:date withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error) {
-            
-        } else {
-            NSLog(@"Yo it succeeded!");
-            [self dismissViewControllerAnimated:YES completion:nil];
-            
-        }
-    }];
-    
 }
 
 /*

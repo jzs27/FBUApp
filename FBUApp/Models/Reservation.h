@@ -6,11 +6,13 @@
 //
 
 #import <Parse/Parse.h>
+
 #import "Vehicle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Reservation : PFObject<PFSubclassing>
+
 @property (nonatomic, strong) PFUser *rentee;
 @property (nonatomic, strong) PFUser *renter;
 @property (nonatomic,strong) NSDate *startRentDate;

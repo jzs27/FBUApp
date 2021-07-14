@@ -26,6 +26,7 @@
     [super viewDidLoad];
     
 }
+
 - (IBAction)didTapSignUp:(id)sender {
     [self registerUser];
 }
@@ -68,6 +69,7 @@
     self.usernameTextField.text = @"";
     self.passwordTextField.text=@"";
 }
+
 /*
 #pragma mark - Navigation
 
