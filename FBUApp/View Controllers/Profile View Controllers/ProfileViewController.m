@@ -38,6 +38,7 @@
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
+    [query whereKey:@"owner" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
@@ -64,6 +65,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ProfileVehicleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileVehicleCell" forIndexPath:indexPath];
     Vehicle *vehicle = self.arrayOfVehicles[indexPath.row];
+    cell.vehicle = vehicle;
     return cell;
 }
 

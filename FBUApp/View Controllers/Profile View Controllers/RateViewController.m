@@ -29,6 +29,17 @@
     self.rateField.text = [NSString stringWithFormat:@"%i",self.currentValue];
 }
 
+- (IBAction)didType:(id)sender {
+    self.currentValue = [self.rateField.text intValue];
+}
+
+
+- (IBAction)didTapConfirm:(id)sender {
+    
+}
+
+
+
 /*
 #pragma mark - Navigation
 
