@@ -38,6 +38,8 @@
     query.limit = 20;
     [query includeKey:@"vehicle"];
     
+    [query whereKey:@"rentee" equalTo:[PFUser currentUser]];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *reservations, NSError *error) {
         if (reservations != nil) {
             self.arrayOfReservations = reservations;
