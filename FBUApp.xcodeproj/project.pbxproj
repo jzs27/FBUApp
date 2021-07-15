@@ -33,6 +33,7 @@
 		A5941D96269F93FF0086BA9C /* ReservationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D95269F93FF0086BA9C /* ReservationCell.m */; };
 		A5941D99269FA3770086BA9C /* ProfileVehicleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D98269FA3770086BA9C /* ProfileVehicleCell.m */; };
 		A5941D9C26A090F00086BA9C /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D9B26A090F00086BA9C /* RateViewController.m */; };
+		A5941D9F26A0B5C30086BA9C /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D9E26A0B5C30086BA9C /* LocationViewController.m */; };
 		CACDADDC2F6F7714348AB92D /* Pods_FBUApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D513AD403B5284048E00F701 /* Pods_FBUApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,8 @@
 		A5941D98269FA3770086BA9C /* ProfileVehicleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileVehicleCell.m; sourceTree = "<group>"; };
 		A5941D9A26A090F00086BA9C /* RateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RateViewController.h; sourceTree = "<group>"; };
 		A5941D9B26A090F00086BA9C /* RateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RateViewController.m; sourceTree = "<group>"; };
+		A5941D9D26A0B5C30086BA9C /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		A5941D9E26A0B5C30086BA9C /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		BABCDC28C50BE8C063C36793 /* Pods_FBUAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10FD91B8EEB9134A0289F23 /* Pods-FBUApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBUApp.release.xcconfig"; path = "Target Support Files/Pods-FBUApp/Pods-FBUApp.release.xcconfig"; sourceTree = "<group>"; };
 		D513AD403B5284048E00F701 /* Pods_FBUApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +291,8 @@
 				A5941D8B269DFDFD0086BA9C /* VehicleRegistrationViewController.m */,
 				A5941D9A26A090F00086BA9C /* RateViewController.h */,
 				A5941D9B26A090F00086BA9C /* RateViewController.m */,
+				A5941D9D26A0B5C30086BA9C /* LocationViewController.h */,
+				A5941D9E26A0B5C30086BA9C /* LocationViewController.m */,
 			);
 			path = "Profile View Controllers";
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				A5941CDF269CD4E60086BA9C /* Frameworks */,
 				A5941CE0269CD4E60086BA9C /* Resources */,
 				7D5427C1A2C6C52612FBAA0A /* [CP] Embed Pods Frameworks */,
+				07FA58F600194F8511293868 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,6 +372,7 @@
 				A5941D05269CD4E70086BA9C /* Frameworks */,
 				A5941D06269CD4E70086BA9C /* Resources */,
 				B1460A5A55E84BE9C228D55F /* [CP] Embed Pods Frameworks */,
+				64CAB2B31B19E75DF22E5C0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -446,6 +453,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		07FA58F600194F8511293868 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp/Pods-FBUApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp/Pods-FBUApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FBUApp/Pods-FBUApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64CAB2B31B19E75DF22E5C0A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp-FBUAppUITests/Pods-FBUApp-FBUAppUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FBUApp-FBUAppUITests/Pods-FBUApp-FBUAppUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FBUApp-FBUAppUITests/Pods-FBUApp-FBUAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7D5427C1A2C6C52612FBAA0A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,6 +613,7 @@
 				A5941D9C26A090F00086BA9C /* RateViewController.m in Sources */,
 				A5941D71269CFFFA0086BA9C /* HomeViewController.m in Sources */,
 				A5941D7A269D01850086BA9C /* CalendarViewController.m in Sources */,
+				A5941D9F26A0B5C30086BA9C /* LocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
