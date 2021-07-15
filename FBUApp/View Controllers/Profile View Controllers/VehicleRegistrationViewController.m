@@ -14,9 +14,14 @@
 // relative includes
 #import "Vehicle.h"
 
-@interface VehicleRegistrationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface VehicleRegistrationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *typeButton;
+@property (weak, nonatomic) IBOutlet UITableView *typeTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
+@property (weak, nonatomic) IBOutlet UITableView *yearTableView;
+@property (weak, nonatomic) IBOutlet UIButton *yearButton;
+
 
 @end
 
@@ -24,17 +29,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.typeTableView.dataSource = self;
+    self.typeTableView.delegate = self;
+    self.typeTableView.hidden = YES;
     
-//    NSURL *url = [NSURL URLWithString:@"https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=11"];
-//    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-//    [urlRequest setValue:@"d3KrzmWFMDDmvtl6TqzWGLRGdmKk7KC8IU6Euon5" forHTTPHeaderField:@"d3KrzmWFMDDmvtl6TqzWGLRGdmKk7KC8IU6Euon5"]; // This is your app's application id
-//    [urlRequest setValue:@"nHFOXhuez3JbWAgW7Vqm6rAkwEbwuTuUiBVU4Cls" forHTTPHeaderField:@"nHFOXhuez3JbWAgW7Vqm6rAkwEbwuTuUiBVU4Cls"]; // This is your app's REST API key
-//    [[[NSURLSession sharedSession] dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil]; // Here you have the data that you need
-//        printf("%s", [[NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil] bytes]);
-//    }] resume];
-
+    self.yearTableView.dataSource = self;
+    self.yearTableView.delegate = self;
+    self.yearTableView.hidden = YES;
     
+    self.typeData = [[NSArray alloc]initWithObjects:@"Small to Full Size",@"Luxury & Convertible",@"SUVs & Wagons",@"Vans & Trucks", nil];
+    
+    self.yearData = [[NSArray alloc]initWithObjects:@"2021",@"2020",@"2019",@"2018", nil];
 }
 
 - (IBAction)didTapVehicle:(id)sender {
@@ -77,9 +82,6 @@
     return newImage;
 }
 
-
-
-
 /*
 #pragma mark - Navigation
 
@@ -87,5 +89,75 @@
     
 }
 */
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == self.typeTableView){
+        return self.typeData.count;
+    }
+    else{
+        return self.yearData.count;
+    }
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    static NSString *simpleTableIdentifier2 = @"SimpleTableItem2";
+    
+    UITableViewCell *cell;
+    
+    if (tableView == self.typeTableView){
+        //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        if (cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        }
+        cell.textLabel.text = [self.typeData objectAtIndex:indexPath.row] ;
+    }
+    else{
+        //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier2];
+        if (cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier2];
+        }
+        cell.textLabel.text = [self.yearData objectAtIndex:indexPath.row] ;
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (tableView == self.typeTableView){
+        UITableViewCell *cell = [self.typeTableView cellForRowAtIndexPath:indexPath];
+        [self.typeButton setTitle:cell.textLabel.text forState:UIControlStateNormal];
+        
+        self.typeTableView.hidden = YES;
+    }
+    
+    else{
+        UITableViewCell *cell = [self.yearTableView cellForRowAtIndexPath:indexPath];
+        [self.yearButton setTitle:cell.textLabel.text forState:UIControlStateNormal];
+        
+        self.yearTableView.hidden = YES;
+    }
+}
+
+- (IBAction)didTapButton:(id)sender {
+    if (self.typeTableView.hidden == YES) {
+            self.typeTableView.hidden = NO;
+        }
+    else{
+        self.typeTableView.hidden = YES;
+    }
+}
+
+- (IBAction)didTapYearButton:(id)sender {
+    if (self.yearTableView.hidden == YES) {
+            self.yearTableView.hidden = NO;
+        }
+    else{
+        self.yearTableView.hidden = YES;
+    }
+}
 
 @end

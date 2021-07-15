@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VehicleRegistrationViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *typeData;
+@property (strong, nonatomic) NSArray *yearData;
 
 @end
 
