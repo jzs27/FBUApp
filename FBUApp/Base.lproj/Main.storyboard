@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kPI-2w-Tpi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2kC-UP-kI2">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -138,9 +138,16 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vgg-C6-Hcg">
-                                <rect key="frame" x="0.0" y="397" width="390" height="162"/>
+                                <rect key="frame" x="0.0" y="599" width="390" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCb-be-XOS">
+                                <rect key="frame" x="115" y="570" width="161" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IrS-35-TzL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -488,13 +495,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xfI-M6-m9E">
-                                <rect key="frame" x="31" y="148" width="240" height="128"/>
+                                <rect key="frame" x="172" y="676.66666666666606" width="174" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="czN-Up-JPo" appends="YES" id="8OV-C0-NRt"/>
                                 </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload an image: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhQ-Ux-qBc">
+                                <rect key="frame" x="46" y="709" width="137" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qow-ZB-hXO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -502,6 +516,7 @@
                     <navigationItem key="navigationItem" id="63R-g5-Ira"/>
                     <connections>
                         <outlet property="vehicleView" destination="xfI-M6-m9E" id="US1-Ee-wOx"/>
+                        <segue destination="2kC-UP-kI2" kind="show" identifier="fromVehicleRegistration" id="emw-8T-cKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4No-XJ-xna" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -511,7 +526,52 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3211" y="2388"/>
+            <point key="canvasLocation" x="3210.7692307692305" y="2387.9146919431278"/>
+        </scene>
+        <!--Rate View Controller-->
+        <scene sceneID="Utk-E7-L2A">
+            <objects>
+                <viewController id="3am-SO-i8d" customClass="RateViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aAn-wY-VoU">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LJS-ya-l1p">
+                                <rect key="frame" x="146" y="349" width="98" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdv-Z7-EtF">
+                                <rect key="frame" x="265" y="353" width="37" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapPlusButton:" destination="3am-SO-i8d" eventType="touchUpInside" id="8gg-w8-hWX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJJ-Vt-zLE">
+                                <rect key="frame" x="62" y="348.33333333333212" width="58" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="minus" catalog="system"/>
+                                <connections>
+                                    <action selector="didTapMinusButton:" destination="3am-SO-i8d" eventType="touchUpInside" id="0U1-dr-Vzf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KhP-fe-1Sv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YYI-u7-cD4"/>
+                    <connections>
+                        <outlet property="minusButton" destination="uJJ-Vt-zLE" id="e94-C2-W2r"/>
+                        <outlet property="plusButton" destination="rdv-Z7-EtF" id="QHY-KD-t1Q"/>
+                        <outlet property="rateField" destination="LJS-ya-l1p" id="lc8-Ko-xwt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8JL-K5-yf9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4103.0769230769229" y="3146.4454976303318"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FYG-Yx-RYG">
@@ -647,6 +707,25 @@
             </objects>
             <point key="canvasLocation" x="2237" y="2388"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bi8-xn-rRa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2kC-UP-kI2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qf8-MT-AT8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="J61-zy-qJu">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3am-SO-i8d" kind="relationship" relationship="rootViewController" id="Vgt-9G-vBv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJb-2H-OsF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3173.8461538461538" y="3146.4454976303318"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dK1-l8-BbS"/>
@@ -654,6 +733,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>
+        <image name="minus" catalog="system" width="128" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
