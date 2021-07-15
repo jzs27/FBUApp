@@ -31,6 +31,9 @@
     self.tableView.delegate = self;
     [self onTimer];
     
+    NSLog(@"Date at selectvehicle:");
+    NSLog(@"%@",self.startDate);
+    
 }
 
 - (void)onTimer {

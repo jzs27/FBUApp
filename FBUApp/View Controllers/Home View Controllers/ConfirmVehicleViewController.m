@@ -19,7 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *vehicleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -28,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setVehicle:self.vehicle];
+    NSLog(@"Date at confirm vehicle:");
+    NSLog(@"%@",self.startDate);
     
 }
 
@@ -46,10 +49,24 @@
 
 - (void)setVehicle:(Vehicle *)vehicle{
     _vehicle = vehicle;
+    
     PFFileObject *image = self.vehicle.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
-    self.infoLabel.text = self.vehicle.make;
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"%@",self.vehicle.rate];
+    
+    self.vehicleLabel.text = [NSString stringWithFormat:@"%@/%@/%@", self.vehicle.make,self.vehicle.model,self.vehicle.year ];
+    
+    
+    NSDate *date= self.startDate;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+    self.dateLabel.text = [formatter stringFromDate:date];
+ 
+    
 }
 
 /*

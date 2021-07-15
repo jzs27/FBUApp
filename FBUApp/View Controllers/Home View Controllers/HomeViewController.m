@@ -31,7 +31,7 @@
     self.locationPickerView.dataSource = self;
     self.locationPickerView.delegate = self;
     
-    self.arrayOfLocations = [NSArray arrayWithObjects:@"Houston",@"Dallas",@"Austin", nil];
+    self.arrayOfLocations = [NSArray arrayWithObjects:@"San Antonio",@"Houston",@"Dallas",@"Austin", nil];
 }
 
 - (IBAction)didTapLogout:(id)sender {

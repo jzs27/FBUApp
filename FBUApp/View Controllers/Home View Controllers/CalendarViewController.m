@@ -134,7 +134,7 @@ int thisMonth;//1-12
     }
 }
 
--(void) selectDate: (id) sender {
+-(void)selectDate: (id) sender {
     UIButton* btn = (UIButton *) sender;
 
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -149,6 +149,8 @@ int thisMonth;//1-12
     
     if (self.firstDate==YES){
         self.startDate = newDate;
+        NSLog(@"Date at calendar:");
+        NSLog(@"%@",self.startDate);
         self.firstDate = NO;
     }
     else{
