@@ -20,6 +20,11 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)didTapConfirm:(id)sender {
+//    Vehicle createVehicle:<#(UIImage * _Nullable)#> withLocation:<#(nonnull NSString *)#> withType:<#(nonnull NSString *)#> withMake:<#(nonnull NSString *)#> withModel:<#(nonnull NSString *)#> withYear:<#(nonnull NSString *)#> withSeats:<#(nonnull NSString *)#> withRate:<#(nonnull NSNumber *)#> withOwner:<#(nonnull PFUser *)#> withAvailableStartDate:<#(nonnull NSDate *)#> withAvailableEndDate:<#(nonnull NSDate *)#> withCompletion:<#^(BOOL succeeded, NSError * _Nullable error)completion#>
+}
+
+
 /*
 #pragma mark - Navigation
 

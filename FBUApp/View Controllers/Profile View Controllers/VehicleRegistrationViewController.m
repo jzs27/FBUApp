@@ -13,14 +13,17 @@
 
 // relative includes
 #import "Vehicle.h"
+#import "RateViewController.h"
 
 @interface VehicleRegistrationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *modelTextField;
 @property (weak, nonatomic) IBOutlet UIButton *typeButton;
 @property (weak, nonatomic) IBOutlet UITableView *typeTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UITableView *yearTableView;
 @property (weak, nonatomic) IBOutlet UIButton *yearButton;
+@property (weak, nonatomic) IBOutlet UITextField *makeTextField;
 
 
 @end
@@ -63,7 +66,9 @@
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     
     CGSize size = CGSizeMake(1500, 1500);
-    self.vehicleView.image = [self resizeImage:originalImage withSize:size];
+    UIImage *img = [self resizeImage:originalImage withSize:size];
+    self.vehicleView.image = img;
+    self.img = img;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -82,13 +87,21 @@
     return newImage;
 }
 
-/*
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UINavigationController *navController  = [segue destinationViewController];
+    RateViewController *rateViewController = [navController topViewController];
+    
+    rateViewController.make = self.make;
+    rateViewController.model = self.model;
+    rateViewController.img = self.img;
+    rateViewController.year = self.year;
+    rateViewController.type = self.type;
     
 }
-*/
+
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.typeTableView){
@@ -128,6 +141,7 @@
     if (tableView == self.typeTableView){
         UITableViewCell *cell = [self.typeTableView cellForRowAtIndexPath:indexPath];
         [self.typeButton setTitle:cell.textLabel.text forState:UIControlStateNormal];
+        self.type = cell.textLabel.text;
         
         self.typeTableView.hidden = YES;
     }
@@ -135,8 +149,9 @@
     else{
         UITableViewCell *cell = [self.yearTableView cellForRowAtIndexPath:indexPath];
         [self.yearButton setTitle:cell.textLabel.text forState:UIControlStateNormal];
-        
+        self.year = cell.textLabel.text;
         self.yearTableView.hidden = YES;
+        
     }
 }
 
@@ -156,6 +171,16 @@
     else{
         self.yearTableView.hidden = YES;
     }
+}
+
+- (IBAction)didTypeModel:(id)sender {
+    self.model = self.modelTextField.text;
+}
+
+
+
+- (IBAction)didTypeMake:(id)sender {
+    self.make = self.makeTextField.text;
 }
 
 @end

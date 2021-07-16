@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSArray *typeData;
 @property (strong, nonatomic) NSArray *yearData;
+@property (strong, nonatomic) NSString *make;
+@property (strong, nonatomic) NSString *model;
+@property (strong, nonatomic) NSString *year;
+@property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) UIImage *img;
 
 @end
 
