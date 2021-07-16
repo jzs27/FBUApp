@@ -5,7 +5,7 @@
 //  Created by jessicasyl on 7/12/21.
 //
 
-#import "ConfirmVehicleViewController.h"
+#import "ConfirmReservationViewController.h"
 
 // standard includes
 #import "UIImageView+AFNetworking.h"
@@ -15,7 +15,7 @@
 #import "Vehicle.h"
 #import "Reservation.h"
 
-@interface ConfirmVehicleViewController ()
+@interface ConfirmReservationViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation ConfirmVehicleViewController
+@implementation ConfirmReservationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

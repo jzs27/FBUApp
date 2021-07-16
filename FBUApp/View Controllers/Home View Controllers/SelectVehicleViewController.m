@@ -14,7 +14,7 @@
 // relative includes
 #import "Vehicle.h"
 #import "VehicleCell.h"
-#import "ConfirmVehicleViewController.h"
+#import "ConfirmReservationViewController.h"
 
 @interface SelectVehicleViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -53,7 +53,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Vehicle *vehicle = sender;
     UINavigationController *navController  = [segue destinationViewController];
-    ConfirmVehicleViewController *confirmVehicleViewController = [navController topViewController];
+    ConfirmReservationViewController *confirmVehicleViewController = [navController topViewController];
     confirmVehicleViewController.vehicle = vehicle;
     confirmVehicleViewController.startDate = self.startDate;
     confirmVehicleViewController.endDate = self.endDate;
