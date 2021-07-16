@@ -12,8 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Vehicle : PFObject<PFSubclassing>
 
 @property (nonatomic, strong) NSString *postID;
+@property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *make;
 @property (nonatomic, strong) NSString *model;
+@property (nonatomic, strong) NSString *seats;
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) UIImage *image;
@@ -22,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDate *availableStartDate;
 @property (nonatomic, strong) NSDate *availableEndDate;
 
-+ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withMake:(NSString*)make withModel:(NSString*)model withYear:(NSString*)year withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withType:(NSString*)type withMake:(NSString*)make withModel:(NSString*)model withYear:(NSString*)year withSeats:(NSString*)seats withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 

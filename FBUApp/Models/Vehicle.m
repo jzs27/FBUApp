@@ -9,13 +9,15 @@
 @implementation Vehicle
 
 @dynamic postID;
-@dynamic make;
 @dynamic location;
 @dynamic image;
 @dynamic rate;
 @dynamic owner;
-@dynamic model;
+@dynamic type;
 @dynamic year;
+@dynamic make;
+@dynamic model;
+@dynamic seats;
 @dynamic availableEndDate;
 @dynamic availableStartDate;
 
@@ -23,7 +25,7 @@
     return @"Vehicle";
 }
 
-+ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withMake:(NSString*)make withModel:(NSString*)model withYear:(NSString*)year withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withType:(NSString*)type withMake:(NSString*)make withModel:(NSString*)model withYear:(NSString*)year withSeats:(NSString*)seats withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Vehicle *newVehicle = [Vehicle new];
     newVehicle.image = [self getPFFileFromImage:image];
@@ -32,9 +34,9 @@
     newVehicle.location = location;
     newVehicle.availableEndDate = availableEndDate;
     newVehicle.availableStartDate = availableStartDate;
-    newVehicle.make = make;
-    newVehicle.model = model;
+    newVehicle.type = type;
     newVehicle.year = year;
+    newVehicle.seats = seats;
     
     [newVehicle saveInBackgroundWithBlock: completion];
 }
