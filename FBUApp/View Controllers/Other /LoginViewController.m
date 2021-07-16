@@ -14,7 +14,7 @@
 //relative includes
 #import "Vehicle.h"
 #import "Reservation.h"
-#import "Vehicle.h"
+
 
 @interface LoginViewController ()
 
@@ -34,7 +34,6 @@
 
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
-    [self addVehicle];
 }
 
 - (IBAction)didTapSignUp:(id)sender {
@@ -83,23 +82,7 @@
     self.passwordTextField.text=@"";
 }
 
--(void)addVehicle{
-    PFUser *owner = [PFUser currentUser];
-    NSDate *date = [NSDate date];
-    UIImage *img = [UIImage imageNamed:@"2020-Honda-HR-V-3.png"];
-    
-    
-    [Vehicle createVehicle:img withLocation:@"Houston" withType:@"Small to Full Size" withMake:@"Honda" withModel:@"HRV" withYear:@"2020" withSeats:@"5" withRate:@50 withOwner:owner withAvailableStartDate:date withAvailableEndDate:date withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error) {
-            
-        } else {
-            NSLog(@"Yo it succeeded!");
-            //[self dismissViewControllerAnimated:YES completion:nil];
-            
-        }
-    }];
-    
-}
+
 
 
 /*

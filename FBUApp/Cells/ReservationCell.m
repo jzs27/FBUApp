@@ -28,6 +28,7 @@
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     self.locationLabel.text = self.reservation.vehicle.location;
+    self.vehicleInfoLabel.text = [NSString stringWithFormat:@"%@/%@/%@", self.reservation.vehicle.make,self.reservation.vehicle.model,self.reservation.vehicle.year ];
     
 }
 

@@ -24,21 +24,18 @@
   GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:31.968599
                                                           longitude:-99.901813
                                                                zoom:5];
-  
     [self.mapView setCamera:camera];
     self.mapView.settings.myLocationButton = YES;
     self.mapView.settings.zoomGestures = YES;
     self.mapView.settings.scrollGestures = YES;
     self.mapView.delegate = self;
   
-    
     CLLocationCoordinate2D houston = CLLocationCoordinate2DMake(29.760427, -95.369803);
     CLLocationCoordinate2D austin = CLLocationCoordinate2DMake(30.267153, -97.743061);
     CLLocationCoordinate2D dallas = CLLocationCoordinate2DMake(32.776664, -96.796988);
     
     CLLocationCoordinate2D sanAntonio = CLLocationCoordinate2DMake(29.422122, -98.493628);
 
-  
   GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = houston;
     marker.title = @"Houston";
@@ -62,16 +59,12 @@
       marker4.title = @"San Antonio";
       marker4.snippet = @"Texas";
       marker4.map = self.mapView;
-    
-
 }
 
 #pragma mark - GSMapViewDelegate
 
 -(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
     self.location = marker.title;
-    NSLog(@"Tapping marker");
-    NSLog(@"%@",self.location);
 }
 
 @end

@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *yearButton;
 @property (weak, nonatomic) IBOutlet UITextField *makeTextField;
 
-
 @end
 
 @implementation VehicleRegistrationViewController
@@ -87,7 +86,6 @@
     return newImage;
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -101,7 +99,6 @@
     rateViewController.type = self.type;
     
 }
-
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.typeTableView){
@@ -176,8 +173,6 @@
 - (IBAction)didTypeModel:(id)sender {
     self.model = self.modelTextField.text;
 }
-
-
 
 - (IBAction)didTypeMake:(id)sender {
     self.make = self.makeTextField.text;
