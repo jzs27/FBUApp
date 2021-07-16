@@ -97,7 +97,6 @@
     else{
         return self.yearData.count;
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -107,15 +106,14 @@
     UITableViewCell *cell;
     
     if (tableView == self.typeTableView){
-        //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil) {
             
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         }
         cell.textLabel.text = [self.typeData objectAtIndex:indexPath.row] ;
     }
+    
     else{
-        //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier2];
         if (cell == nil) {
             
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier2];
