@@ -9,9 +9,10 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface LocationViewController ()
+@interface LocationViewController () <GMSMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (strong, nonatomic) NSMutableArray *arrayOfLocations;
 
 @end
 
@@ -25,6 +26,10 @@
                                                                zoom:5];
   
     [self.mapView setCamera:camera];
+    self.mapView.settings.myLocationButton = YES;
+    self.mapView.settings.zoomGestures = YES;
+    self.mapView.settings.scrollGestures = YES;
+    self.mapView.delegate = self;
   
     
     CLLocationCoordinate2D houston = CLLocationCoordinate2DMake(29.760427, -95.369803);
@@ -59,6 +64,14 @@
       marker4.map = self.mapView;
     
 
+}
+
+#pragma mark - GSMapViewDelegate
+
+-(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
+    self.location = marker.title;
+    NSLog(@"Tapping marker");
+    NSLog(@"%@",self.location);
 }
 
 @end
