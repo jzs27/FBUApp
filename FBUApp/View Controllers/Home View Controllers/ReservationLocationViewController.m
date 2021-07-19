@@ -8,18 +8,20 @@
 //interface header
 #import "ReservationLocationViewController.h"
 
+
+#import "ReservationCalendarViewController.h"
+
 // standard includes
 #import <Parse/Parse.h>
 
 // relative includes
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
-#import "CalendarViewController.h"
+
 
 @interface ReservationLocationViewController ()
 
 @property NSMutableArray *locations;
-
 
 @end
 
@@ -44,21 +46,15 @@
     }];
 }
 
-
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"fromReservationLocation"]){
         UINavigationController *navController  = [segue destinationViewController];
-        CalendarViewController *calendarVehicleViewController = [navController topViewController];
-        calendarVehicleViewController.location = self.location;
+        ReservationCalendarViewController *calendarVehicleViewController = [navController topViewController];
+        
     }
-    
-    
 }
-
-
 
 @end

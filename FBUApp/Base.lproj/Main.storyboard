@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BAJ-zI-qQA">
-                                <rect key="frame" x="0.0" y="210" width="390" height="494"/>
+                                <rect key="frame" x="0.0" y="185" width="390" height="576"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="Zjf-WK-AxB" kind="embed" id="Ili-VQ-fpO"/>
@@ -150,72 +150,19 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="8wv-e3-reG"/>
                     <connections>
-                        <segue destination="EZl-wP-2Ie" kind="presentation" identifier="fromReservationLocation" id="yBy-6v-jh2"/>
+                        <segue destination="aHw-nd-1CW" kind="presentation" identifier="fromReservationLocation" id="zAb-x1-uy7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuZ-9G-3Dk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1515.3846153846152" y="1624.4075829383885"/>
         </scene>
-        <!--Calendar View Controller-->
-        <scene sceneID="hDj-9Y-TDb">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="6Wy-5B-BlG" customClass="CalendarViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="njB-4j-8Me">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7m-tJ-o2v">
-                                <rect key="frame" x="31" y="140" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Prev"/>
-                                <connections>
-                                    <action selector="prevAct:" destination="6Wy-5B-BlG" eventType="touchUpInside" id="rFO-uJ-kwI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dzo-QB-hfc">
-                                <rect key="frame" x="304" y="140" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next"/>
-                                <connections>
-                                    <action selector="nextAct:" destination="6Wy-5B-BlG" eventType="touchUpInside" id="VbL-sb-gxJ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="July " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zui-3o-pPQ">
-                                <rect key="frame" x="142" y="104" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UN-I7-CC5">
-                                <rect key="frame" x="146" y="548" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Confirm Dates"/>
-                                <connections>
-                                    <action selector="didTapConfirmDates:" destination="6Wy-5B-BlG" eventType="touchUpInside" id="DEY-Cd-l24"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="uTh-Bf-W85"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="tef-gQ-WD5"/>
-                    <connections>
-                        <outlet property="monthly" destination="zui-3o-pPQ" id="vpR-0C-Gf9"/>
-                        <segue destination="CrY-YH-IGq" kind="show" identifier="fromCalendar" id="bwd-GU-3tx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zio-kl-uf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1358.4615384615383" y="2410.6635071090045"/>
-        </scene>
         <!--Select Vehicle View Controller-->
         <scene sceneID="6rf-Bk-RIT">
             <objects>
                 <viewController id="shF-cd-jWi" customClass="SelectVehicleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Mc-UG-z9q">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bt0-TO-P05">
@@ -277,7 +224,7 @@
             <objects>
                 <viewController id="xJi-07-iml" customClass="ConfirmReservationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oCE-5F-c69">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JQj-PK-rBV">
@@ -612,11 +559,11 @@
             <objects>
                 <viewController id="aHw-nd-1CW" customClass="ReservationCalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ida-4s-QZy">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTJ-W1-EYQ">
-                                <rect key="frame" x="0.0" y="216" width="390" height="536"/>
+                                <rect key="frame" x="0.0" y="162" width="390" height="536"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="ipS-u8-j5P" kind="embed" id="A7e-D1-ojQ"/>
@@ -633,10 +580,13 @@
                         <viewLayoutGuide key="safeArea" id="A1V-OZ-xPK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="shF-cd-jWi" kind="presentation" identifier="fromReservationCalendar" id="fSy-ez-UHx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3TV-K7-3FR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343" y="2411"/>
+            <point key="canvasLocation" x="-1515" y="2371"/>
         </scene>
         <!--Vehicle Location View Controller-->
         <scene sceneID="KTh-7C-pGh">
@@ -647,7 +597,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDT-fo-PNb">
-                                <rect key="frame" x="0.0" y="148" width="390" height="544"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="604"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="Zjf-WK-AxB" kind="embed" id="uMG-oa-tSl"/>
@@ -664,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCM-Vw-KbM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3211" y="2371"/>
+            <point key="canvasLocation" x="3210.7692307692305" y="2370.8530805687201"/>
         </scene>
         <!--Rate View Controller-->
         <scene sceneID="Utk-E7-L2A">
@@ -794,25 +744,6 @@
             <point key="canvasLocation" x="409" y="834"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="cep-am-52K">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="EZl-wP-2Ie" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="DoN-rb-DFd"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M67-0o-3vx">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6Wy-5B-BlG" kind="relationship" relationship="rootViewController" id="SnN-H6-itg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="14n-gY-b05" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2254" y="2411"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="Liy-qJ-hsy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CrY-YH-IGq" sceneMemberID="viewController">
@@ -838,7 +769,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="EUP-gu-jlA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ZS-LO-6ma">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -911,7 +842,7 @@
             <objects>
                 <viewController id="ipS-u8-j5P" customClass="ReuseCalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uqA-o1-NYf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vu3-Ng-eDH">
@@ -954,11 +885,11 @@
             <objects>
                 <viewController id="Zjf-WK-AxB" customClass="ReuseLocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Yn-2I-JPG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="494"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="604"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeG-AN-GHQ" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="128" width="390" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="560"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                             </view>
@@ -972,14 +903,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lA-bP-ae8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="1875"/>
+            <point key="canvasLocation" x="844.61538461538464" y="1874.6445497630332"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ili-VQ-fpO"/>
-        <segue reference="5au-pz-vJ4"/>
+        <segue reference="uMG-oa-tSl"/>
+        <segue reference="A7e-D1-ojQ"/>
         <segue reference="pRN-Re-PXh"/>
         <segue reference="jaj-lS-uW5"/>
+        <segue reference="fSy-ez-UHx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>

@@ -47,48 +47,43 @@
     
         [self.locationManager startUpdatingLocation];
     
-    
     CLLocation *curPos = self.locationManager.location;
-
-            NSString *latitude = [[NSNumber numberWithDouble:curPos.coordinate.latitude] stringValue];
-
-            NSString *longitude = [[NSNumber numberWithDouble:curPos.coordinate.longitude] stringValue];
-
-            NSLog(@"Lat: %@", latitude);
-        NSLog(@"Long: %@", longitude);
     
     CLLocationCoordinate2D currentLocation = CLLocationCoordinate2DMake(curPos.coordinate.latitude, curPos.coordinate.longitude);
     
-
   GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = houston;
     marker.title = @"Houston";
     marker.snippet = @"Texas";
     marker.map = self.mapView;
+    [self.arrayOfLocations addObject:marker];
     
     GMSMarker *marker2 = [[GMSMarker alloc] init];
       marker2.position = austin;
       marker2.title = @"Austin";
       marker2.snippet = @"Texas";
       marker2.map = self.mapView;
+    [self.arrayOfLocations addObject:marker2];
     
     GMSMarker *marker3 = [[GMSMarker alloc] init];
       marker3.position = dallas;
       marker3.title = @"Dallas";
       marker3.snippet = @"Texas";
       marker3.map = self.mapView;
+    [self.arrayOfLocations addObject:marker3];
     
     GMSMarker *marker4 = [[GMSMarker alloc] init];
       marker4.position = sanAntonio;
       marker4.title = @"San Antonio";
       marker4.snippet = @"Texas";
       marker4.map = self.mapView;
+    [self.arrayOfLocations addObject:marker4];
     
     GMSMarker *marker5 = [[GMSMarker alloc] init];
       marker5.position = currentLocation;
       marker5.title = @"Your Current Location";
-      //marker.snippet = @"Texas";
       marker5.map = self.mapView;
+
 }
 
 #pragma mark - GSMapViewDelegate

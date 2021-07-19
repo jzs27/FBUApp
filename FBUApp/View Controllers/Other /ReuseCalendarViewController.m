@@ -23,10 +23,8 @@ int thisMonth;//1-12
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self myCalView];
-    //self.firstDate = YES;
-
+    
 }
-
 
 - (IBAction)didTapNext:(id)sender {
     thisMonth++;
@@ -80,7 +78,6 @@ int thisMonth;//1-12
         thisYear--;
     }
     [self moreDateInfo];
-
 }
 
 -(void)moreDateInfo{
@@ -146,32 +143,10 @@ int thisMonth;//1-12
     //Formats date to YYYY-MM-DD
     NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"YYYY-MM-dd"];
-    
-    NSLog(@"tapping on cell");
-    
-//    if (self.firstDate==YES){
-//        self.startDate = newDate;
-//        NSLog(@"Date at calendar:");
-//        NSLog(@"%@",self.startDate);
-//        self.firstDate = NO;
-//    }
-//    else{
-//        self.endDate = newDate;
-//    }
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //self.arrayOfDates = sender;
-//    UINavigationController *navController  = [segue destinationViewController];
-//    SelectVehicleViewController *selectVehicleViewController = [navController topViewController];
-//    selectVehicleViewController.startDate = self.startDate;
-//    selectVehicleViewController.endDate = self.endDate;
-//    selectVehicleViewController.location = self.location;
-}
-
-- (IBAction)didTapConfirmDates:(id)sender {
-    //[self performSegueWithIdentifier:@"fromCalendar" sender:nil];
+    
 }
 
 /*
