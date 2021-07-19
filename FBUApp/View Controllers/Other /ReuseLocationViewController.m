@@ -1,22 +1,21 @@
 //
-//  LocationViewController.m
+//  ReuseLocationViewController.m
 //  FBUApp
 //
-//  Created by jessicasyl on 7/15/21.
+//  Created by jessicasyl on 7/19/21.
 //
 
-#import "LocationViewController.h"
+#import "ReuseLocationViewController.h"
 
-#import <GoogleMaps/GoogleMaps.h>
 
-@interface LocationViewController () <GMSMapViewDelegate>
 
-@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@interface ReuseLocationViewController () <GMSMapViewDelegate>
+
 @property (strong, nonatomic) NSMutableArray *arrayOfLocations;
 
 @end
 
-@implementation LocationViewController
+@implementation ReuseLocationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController
+@interface ReservationLocationViewController : UIViewController
 
 @property NSString *location;
 

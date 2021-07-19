@@ -9,7 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ReuseCalendarViewDelegate
+
+-(void)addDate: (NSDate *)date;
+
+@end
+
 @interface ReuseCalendarViewController : UIViewController
+
+@property (nonatomic,weak) id<ReuseCalendarViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *monthly;
 
 @end
