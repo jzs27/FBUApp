@@ -1,17 +1,17 @@
 //
-//  ProfileCalendarViewController.m
+//  ReservationCalendarViewController.m
 //  FBUApp
 //
-//  Created by jessicasyl on 7/16/21.
+//  Created by jessicasyl on 7/19/21.
 //
 
-#import "ProfileCalendarViewController.h"
+#import "ReservationCalendarViewController.h"
 
-@interface ProfileCalendarViewController ()
+@interface ReservationCalendarViewController ()
 
 @end
 
-@implementation ProfileCalendarViewController
+@implementation ReservationCalendarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
