@@ -66,5 +66,7 @@
 	<string>Need camera access to take pictures</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Need library access to upload images</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>While in use</string>
 </dict>
 </plist>

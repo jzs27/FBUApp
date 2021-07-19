@@ -7,11 +7,12 @@
 
 #import "ReuseLocationViewController.h"
 
+#import <CoreLocation/CoreLocation.h>
 
-
-@interface ReuseLocationViewController () <GMSMapViewDelegate>
+@interface ReuseLocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *arrayOfLocations;
+@property CLLocationManager *locationManager;
 
 @end
 
@@ -34,6 +35,30 @@
     CLLocationCoordinate2D dallas = CLLocationCoordinate2DMake(32.776664, -96.796988);
     
     CLLocationCoordinate2D sanAntonio = CLLocationCoordinate2DMake(29.422122, -98.493628);
+    
+    if (self.locationManager == nil){
+        
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.desiredAccuracy =
+            kCLLocationAccuracyNearestTenMeters;
+        self.locationManager.delegate = self;
+            }
+    [self.locationManager requestWhenInUseAuthorization];
+    
+        [self.locationManager startUpdatingLocation];
+    
+    
+    CLLocation *curPos = self.locationManager.location;
+
+            NSString *latitude = [[NSNumber numberWithDouble:curPos.coordinate.latitude] stringValue];
+
+            NSString *longitude = [[NSNumber numberWithDouble:curPos.coordinate.longitude] stringValue];
+
+            NSLog(@"Lat: %@", latitude);
+        NSLog(@"Long: %@", longitude);
+    
+    CLLocationCoordinate2D currentLocation = CLLocationCoordinate2DMake(curPos.coordinate.latitude, curPos.coordinate.longitude);
+    
 
   GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = houston;
@@ -58,6 +83,12 @@
       marker4.title = @"San Antonio";
       marker4.snippet = @"Texas";
       marker4.map = self.mapView;
+    
+    GMSMarker *marker5 = [[GMSMarker alloc] init];
+      marker5.position = currentLocation;
+      marker5.title = @"Your Current Location";
+      //marker.snippet = @"Texas";
+      marker5.map = self.mapView;
 }
 
 #pragma mark - GSMapViewDelegate
