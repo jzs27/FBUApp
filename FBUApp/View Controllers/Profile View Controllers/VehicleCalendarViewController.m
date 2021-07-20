@@ -8,6 +8,7 @@
 #import "VehicleCalendarViewController.h"
 
 #import "ReuseCalendarViewController.h"
+#import "VehicleRegistrationViewController.h"
 
 @interface VehicleCalendarViewController ()<ReuseCalendarViewDelegate>
 
@@ -17,21 +18,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
+}
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    ReuseCalendarViewController *reuseCalendar = [segue destinationViewController];
-    reuseCalendar.delegate = self;
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"toReuseCalendar"]){
+        ReuseCalendarViewController *reuseCalendar = [segue destinationViewController];
+        reuseCalendar.delegate = self;
+    }
+    else{
+        VehicleRegistrationViewController *vehicleRegistration = [segue destinationViewController];
+        vehicleRegistration.vehicle = self.vehicle;
+    }
 }
 
+-(void)addDate:(NSDate *)date{
+    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
+
+    NSString *vehicleID = self.vehicle.objectId;
+    NSLog(@"Vehicle ID,%@", vehicleID);
+    [query getObjectInBackgroundWithId:vehicleID
+                                 block:^(PFObject *vehicle, NSError *error) {
+        
+        vehicle[@"availableStartDate"] = date;
+        
+        [vehicle saveInBackground];
+    }];
+    }
+
+- (IBAction)didTapNext:(id)sender {
+    [self performSegueWithIdentifier:@"fromVehicleCalendar" sender:nil];
+}
 
 @end

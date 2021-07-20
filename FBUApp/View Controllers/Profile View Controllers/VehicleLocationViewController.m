@@ -7,7 +7,12 @@
 
 #import "VehicleLocationViewController.h"
 
-@interface VehicleLocationViewController ()
+#import <Parse/Parse.h>
+
+#import "ReuseLocationViewController.h"
+#import "VehicleCalendarViewController.h"
+
+@interface VehicleLocationViewController ()<ReuseLocationDelegate>
 
 @end
 
@@ -15,17 +20,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
-/*
+-(void)didSetLocation:(NSString *)location;{
+    [Vehicle createVehicle:location withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Here's the error, %@",error);
+            NSLog(@"Yeah its not working lol!");
+            
+        } else {
+            NSLog(@"Yo it succeeded!");
+        }
+    }];
+}
+
+-(void)getVehicleObject{
+    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
+    [query orderByDescending:@"createdAt"];
+    self.vehicle = [query getFirstObject];
+    }
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"toReuseLocation"]){
+        ReuseLocationViewController *reuseLocation = [segue destinationViewController];
+        reuseLocation.delegate = self;
+    }
+    else{
+        VehicleCalendarViewController *vehicleCalendar = [segue destinationViewController];
+        [self getVehicleObject];
+        vehicleCalendar.vehicle = self.vehicle;
+    }    
 }
-*/
+
+- (IBAction)didTapNext:(id)sender {
+    [self performSegueWithIdentifier:@"fromVehicleLocation" sender:nil];
+}
 
 @end

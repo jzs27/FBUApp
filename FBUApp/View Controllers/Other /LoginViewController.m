@@ -34,6 +34,7 @@
 
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
+    
 }
 
 - (IBAction)didTapSignUp:(id)sender {
@@ -81,6 +82,9 @@
     self.usernameTextField.text = @"";
     self.passwordTextField.text=@"";
 }
+
+
+
 
 
 

@@ -143,6 +143,10 @@ int thisMonth;//1-12
     //Formats date to YYYY-MM-DD
     NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"YYYY-MM-dd"];
+    
+    //NSLog(@"tapped on date:");
+    [self.delegate addDate:newDate];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

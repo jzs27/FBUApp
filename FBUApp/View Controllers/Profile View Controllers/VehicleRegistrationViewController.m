@@ -12,7 +12,6 @@
 #import <Parse/Parse.h>
 
 // relative includes
-#import "Vehicle.h"
 #import "RateViewController.h"
 
 @interface VehicleRegistrationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDelegate>
@@ -89,14 +88,9 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navController  = [segue destinationViewController];
-    RateViewController *rateViewController = [navController topViewController];
+    RateViewController *rateViewController = [segue destinationViewController];
     
-    rateViewController.make = self.make;
-    rateViewController.model = self.model;
-    rateViewController.img = self.img;
-    rateViewController.year = self.year;
-    rateViewController.type = self.type;
+    rateViewController.vehicle = self.vehicle;
     
 }
 
@@ -122,10 +116,8 @@
         }
         cell.textLabel.text = [self.typeData objectAtIndex:indexPath.row] ;
     }
-    
     else{
         if (cell == nil) {
-            
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier2];
         }
         cell.textLabel.text = [self.yearData objectAtIndex:indexPath.row] ;
@@ -176,6 +168,24 @@
 
 - (IBAction)didTypeMake:(id)sender {
     self.make = self.makeTextField.text;
+}
+
+- (IBAction)didTapNext:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
+    
+    NSString *vehicleID = self.vehicle.objectId;
+    [query getObjectInBackgroundWithId:vehicleID
+                                 block:^(PFObject *vehicle, NSError *error) {
+        
+        vehicle[@"year"] = self.year;
+        vehicle[@"make"] = self.make;
+        vehicle[@"type"] = self.type;
+        //vehicle[@"image"] = self.img;
+    
+        [vehicle saveInBackground];
+    }];
+    
+    [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
 }
 
 @end

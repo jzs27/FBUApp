@@ -89,7 +89,8 @@
 #pragma mark - GSMapViewDelegate
 
 -(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
-    self.location = marker.title;
-}
+    [self.delegate didSetLocation:marker.title];
+    NSLog(@"Tapped on marker");
+    }
 
 @end

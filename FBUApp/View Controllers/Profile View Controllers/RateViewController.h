@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Vehicle.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RateViewController : UIViewController
@@ -15,11 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *rateField;
 @property (weak, nonatomic) IBOutlet UIButton *plusButton;
 @property (weak, nonatomic) IBOutlet UIButton *minusButton;
-@property (strong, nonatomic) NSString *make;
-@property (strong, nonatomic) NSString *model;
-@property (strong, nonatomic) NSString *year;
-@property (strong, nonatomic) NSString *type;
-@property (strong, nonatomic) UIImage *img;
+
+@property Vehicle *vehicle;
 
 @end
 

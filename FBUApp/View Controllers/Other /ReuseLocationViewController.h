@@ -11,10 +11,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol ReuseLocationDelegate
+
+-(void)didSetLocation:(NSString *)location;
+
+@end
+
 @interface ReuseLocationViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (strong, nonatomic) NSString *location;
+@property (nonatomic,weak) id<ReuseLocationDelegate> delegate;
 
 @end
 

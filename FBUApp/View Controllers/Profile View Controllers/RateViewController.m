@@ -7,6 +7,8 @@
 
 #import "RateViewController.h"
 
+#import <Parse/Parse.h>
+
 @interface RateViewController ()
 
 @end
@@ -35,6 +37,20 @@
 
 
 - (IBAction)didTapConfirm:(id)sender {
+    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
+    
+    
+
+    NSString *vehicleID = self.vehicle.objectId;
+    [query getObjectInBackgroundWithId:vehicleID
+                                 block:^(PFObject *vehicle, NSError *error) {
+    
+        vehicle[@"rate"] = [NSNumber numberWithInt:self.currentValue];
+        
+        [vehicle saveInBackground];
+    }];
+    
+    [self performSegueWithIdentifier:@"fromRate" sender:nil];
     
 }
 

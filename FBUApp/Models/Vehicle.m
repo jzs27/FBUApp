@@ -25,20 +25,11 @@
     return @"Vehicle";
 }
 
-+ (void) createVehicle: ( UIImage * _Nullable )image  withLocation:(NSString*)location withType:(NSString*)type withMake:(NSString*)make withModel:(NSString*)model withYear:(NSString*)year withSeats:(NSString*)seats withRate:(NSNumber*)rate withOwner:(PFUser*)owner withAvailableStartDate:(NSDate*)availableStartDate withAvailableEndDate:(NSDate*)availableEndDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    
++(void) createVehicle: (NSString*)location withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     Vehicle *newVehicle = [Vehicle new];
-    newVehicle.image = [self getPFFileFromImage:image];
-    newVehicle.rate =  rate;
-    newVehicle.owner = [PFUser currentUser];
     newVehicle.location = location;
-    newVehicle.availableEndDate = availableEndDate;
-    newVehicle.availableStartDate = availableStartDate;
-    newVehicle.type = type;
-    newVehicle.year = year;
-    newVehicle.seats = seats;
     
-    [newVehicle saveInBackgroundWithBlock: completion];
+    [newVehicle saveInBackgroundWithBlock: completion];    
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {

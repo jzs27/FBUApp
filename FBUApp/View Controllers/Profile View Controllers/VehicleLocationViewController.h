@@ -7,9 +7,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Vehicle.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VehicleLocationViewController : UIViewController
+
+@property Vehicle *vehicle;
 
 @end
 

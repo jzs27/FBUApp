@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Vehicle.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VehicleRegistrationViewController : UIViewController
@@ -18,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *year;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) UIImage *img;
+@property Vehicle *vehicle;
+
 
 @end
 
