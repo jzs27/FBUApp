@@ -8,8 +8,9 @@
 #import "ReservationCalendarViewController.h"
 
 #import "SelectVehicleViewController.h"
+#import "ReuseCalendarViewController.h"
 
-@interface ReservationCalendarViewController ()
+@interface ReservationCalendarViewController ()<ReuseCalendarViewDelegate>
 
 @end
 
@@ -25,10 +26,26 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    UINavigationController *navController  = [segue destinationViewController];
-        SelectVehicleViewController *selectVehicleViewController = [navController topViewController];
+    if ([[segue identifier] isEqualToString:@"toCalendar"]){
+        ReuseCalendarViewController *reuseCalendar = [segue destinationViewController];
+        reuseCalendar.delegate = self;
+    }
+    else{
+        SelectVehicleViewController *selectVehicle = [segue destinationViewController];
+        selectVehicle.startDate= self.startDate;
+        selectVehicle.endDate = self.endDate;
+        selectVehicle.location = self.location;
+    }
         
 
+}
+
+-(void)addDate:(NSDate *)date{
+    self.startDate = date;
+    }
+
+- (IBAction)didTapNext:(id)sender {
+    [self performSegueWithIdentifier:@"fromReservationCalendar" sender:nil];
 }
 
 @end

@@ -37,7 +37,7 @@
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
-    [query whereKey:@"location" equalTo:self.location];
+    //[query whereKey:@"location" equalTo:self.location];
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
@@ -52,8 +52,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     Vehicle *vehicle = sender;
-    UINavigationController *navController  = [segue destinationViewController];
-    ConfirmReservationViewController *confirmVehicleViewController = [navController topViewController];
+    ConfirmReservationViewController *confirmVehicleViewController   = [segue destinationViewController];
     confirmVehicleViewController.vehicle = vehicle;
     confirmVehicleViewController.startDate = self.startDate;
     confirmVehicleViewController.endDate = self.endDate;

@@ -14,10 +14,18 @@
 @dynamic rentee;
 @dynamic renter;
 @dynamic startRentDate;
+@dynamic location;
+
 
 + (nonnull NSString *)parseClassName {
     return @"Reservation";
 }
+
+//+ (void) createReservation:(NSString *)location withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+//    Reservation *newReservation = [Reservation new];
+//    newReservation.rentee = [PFUser currentUser];
+//    newReservation.location = location;
+//}
 
 + (void) createReservation:( PFUser*)renter withVehicle:(Vehicle*)vehicle withStartDate:(NSDate*)startDate withEndDate:(NSDate*)endDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
@@ -30,5 +38,8 @@
     
     [newReservation saveInBackgroundWithBlock: completion];
 }
+
+
+
 
 @end

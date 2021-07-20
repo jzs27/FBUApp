@@ -35,14 +35,14 @@
 }
 
 - (IBAction)didTapConfirmButton:(id)sender {
-    PFUser *renter = self.vehicle.owner;
-    [Reservation createReservation:renter withVehicle:self.vehicle withStartDate:self.startDate withEndDate:self.endDate withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error) {
-            
-        } else {
-            NSLog(@"Yo it succeeded!");
-        }
-    }];
+//    PFUser *renter = self.vehicle.owner;
+//    [Reservation createReservation:renter withVehicle:self.vehicle withStartDate:self.startDate withEndDate:self.endDate withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+//        if (error) {
+//
+//        } else {
+//            NSLog(@"Yo it succeeded!");
+//        }
+//    }];
     
     [self performSegueWithIdentifier:@"fromConfirmVehicle" sender:nil];
 }

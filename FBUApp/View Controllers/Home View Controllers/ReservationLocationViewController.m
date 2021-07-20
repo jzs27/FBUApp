@@ -8,20 +8,20 @@
 //interface header
 #import "ReservationLocationViewController.h"
 
-
-#import "ReservationCalendarViewController.h"
-
 // standard includes
 #import <Parse/Parse.h>
 
 // relative includes
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
+#import "ReservationCalendarViewController.h"
+#import "ReuseLocationViewController.h"
 
 
-@interface ReservationLocationViewController ()
+@interface ReservationLocationViewController ()<ReuseLocationDelegate>
 
-@property NSMutableArray *locations;
+
+
 
 @end
 
@@ -46,15 +46,45 @@
     }];
 }
 
+-(void)didSetLocation:(NSString *)location;{
+    self.location = location;
+    NSLog(@"The location: %@",self.location);
+//    [Reservation createReservation:location withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+//
+//        if (error) {
+//            NSLog(@"Here's the error, %@",error);
+//            NSLog(@"Yeah its not working lol!");
+//
+//        } else {
+//            NSLog(@"Yo it succeeded!");
+//        }
+//    }];
+    
+}
+
+//-(void)getReservationObject{
+//    PFQuery *query = [PFQuery queryWithClassName:@"Reservation"];
+//    [query orderByDescending:@"createdAt"];
+//    self.reservation = [query getFirstObject];
+//    NSLog(@"The reservation: %@",self.reservation);
+//}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([[segue identifier] isEqualToString:@"fromReservationLocation"]){
-        UINavigationController *navController  = [segue destinationViewController];
-        ReservationCalendarViewController *calendarVehicleViewController = [navController topViewController];
-        
+        //[self getReservationObject];
+        ReservationCalendarViewController *calendarVehicleViewController  = [segue destinationViewController];
+        calendarVehicleViewController.location = self.location;
     }
+    if ([[segue identifier] isEqualToString:@"fromLocation"]){
+        ReuseLocationViewController *reuseLocation = [segue destinationViewController];
+        reuseLocation.delegate = self;
+    }
+}
+
+- (IBAction)didTapNext:(id)sender {
+    [self performSegueWithIdentifier:@"fromReservationLocation" sender:nil];
 }
 
 @end

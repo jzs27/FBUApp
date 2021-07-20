@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSDate *startRentDate;
 @property (nonatomic,strong) NSDate *endRentDate;
 @property (nonatomic,strong) Vehicle *vehicle;
+@property (nonatomic,strong) NSString *location;
 
 + (void) createReservation:( PFUser*)renter withVehicle:(Vehicle*)vehicle withStartDate:(NSDate*)startDate withEndDate:(NSDate*)endDate withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 

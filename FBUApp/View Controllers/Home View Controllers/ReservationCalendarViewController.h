@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Reservation.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReservationCalendarViewController : UIViewController
@@ -14,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSDate *startDate;
 @property NSDate *endDate;
 @property bool *firstDate;
+@property NSString *location;
+
 
 @end
 
