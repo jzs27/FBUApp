@@ -12,12 +12,15 @@
 
 @interface ReservationCalendarViewController ()<ReuseCalendarViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
 @end
 
 @implementation ReservationCalendarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.locationLabel.text = self.location;
     
 }
 

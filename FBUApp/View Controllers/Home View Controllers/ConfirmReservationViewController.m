@@ -61,12 +61,13 @@
     
     NSDate *date= self.startDate;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
-    formatter.dateStyle = NSDateFormatterShortStyle;
-    formatter.timeStyle = NSDateFormatterNoStyle;
+    //formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    formatter.dateFormat = @"MMM dd";
+    //formatter.dateStyle = NSDateFormatterShortStyle;
+    //formatter.timeStyle = NSDateFormatterNoStyle;
     self.dateLabel.text = [formatter stringFromDate:date];
  
-    
+    //[dateFormat setDateFormat:@"MMM dd"];
 }
 
 /*

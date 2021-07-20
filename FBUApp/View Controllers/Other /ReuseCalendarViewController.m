@@ -142,7 +142,7 @@ int thisMonth;//1-12
     NSDate * newDate = [calendar dateFromComponents:components];
     //Formats date to YYYY-MM-DD
     NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"YYYY-MM-dd"];
+    [dateFormat setDateFormat:@"MMM dd"];
     
     //NSLog(@"tapped on date:");
     [self.delegate addDate:newDate];

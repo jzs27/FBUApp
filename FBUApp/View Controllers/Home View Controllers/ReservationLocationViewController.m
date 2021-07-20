@@ -20,8 +20,7 @@
 
 @interface ReservationLocationViewController ()<ReuseLocationDelegate>
 
-
-
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
 
@@ -29,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.locationLabel.text = @"";
     
 }
 
@@ -48,6 +48,7 @@
 
 -(void)didSetLocation:(NSString *)location;{
     self.location = location;
+    self.locationLabel.text = self.location;
     NSLog(@"The location: %@",self.location);
 //    [Reservation createReservation:location withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
 //
