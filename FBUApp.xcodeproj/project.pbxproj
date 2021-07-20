@@ -10,6 +10,8 @@
 		13C255B66FBB948E232456F3 /* Pods_FBUApp_FBUAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A482F820312B3A9DDADAF1 /* Pods_FBUApp_FBUAppUITests.framework */; };
 		30C2394C27F76CB1BC2D8160 /* Pods_FBUAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABCDC28C50BE8C063C36793 /* Pods_FBUAppTests.framework */; };
 		A50BEFAD26A61B1400750B2A /* VehicleLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50BEFAC26A61B1400750B2A /* VehicleLocationViewController.m */; };
+		A50BEFB126A778E600750B2A /* XIBVehicleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50BEFAF26A778E600750B2A /* XIBVehicleCell.m */; };
+		A50BEFB226A778E600750B2A /* XIBVehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50BEFB026A778E600750B2A /* XIBVehicleCell.xib */; };
 		A53B6C6926A5E8660094AF1D /* VehicleCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6826A5E8660094AF1D /* VehicleCalendarViewController.m */; };
 		A53B6C6C26A5E8DA0094AF1D /* ReuseCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6B26A5E8DA0094AF1D /* ReuseCalendarViewController.m */; };
 		A53B6C6F26A5EE460094AF1D /* ReservationCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6E26A5EE460094AF1D /* ReservationCalendarViewController.m */; };
@@ -66,6 +68,9 @@
 		94023BFD649C3F32C51ED33C /* Pods-FBUAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBUAppTests.release.xcconfig"; path = "Target Support Files/Pods-FBUAppTests/Pods-FBUAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A50BEFAB26A61B1400750B2A /* VehicleLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VehicleLocationViewController.h; sourceTree = "<group>"; };
 		A50BEFAC26A61B1400750B2A /* VehicleLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VehicleLocationViewController.m; sourceTree = "<group>"; };
+		A50BEFAE26A778E600750B2A /* XIBVehicleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XIBVehicleCell.h; sourceTree = "<group>"; };
+		A50BEFAF26A778E600750B2A /* XIBVehicleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XIBVehicleCell.m; sourceTree = "<group>"; };
+		A50BEFB026A778E600750B2A /* XIBVehicleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XIBVehicleCell.xib; sourceTree = "<group>"; };
 		A53B6C6726A5E8660094AF1D /* VehicleCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VehicleCalendarViewController.h; sourceTree = "<group>"; };
 		A53B6C6826A5E8660094AF1D /* VehicleCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VehicleCalendarViewController.m; sourceTree = "<group>"; };
 		A53B6C6A26A5E8DA0094AF1D /* ReuseCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReuseCalendarViewController.h; sourceTree = "<group>"; };
@@ -337,6 +342,9 @@
 				A5941D95269F93FF0086BA9C /* ReservationCell.m */,
 				A5941D97269FA3770086BA9C /* ProfileVehicleCell.h */,
 				A5941D98269FA3770086BA9C /* ProfileVehicleCell.m */,
+				A50BEFAE26A778E600750B2A /* XIBVehicleCell.h */,
+				A50BEFAF26A778E600750B2A /* XIBVehicleCell.m */,
+				A50BEFB026A778E600750B2A /* XIBVehicleCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -452,6 +460,7 @@
 			files = (
 				A5941CF5269CD4E70086BA9C /* LaunchScreen.storyboard in Resources */,
 				A5941CF2269CD4E70086BA9C /* Assets.xcassets in Resources */,
+				A50BEFB226A778E600750B2A /* XIBVehicleCell.xib in Resources */,
 				A5941CF0269CD4E60086BA9C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,6 +643,7 @@
 				A5941DA226A1E4380086BA9C /* ConfirmVehicleViewController.m in Sources */,
 				A5941D74269D00100086BA9C /* ReservationsViewController.m in Sources */,
 				A5941D83269D02D40086BA9C /* DetailsViewController.m in Sources */,
+				A50BEFB126A778E600750B2A /* XIBVehicleCell.m in Sources */,
 				A5941D96269F93FF0086BA9C /* ReservationCell.m in Sources */,
 				A5941D9C26A090F00086BA9C /* RateViewController.m in Sources */,
 				A5941D71269CFFFA0086BA9C /* ReservationLocationViewController.m in Sources */,
