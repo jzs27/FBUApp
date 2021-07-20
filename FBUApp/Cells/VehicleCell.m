@@ -1,14 +1,11 @@
 //
-//  VehicleCell.m
+//  XIBVehicleCell.m
 //  FBUApp
 //
-//  Created by jessicasyl on 7/13/21.
+//  Created by jessicasyl on 7/20/21.
 //
 
-//interface header
 #import "VehicleCell.h"
-
-//standard includes
 #import "UIImageView+AFNetworking.h"
 
 @implementation VehicleCell
@@ -29,8 +26,8 @@
     PFFileObject *image = self.vehicle.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
-    self.rateLabel.text = [NSString stringWithFormat:@"%@",self.vehicle.rate];
-    self.infoLabel.text = self.vehicle.make;
+    //self.rateLabel.text = [NSString stringWithFormat:@"%@",self.vehicle.rate];
+    self.vehicleInfoLabel.text = self.vehicle.make;
 }
 
 @end

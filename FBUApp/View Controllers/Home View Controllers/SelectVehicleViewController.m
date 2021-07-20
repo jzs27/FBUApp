@@ -15,7 +15,7 @@
 #import "Vehicle.h"
 #import "VehicleCell.h"
 #import "ConfirmReservationViewController.h"
-#import "XIBVehicleCell.h"
+#import "VehicleCell.h"
 
 @interface SelectVehicleViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -69,7 +69,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    XIBVehicleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myXIBCell"];
+    VehicleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myXIBCell"];
     
     if (!cell){
         [tableView registerNib:[UINib nibWithNibName:@"XIBVehicleCell" bundle:nil] forCellReuseIdentifier:@"myXIBCell"];
