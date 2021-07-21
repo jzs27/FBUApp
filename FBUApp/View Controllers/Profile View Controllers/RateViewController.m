@@ -37,21 +37,9 @@
 
 
 - (IBAction)didTapConfirm:(id)sender {
-    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     
-    
-
-    NSString *vehicleID = self.vehicle.objectId;
-    [query getObjectInBackgroundWithId:vehicleID
-                                 block:^(PFObject *vehicle, NSError *error) {
-        if (self.currentValue != nil){
-            vehicle[@"rate"] = [NSNumber numberWithInt:self.currentValue];
-        }
-    
-        
-        
-        [vehicle saveInBackground];
-    }];
+    self.vehicle.rate = [NSNumber numberWithInt:self.currentValue];
+    [self.vehicle saveInBackground];
     
     [self performSegueWithIdentifier:@"fromRate" sender:nil];
     

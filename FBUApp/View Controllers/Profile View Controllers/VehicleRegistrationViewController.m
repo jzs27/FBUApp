@@ -171,29 +171,23 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
-    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    
-    NSString *vehicleID = self.vehicle.objectId;
-    [query getObjectInBackgroundWithId:vehicleID
-                                 block:^(PFObject *vehicle, NSError *error) {
-        if (self.year != nil){
-            vehicle[@"year"] = self.year;
+    if (self.year != nil){
+            self.vehicle.year= self.year;
         }
         if (self.makeTextField.text != nil){
-            vehicle[@"make"] = self.makeTextField.text;
+            self.vehicle.make = self.makeTextField.text;
         }
         if (self.modelTextField.text != nil){
-            vehicle[@"make"] = self.modelTextField.text;
+            self.vehicle.model = self.modelTextField.text;
         }
         if (self.type != nil){
-            vehicle[@"type"] = self.type;
+            self.vehicle.type = self.type;
         }
         if (self.img != nil){
-            vehicle[@"image"] = [Vehicle getPFFileFromImage:self.img];
+            self.vehicle.image = [Vehicle getPFFileFromImage:self.img];
         }
     
-        [vehicle saveInBackground];
-    }];
+    [self.vehicle saveInBackground];
     
     [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
 }

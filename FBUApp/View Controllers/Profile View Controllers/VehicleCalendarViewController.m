@@ -21,6 +21,11 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    NSLog(@"Using vehicle: %@",self.vehicle.objectId);
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -40,13 +45,8 @@
 
     NSString *vehicleID = self.vehicle.objectId;
     NSLog(@"Vehicle ID,%@", vehicleID);
-    [query getObjectInBackgroundWithId:vehicleID
-                                 block:^(PFObject *vehicle, NSError *error) {
-        
-        vehicle[@"availableStartDate"] = date;
-        
-        [vehicle saveInBackground];
-    }];
+    self.vehicle.availableStartDate = date;
+    [self.vehicle saveInBackground];
     }
 
 - (IBAction)didTapNext:(id)sender {

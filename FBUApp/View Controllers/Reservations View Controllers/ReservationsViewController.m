@@ -33,7 +33,7 @@
 }
 
 - (void)onTimer {
-    [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+    //[NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     PFQuery *query = [PFQuery queryWithClassName:@"Reservation"];
     query.limit = 20;
     [query includeKey:@"vehicle"];

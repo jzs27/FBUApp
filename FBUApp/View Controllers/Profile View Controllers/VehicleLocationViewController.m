@@ -24,22 +24,25 @@
 }
 
 -(void)didSetLocation:(NSString *)location;{
-    [Vehicle createVehicle:location withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"Here's the error, %@",error);
-            NSLog(@"Yeah its not working lol!");
-            
-        } else {
-            NSLog(@"Yo it succeeded!");
-        }
-    }];
+    [self createVehicle:location];
 }
 
--(void)getVehicleObject{
-    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    [query orderByDescending:@"createdAt"];
-    self.vehicle = [query getFirstObject];
-    }
+-(void)createVehicle:(NSString*)location{
+    Vehicle *newVehicle = [Vehicle new];
+    newVehicle.location = location;
+    newVehicle.owner = [PFUser currentUser];
+    
+    [newVehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Here's the error, %@",error);
+                
+            } else {
+                NSLog(@"Yo it succeeded!");
+            }
+    }];
+    self.vehicle = newVehicle;
+}
+
 
 #pragma mark - Navigation
 
@@ -50,7 +53,6 @@
     }
     if ([[segue identifier] isEqualToString:@"fromVehicleLocation"]){
         VehicleCalendarViewController *vehicleCalendar = [segue destinationViewController];
-        [self getVehicleObject];
         vehicleCalendar.vehicle = self.vehicle;
     }    
 }
