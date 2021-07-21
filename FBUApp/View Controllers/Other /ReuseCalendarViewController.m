@@ -34,18 +34,26 @@ int calendarCount;
 
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
     calendarCount++;
+    if (calendarCount == 2){
+        self.calendar.allowsMultipleSelection = NO;
+    }
     [self.delegate addDate:date];
     
 }
 
 - (void)calendar:(FSCalendar *)calendar didDeselectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
     calendarCount--;
+    if (calendarCount < 2){
+        self.calendar.allowsMultipleSelection = YES;
+    }
     NSLog(@"%d",calendarCount);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
 }
+
+
 
 /*
 #pragma mark - Navigation

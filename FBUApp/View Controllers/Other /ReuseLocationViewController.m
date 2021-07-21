@@ -10,10 +10,13 @@
 #import <CoreLocation/CoreLocation.h>
 #import "math.h"
 
-@interface ReuseLocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
+@interface ReuseLocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *arrayOfLocations;
+@property (strong, nonatomic) NSMutableArray *filteredArrayOfLocations;
 @property CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -30,7 +33,10 @@
     self.mapView.settings.zoomGestures = YES;
     self.mapView.settings.scrollGestures = YES;
     self.mapView.delegate = self;
-    [self createLocations];    
+    [self createLocations];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.searchBar.delegate = self;
 }
 
 #pragma mark - GSMapViewDelegate
@@ -78,6 +84,7 @@
       [self.arrayOfLocations addObject:marker4];
       
     self.arrayOfLocations = [NSMutableArray arrayWithObjects:marker,marker2,marker3,marker4, nil];
+    self.filteredArrayOfLocations = self.arrayOfLocations;
 }
 
 - (IBAction)didTapCurrentLocation:(id)sender {
@@ -143,5 +150,59 @@
     
     [self.delegate didSetLocation:closestLocation.title];
 }
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell;
+    
+    if (tableView == self.tableView){
+        if (cell == nil) {
+            
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        }
+        GMSMarker *marker = [self.filteredArrayOfLocations objectAtIndex:indexPath.row] ;
+        cell.textLabel.text = marker.title;
+    }
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.filteredArrayOfLocations.count;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if (searchText.length != 0) {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(GMSMarker *evaluatedObject, NSDictionary *bindings) {
+            GMSMarker *marker = evaluatedObject;
+            NSString *title = evaluatedObject.title;
+            NSLog(@"The marker: %@",evaluatedObject);
+            NSLog(@"The title: %@",title);
+            return [title containsString:searchText];
+        }];
+        self.filteredArrayOfLocations = [self.arrayOfLocations filteredArrayUsingPredicate:predicate];
+        
+        NSLog(@"%@", self.filteredArrayOfLocations);
+        
+    }
+    else {
+        self.filteredArrayOfLocations = self.arrayOfLocations;
+    }
+    
+    [self.tableView reloadData];
+ 
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    NSString *searchText = (NSString *) self.searchBar.text;
+}
+
+
 
 @end
