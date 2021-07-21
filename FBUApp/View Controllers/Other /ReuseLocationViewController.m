@@ -8,6 +8,7 @@
 #import "ReuseLocationViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
+#import "math.h"
 
 @interface ReuseLocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate>
 
@@ -29,13 +30,57 @@
     self.mapView.settings.zoomGestures = YES;
     self.mapView.settings.scrollGestures = YES;
     self.mapView.delegate = self;
-  
+    [self createLocations];    
+}
+
+#pragma mark - GSMapViewDelegate
+
+-(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
+    [self.delegate didSetLocation:marker.title];
+    NSLog(@"Tapped on marker");
+    }
+
+-(void)createLocations{
+    
     CLLocationCoordinate2D houston = CLLocationCoordinate2DMake(29.760427, -95.369803);
     CLLocationCoordinate2D austin = CLLocationCoordinate2DMake(30.267153, -97.743061);
     CLLocationCoordinate2D dallas = CLLocationCoordinate2DMake(32.776664, -96.796988);
     
     CLLocationCoordinate2D sanAntonio = CLLocationCoordinate2DMake(29.422122, -98.493628);
     
+    GMSMarker *marker = [[GMSMarker alloc] init];
+      marker.position = houston;
+      marker.title = @"Houston";
+      marker.snippet = @"Texas";
+      marker.map = self.mapView;
+      [self.arrayOfLocations addObject:marker];
+    
+      
+      GMSMarker *marker2 = [[GMSMarker alloc] init];
+        marker2.position = austin;
+        marker2.title = @"Austin";
+        marker2.snippet = @"Texas";
+        marker2.map = self.mapView;
+      [self.arrayOfLocations addObject:marker2];
+      
+      GMSMarker *marker3 = [[GMSMarker alloc] init];
+        marker3.position = dallas;
+        marker3.title = @"Dallas";
+        marker3.snippet = @"Texas";
+        marker3.map = self.mapView;
+      [self.arrayOfLocations addObject:marker3];
+      
+      GMSMarker *marker4 = [[GMSMarker alloc] init];
+        marker4.position = sanAntonio;
+        marker4.title = @"San Antonio";
+        marker4.snippet = @"Texas";
+        marker4.map = self.mapView;
+      [self.arrayOfLocations addObject:marker4];
+      
+    self.arrayOfLocations = [NSMutableArray arrayWithObjects:marker,marker2,marker3,marker4, nil];
+}
+
+- (IBAction)didTapCurrentLocation:(id)sender {
     if (self.locationManager == nil){
         
         self.locationManager = [[CLLocationManager alloc] init];
@@ -51,46 +96,52 @@
     
     CLLocationCoordinate2D currentLocation = CLLocationCoordinate2DMake(curPos.coordinate.latitude, curPos.coordinate.longitude);
     
-  GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = houston;
-    marker.title = @"Houston";
-    marker.snippet = @"Texas";
-    marker.map = self.mapView;
-    [self.arrayOfLocations addObject:marker];
+    GMSMarker *curPosMarker = [[GMSMarker alloc] init];
+      curPosMarker.position = currentLocation;
+      curPosMarker.title = @"Your Current Location";
+      curPosMarker.map = self.mapView;
     
-    GMSMarker *marker2 = [[GMSMarker alloc] init];
-      marker2.position = austin;
-      marker2.title = @"Austin";
-      marker2.snippet = @"Texas";
-      marker2.map = self.mapView;
-    [self.arrayOfLocations addObject:marker2];
+    [self findClosestLocation:currentLocation];
     
-    GMSMarker *marker3 = [[GMSMarker alloc] init];
-      marker3.position = dallas;
-      marker3.title = @"Dallas";
-      marker3.snippet = @"Texas";
-      marker3.map = self.mapView;
-    [self.arrayOfLocations addObject:marker3];
-    
-    GMSMarker *marker4 = [[GMSMarker alloc] init];
-      marker4.position = sanAntonio;
-      marker4.title = @"San Antonio";
-      marker4.snippet = @"Texas";
-      marker4.map = self.mapView;
-    [self.arrayOfLocations addObject:marker4];
-    
-    GMSMarker *marker5 = [[GMSMarker alloc] init];
-      marker5.position = currentLocation;
-      marker5.title = @"Your Current Location";
-      marker5.map = self.mapView;
-
 }
 
-#pragma mark - GSMapViewDelegate
+-(void)findClosestLocation:(CLLocationCoordinate2D) currentLocation{
+    float closest = -1;
+    GMSMarker *closestLocation = nil;
+    
+    int radEarth = 6371;
 
--(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
-    [self.delegate didSetLocation:marker.title];
-    NSLog(@"Tapped on marker");
+    for(int i=0;i<self.arrayOfLocations.count;i++){
+        GMSMarker *marker = self.arrayOfLocations[i];
+
+        CLLocationCoordinate2D pos = marker.position;
+        
+        double lat = pos.latitude;
+        double lng = pos.longitude;
+        double mlat = currentLocation.latitude;
+        double mlng = currentLocation.longitude;
+        
+        double chLat = mlat - lat;
+        double chLng = mlng -lng;
+        
+        double dLat = chLat * (M_PI/180);
+        double dLng = chLng * (M_PI/180);
+        
+        double rLat1 = mlat * (M_PI/180);
+        double rLat2 = lat * (M_PI/180);
+
+        double a = sin(dLat/2) * sin(dLat/2) + sin(dLng/2) *sin(dLng/2) * cos(rLat1) * cos(rLat2);
+        
+        double c = 2 * atan2(sqrt(a),sqrt(1-a));
+        double d = radEarth * c;
+        
+        if (closest == -1 || d < closest){
+            closestLocation = self.arrayOfLocations[i];
+            closest = d;
+        }
     }
+    
+    [self.delegate didSetLocation:closestLocation.title];
+}
 
 @end

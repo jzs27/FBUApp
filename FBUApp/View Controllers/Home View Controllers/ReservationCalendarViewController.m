@@ -33,7 +33,7 @@
         ReuseCalendarViewController *reuseCalendar = [segue destinationViewController];
         reuseCalendar.delegate = self;
     }
-    else{
+    if ([[segue identifier] isEqualToString:@"fromReservationCalendar"]){
         SelectVehicleViewController *selectVehicle = [segue destinationViewController];
         selectVehicle.startDate= self.startDate;
         selectVehicle.endDate = self.endDate;

@@ -29,7 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = @"";
-    
 }
 
 - (IBAction)didTapLogout:(id)sender {
@@ -49,26 +48,8 @@
 -(void)didSetLocation:(NSString *)location;{
     self.location = location;
     self.locationLabel.text = self.location;
-    NSLog(@"The location: %@",self.location);
-//    [Reservation createReservation:location withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-//
-//        if (error) {
-//            NSLog(@"Here's the error, %@",error);
-//            NSLog(@"Yeah its not working lol!");
-//
-//        } else {
-//            NSLog(@"Yo it succeeded!");
-//        }
-//    }];
-    
 }
 
-//-(void)getReservationObject{
-//    PFQuery *query = [PFQuery queryWithClassName:@"Reservation"];
-//    [query orderByDescending:@"createdAt"];
-//    self.reservation = [query getFirstObject];
-//    NSLog(@"The reservation: %@",self.reservation);
-//}
 
 #pragma mark - Navigation
 

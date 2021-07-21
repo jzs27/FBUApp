@@ -52,11 +52,13 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"fromSelectVehicle"]){
     Vehicle *vehicle = sender;
     ConfirmReservationViewController *confirmVehicleViewController   = [segue destinationViewController];
     confirmVehicleViewController.vehicle = vehicle;
     confirmVehicleViewController.startDate = self.startDate;
     confirmVehicleViewController.endDate = self.endDate;
+    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

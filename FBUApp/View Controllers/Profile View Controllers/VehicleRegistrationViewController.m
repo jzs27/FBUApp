@@ -180,12 +180,24 @@
         vehicle[@"year"] = self.year;
         vehicle[@"make"] = self.make;
         vehicle[@"type"] = self.type;
-        //vehicle[@"image"] = self.img;
+        //vehicle[@"image"] =  [self getPFFileFromImage:self.img];
     
         [vehicle saveInBackground];
     }];
     
     [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
+}
+
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    if (!imageData) {
+        return nil;
+    }
+    return [PFFileObject fileObjectWithName:@"image.png"  data:imageData];
 }
 
 @end

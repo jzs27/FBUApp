@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIImage *img;
 @property Vehicle *vehicle;
 
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
+
 
 @end
 
