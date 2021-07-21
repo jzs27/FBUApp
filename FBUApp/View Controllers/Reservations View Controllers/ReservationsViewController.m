@@ -58,11 +58,6 @@
 }
 */
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    Reservation *reservation = self.arrayOfReservations[indexPath.row];
-//    [self performSegueWithIdentifier:@"fromReservation" sender:reservation];
-//}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ReservationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReservationCell" forIndexPath:indexPath];
     Reservation *reservation = self.arrayOfReservations[indexPath.row];
@@ -73,7 +68,5 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfReservations.count;
 }
-
-
 
 @end

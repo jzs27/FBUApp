@@ -44,8 +44,11 @@
     NSString *vehicleID = self.vehicle.objectId;
     [query getObjectInBackgroundWithId:vehicleID
                                  block:^(PFObject *vehicle, NSError *error) {
+        if (self.currentValue != nil){
+            vehicle[@"rate"] = [NSNumber numberWithInt:self.currentValue];
+        }
     
-        vehicle[@"rate"] = [NSNumber numberWithInt:self.currentValue];
+        
         
         [vehicle saveInBackground];
     }];

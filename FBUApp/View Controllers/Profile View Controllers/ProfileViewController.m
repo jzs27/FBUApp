@@ -76,11 +76,6 @@
     
     return cell;
     
-    
-//    ProfileVehicleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileVehicleCell" forIndexPath:indexPath];
-//    Vehicle *vehicle = self.arrayOfVehicles[indexPath.row];
-//    cell.vehicle = vehicle;
-//    return cell;
 }
 
 @end

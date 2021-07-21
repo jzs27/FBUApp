@@ -7,7 +7,7 @@ target 'FBUApp' do
 
   # Pods for FBUApp
 pod 'Parse'
-pod 'JTAppleCalendar'
+pod 'FSCalendar'
 pod 'AFNetworking'
 pod 'GoogleMaps', '5.1.0' 
 

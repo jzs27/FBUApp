@@ -176,11 +176,21 @@
     NSString *vehicleID = self.vehicle.objectId;
     [query getObjectInBackgroundWithId:vehicleID
                                  block:^(PFObject *vehicle, NSError *error) {
-        
-        vehicle[@"year"] = self.year;
-        vehicle[@"make"] = self.make;
-        vehicle[@"type"] = self.type;
-        //vehicle[@"image"] =  [self getPFFileFromImage:self.img];
+        if (self.year != nil){
+            vehicle[@"year"] = self.year;
+        }
+        if (self.makeTextField.text != nil){
+            vehicle[@"make"] = self.makeTextField.text;
+        }
+        if (self.modelTextField.text != nil){
+            vehicle[@"make"] = self.modelTextField.text;
+        }
+        if (self.type != nil){
+            vehicle[@"type"] = self.type;
+        }
+        if (self.img != nil){
+            vehicle[@"image"] = [Vehicle getPFFileFromImage:self.img];
+        }
     
         [vehicle saveInBackground];
     }];

@@ -48,7 +48,7 @@
         ReuseLocationViewController *reuseLocation = [segue destinationViewController];
         reuseLocation.delegate = self;
     }
-    else{
+    if ([[segue identifier] isEqualToString:@"fromVehicleLocation"]){
         VehicleCalendarViewController *vehicleCalendar = [segue destinationViewController];
         [self getVehicleObject];
         vehicleCalendar.vehicle = self.vehicle;
