@@ -7,7 +7,7 @@
 
 #import "FilterViewController.h"
 
-@interface FilterViewController ()
+@interface FilterViewController ()<BEMCheckBoxDelegate>
 
 @end
 
@@ -27,5 +27,36 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)didTapCheckBox:(BEMCheckBox *)checkBox{
+    NSString *tappedBox = @"";
+    if (checkBox == self.smallCheckBox){
+        tappedBox = @"Small to Full Size";
+    }
+    
+    if (checkBox == self.luxuryCheckBox){
+        tappedBox = @"Luxury & Convertible";
+    }
+    if (checkBox == self.vanCheckBox){
+        tappedBox = @"Vans & Trucks";
+    }
+    if (checkBox == self.wagonCheckBox){
+        tappedBox = @"SUVs & Wagons";
+    }
+}
+
+- (IBAction)didTapReset:(id)sender {
+    self.allCheckBox.on = NO;
+    self.smallCheckBox.on = NO;
+    self.highToLowCheckBox.on = NO;
+    self.lowToHighCheckBox.on = NO;
+    self.luxuryCheckBox.on = NO;
+    self.vanCheckBox.on = NO;
+    self.wagonCheckBox.on = NO;
+    
+}
+
+- (IBAction)didTapApply:(id)sender {
+}
 
 @end

@@ -39,6 +39,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
     //[query whereKey:@"location" equalTo:self.location];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
