@@ -8,15 +8,39 @@
 
 #import "FSCalendarViewController.h"
 
-@interface FSCalendarViewController ()
+@interface FSCalendarViewController ()<FSCalendarDelegate,FSCalendarDataSource>
+
+
+
 
 @end
+
+int calendarCount;
 
 @implementation FSCalendarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    calendarCount =0;
+    self.calendar.dataSource = self;
+    self.calendar.delegate = self;
+    if (calendarCount <= 2){
+        self.calendar.allowsMultipleSelection = YES;
+    }
+    
+
+    
+}
+
+
+- (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
+    NSLog(@"%@",date);
+    calendarCount++;
+    
+}
+
+- (void)calendar:(FSCalendar *)calendar didDeselectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
+    calendarCount--;
 }
 
 /*

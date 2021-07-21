@@ -12,7 +12,7 @@
 #import <Parse/Parse.h>
 
 // relative includes
-#import "RateViewController.h"
+#import "VehicleImageViewController.h"
 
 @interface VehicleRegistrationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDelegate>
 
@@ -43,55 +43,13 @@
     self.yearData = [[NSArray alloc]initWithObjects:@"2021",@"2020",@"2019",@"2018", nil];
 }
 
-- (IBAction)didTapVehicle:(id)sender {
-    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-    imagePickerVC.delegate = self;
-    imagePickerVC.allowsEditing = YES;
-
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
-    else {
-        NSLog(@"Camera 🚫 available so we will use photo library instead");
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-
-    [self presentViewController:imagePickerVC animated:YES completion:nil];
-}
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    
-    CGSize size = CGSizeMake(1500, 1500);
-    UIImage *img = [self resizeImage:originalImage withSize:size];
-    self.vehicleView.image = img;
-    self.img = img;
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
-    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-    resizeImageView.image = image;
-    
-    UIGraphicsBeginImageContext(size);
-    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    RateViewController *rateViewController = [segue destinationViewController];
-    
-    rateViewController.vehicle = self.vehicle;
-    
+    if ([[segue identifier] isEqualToString:@"fromVehicleRegistration"]){
+        VehicleImageViewController *vehicleImage = [segue destinationViewController];
+        vehicleImage.vehicle = self.vehicle;
+    }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -183,25 +141,12 @@
         if (self.type != nil){
             self.vehicle.type = self.type;
         }
-        if (self.img != nil){
-            self.vehicle.image = [Vehicle getPFFileFromImage:self.img];
-        }
     
     [self.vehicle saveInBackground];
     
     [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
 }
 
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
-    if (!image) {
-        return nil;
-    }
-    
-    NSData *imageData = UIImagePNGRepresentation(image);
-    if (!imageData) {
-        return nil;
-    }
-    return [PFFileObject fileObjectWithName:@"image.png"  data:imageData];
-}
+
 
 @end

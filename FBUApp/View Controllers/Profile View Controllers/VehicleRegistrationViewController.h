@@ -19,10 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *model;
 @property (strong, nonatomic) NSString *year;
 @property (strong, nonatomic) NSString *type;
-@property (strong, nonatomic) UIImage *img;
 @property Vehicle *vehicle;
 
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
+
 
 
 @end

@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FSCalendarViewController : UIViewController
 
+
+@property (weak, nonatomic) IBOutlet FSCalendar *calendar;
+
 @end
 
 NS_ASSUME_NONNULL_END

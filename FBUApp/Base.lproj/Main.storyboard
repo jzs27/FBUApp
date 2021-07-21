@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kPI-2w-Tpi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mVh-yi-0kH">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -471,13 +471,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload an image: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhQ-Ux-qBc">
-                                <rect key="frame" x="25" y="617" width="137" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouy-fT-tFV">
                                 <rect key="frame" x="194" y="269" width="163" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -513,14 +506,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xfI-M6-m9E">
-                                <rect key="frame" x="188" y="607.66666666666515" width="174" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="czN-Up-JPo" appends="YES" id="8OV-C0-NRt"/>
-                                </connections>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vehicle Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-BV-5wr">
                                 <rect key="frame" x="217" y="191" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -562,10 +547,9 @@
                         <outlet property="modelTextField" destination="ft4-t2-7vj" id="OfN-wp-vaf"/>
                         <outlet property="typeButton" destination="Ouy-fT-tFV" id="Ktl-L4-L22"/>
                         <outlet property="typeTableView" destination="fKo-BU-Rxe" id="RRv-yj-LRG"/>
-                        <outlet property="vehicleView" destination="xfI-M6-m9E" id="US1-Ee-wOx"/>
                         <outlet property="yearButton" destination="1Bo-SJ-d4b" id="G7l-uJ-cLi"/>
                         <outlet property="yearTableView" destination="Fkx-ap-cbf" id="5Tz-gT-UdY"/>
-                        <segue destination="3am-SO-i8d" kind="show" identifier="fromVehicleRegistration" id="L2g-3p-BdN"/>
+                        <segue destination="00N-Xu-11O" kind="show" identifier="fromVehicleRegistration" id="JIa-zd-pXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4No-XJ-xna" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -580,7 +564,7 @@
         <!--Vehicle Image View Controller-->
         <scene sceneID="SLT-OH-0TS">
             <objects>
-                <viewController id="00N-Xu-11O" customClass="VehicleImageViewController" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="00N-Xu-11O" customClass="VehicleImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RVm-fJ-LPQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -588,18 +572,39 @@
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="443-CL-xpw">
                                 <rect key="frame" x="75" y="316" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Kti-S9-Mqc" appends="YES" id="7gr-yk-7Fa"/>
+                                </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0g-qW-L2Z">
+                                <rect key="frame" x="231" y="719" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set Vehicle Image">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapConfirm:" destination="00N-Xu-11O" eventType="touchUpInside" id="nwl-TM-aQi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f8s-8M-wLT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ns2-1e-QFn"/>
                     <connections>
                         <outlet property="vehicleView" destination="443-CL-xpw" id="ZHO-T2-hFW"/>
+                        <segue destination="3am-SO-i8d" kind="show" identifier="fromVehicleImage" id="g6V-Np-H4Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5a3-Nn-enK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Kti-S9-Mqc">
+                    <connections>
+                        <action selector="didTapVehicle:" destination="00N-Xu-11O" id="CkB-ha-S23"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4453" y="3993"/>
+            <point key="canvasLocation" x="3211" y="4838"/>
         </scene>
         <!--Vehicle Calendar View Controller-->
         <scene sceneID="ogR-L5-JCa">
@@ -810,7 +815,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8JL-K5-yf9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3211" y="4962"/>
+            <point key="canvasLocation" x="3211" y="5620"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="ndW-1I-EYM">
@@ -820,19 +825,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A6h-uv-JZH" customClass="FSCalendar">
-                                <rect key="frame" x="70" y="226" width="234" height="265"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oeo-P5-egE" customClass="FSCalendar">
+                                <rect key="frame" x="16" y="190" width="358" height="269"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="mVh-yi-0kH" id="nyi-8E-eYw"/>
-                                    <outlet property="delegate" destination="mVh-yi-0kH" id="ePU-w4-hf5"/>
-                                </connections>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration" identifier="calendar"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AJb-Tj-XGe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="calendar" destination="Oeo-P5-egE" id="RAj-db-8wL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJO-fb-MVt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -865,15 +873,26 @@
                                     <action selector="didTapConfirm:" destination="TJc-xi-Tr9" eventType="touchUpInside" id="pgZ-g9-fqh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXL-JF-xyc">
+                                <rect key="frame" x="128" y="352" width="161" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="05y-eO-Psh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="rl9-KQ-uEl"/>
+                    <connections>
+                        <outlet property="vehicleInfoLabel" destination="GXL-JF-xyc" id="2Ti-wg-WAh"/>
+                        <outlet property="vehicleView" destination="81R-aQ-jxv" id="WwY-0Z-a4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrf-xu-eHw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3210.7692307692305" y="5800.9478672985779"/>
+            <point key="canvasLocation" x="3210.7692307692305" y="6502.6066350710898"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FYG-Yx-RYG">

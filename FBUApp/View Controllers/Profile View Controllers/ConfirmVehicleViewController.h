@@ -7,9 +7,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Vehicle.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ConfirmVehicleViewController : UIViewController
+
+@property Vehicle *vehicle;
+@property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
+@property (weak, nonatomic) IBOutlet UILabel *vehicleInfoLabel;
 
 @end
 
