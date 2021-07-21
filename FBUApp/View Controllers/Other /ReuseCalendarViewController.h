@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import <FSCalendar/FSCalendar.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ReuseCalendarViewDelegate
@@ -19,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,weak) id<ReuseCalendarViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *monthly;
+@property (weak, nonatomic) IBOutlet FSCalendar *calendar;
 
 @end
 

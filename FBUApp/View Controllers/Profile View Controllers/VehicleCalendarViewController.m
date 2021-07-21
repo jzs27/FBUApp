@@ -18,13 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.firstDate = YES;
 
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    NSLog(@"Using vehicle: %@",self.vehicle.objectId);
-}
+    }
 
 #pragma mark - Navigation
 
@@ -41,11 +41,13 @@
 }
 
 -(void)addDate:(NSDate *)date{
-    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-
-    NSString *vehicleID = self.vehicle.objectId;
-    NSLog(@"Vehicle ID,%@", vehicleID);
-    self.vehicle.availableStartDate = date;
+    if (self.firstDate == YES){
+        self.vehicle.availableStartDate = date;
+        self.firstDate = NO;
+    }
+    else{
+        self.vehicle.availableEndDate = date;
+    }
     [self.vehicle saveInBackground];
     }
 
