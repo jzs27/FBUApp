@@ -5,12 +5,12 @@
 //  Created by jessicasyl on 7/19/21.
 //
 
-#import "ReuseLocationViewController.h"
+#import "LocationViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import "math.h"
 
-@interface ReuseLocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface LocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *arrayOfLocations;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ReuseLocationViewController
+@implementation LocationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -179,14 +179,10 @@
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(GMSMarker *evaluatedObject, NSDictionary *bindings) {
             GMSMarker *marker = evaluatedObject;
             NSString *title = evaluatedObject.title;
-            NSLog(@"The marker: %@",evaluatedObject);
-            NSLog(@"The title: %@",title);
             return [title containsString:searchText];
         }];
         self.filteredArrayOfLocations = [self.arrayOfLocations filteredArrayUsingPredicate:predicate];
-        
-        NSLog(@"%@", self.filteredArrayOfLocations);
-        
+                
     }
     else {
         self.filteredArrayOfLocations = self.arrayOfLocations;
@@ -201,6 +197,14 @@
 }
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     NSString *searchText = (NSString *) self.searchBar.text;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self.delegate didSetLocation:cell.textLabel.text];
+    self.searchBar.text = cell.textLabel.text;
+    self.tableView.hidden = YES;
 }
 
 

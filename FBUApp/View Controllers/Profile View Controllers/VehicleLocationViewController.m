@@ -9,7 +9,7 @@
 
 #import <Parse/Parse.h>
 
-#import "ReuseLocationViewController.h"
+#import "LocationViewController.h"
 #import "VehicleCalendarViewController.h"
 
 @interface VehicleLocationViewController ()<ReuseLocationDelegate>
@@ -48,7 +48,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"toReuseLocation"]){
-        ReuseLocationViewController *reuseLocation = [segue destinationViewController];
+        LocationViewController *reuseLocation = [segue destinationViewController];
         reuseLocation.delegate = self;
     }
     if ([[segue identifier] isEqualToString:@"fromVehicleLocation"]){

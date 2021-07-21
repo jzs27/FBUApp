@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ReuseCalendarViewController : UIViewController
+@interface CalendarViewController : UIViewController
 
 @property (nonatomic,weak) id<ReuseCalendarViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *monthly;

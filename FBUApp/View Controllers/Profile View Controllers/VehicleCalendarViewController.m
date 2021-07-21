@@ -7,7 +7,7 @@
 
 #import "VehicleCalendarViewController.h"
 
-#import "ReuseCalendarViewController.h"
+#import "CalendarViewController.h"
 #import "VehicleRegistrationViewController.h"
 
 @interface VehicleCalendarViewController ()<ReuseCalendarViewDelegate>
@@ -31,7 +31,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"toReuseCalendar"]){
-        ReuseCalendarViewController *reuseCalendar = [segue destinationViewController];
+        CalendarViewController *reuseCalendar = [segue destinationViewController];
         reuseCalendar.delegate = self;
     }
     else{

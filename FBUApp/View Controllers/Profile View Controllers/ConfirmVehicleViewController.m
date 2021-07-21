@@ -41,7 +41,7 @@
 }
 
 - (IBAction)didTapConfirm:(id)sender {
-    //perform segue to profile with updates vehicles listed
+    [self performSegueWithIdentifier:@"backToProfile" sender:nil];
 }
 
 

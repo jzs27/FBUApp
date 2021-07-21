@@ -13,10 +13,11 @@
 		A50BEFB126A778E600750B2A /* VehicleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A50BEFAF26A778E600750B2A /* VehicleCell.m */; };
 		A50BEFB226A778E600750B2A /* XIBVehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A50BEFB026A778E600750B2A /* XIBVehicleCell.xib */; };
 		A50BEFB526A8768900750B2A /* VehicleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50BEFB426A8768900750B2A /* VehicleImageViewController.m */; };
+		A50BEFBB26A8CB8C00750B2A /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A50BEFBA26A8CB8C00750B2A /* FilterViewController.m */; };
 		A53B6C6926A5E8660094AF1D /* VehicleCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6826A5E8660094AF1D /* VehicleCalendarViewController.m */; };
-		A53B6C6C26A5E8DA0094AF1D /* ReuseCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6B26A5E8DA0094AF1D /* ReuseCalendarViewController.m */; };
+		A53B6C6C26A5E8DA0094AF1D /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6B26A5E8DA0094AF1D /* CalendarViewController.m */; };
 		A53B6C6F26A5EE460094AF1D /* ReservationCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6E26A5EE460094AF1D /* ReservationCalendarViewController.m */; };
-		A53B6C7226A6080C0094AF1D /* ReuseLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C7126A6080C0094AF1D /* ReuseLocationViewController.m */; };
+		A53B6C7226A6080C0094AF1D /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C7126A6080C0094AF1D /* LocationViewController.m */; };
 		A5941CE7269CD4E60086BA9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CE6269CD4E60086BA9C /* AppDelegate.m */; };
 		A5941CEA269CD4E60086BA9C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CE9269CD4E60086BA9C /* SceneDelegate.m */; };
 		A5941CF0269CD4E60086BA9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5941CEE269CD4E60086BA9C /* Main.storyboard */; };
@@ -72,14 +73,16 @@
 		A50BEFB026A778E600750B2A /* XIBVehicleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XIBVehicleCell.xib; sourceTree = "<group>"; };
 		A50BEFB326A8768900750B2A /* VehicleImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VehicleImageViewController.h; sourceTree = "<group>"; };
 		A50BEFB426A8768900750B2A /* VehicleImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VehicleImageViewController.m; sourceTree = "<group>"; };
+		A50BEFB926A8CB8C00750B2A /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		A50BEFBA26A8CB8C00750B2A /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		A53B6C6726A5E8660094AF1D /* VehicleCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VehicleCalendarViewController.h; sourceTree = "<group>"; };
 		A53B6C6826A5E8660094AF1D /* VehicleCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VehicleCalendarViewController.m; sourceTree = "<group>"; };
-		A53B6C6A26A5E8DA0094AF1D /* ReuseCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReuseCalendarViewController.h; sourceTree = "<group>"; };
-		A53B6C6B26A5E8DA0094AF1D /* ReuseCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReuseCalendarViewController.m; sourceTree = "<group>"; };
+		A53B6C6A26A5E8DA0094AF1D /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		A53B6C6B26A5E8DA0094AF1D /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		A53B6C6D26A5EE460094AF1D /* ReservationCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReservationCalendarViewController.h; sourceTree = "<group>"; };
 		A53B6C6E26A5EE460094AF1D /* ReservationCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReservationCalendarViewController.m; sourceTree = "<group>"; };
-		A53B6C7026A6080C0094AF1D /* ReuseLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReuseLocationViewController.h; sourceTree = "<group>"; };
-		A53B6C7126A6080C0094AF1D /* ReuseLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReuseLocationViewController.m; sourceTree = "<group>"; };
+		A53B6C7026A6080C0094AF1D /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		A53B6C7126A6080C0094AF1D /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		A5941CE2269CD4E60086BA9C /* FBUApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBUApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5941CE5269CD4E60086BA9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A5941CE6269CD4E60086BA9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -292,10 +295,12 @@
 				A5941D69269CFF0C0086BA9C /* LoginViewController.h */,
 				A5941D6C269CFF1C0086BA9C /* SignUpViewController.h */,
 				A5941D6D269CFF1C0086BA9C /* SignUpViewController.m */,
-				A53B6C6A26A5E8DA0094AF1D /* ReuseCalendarViewController.h */,
-				A53B6C6B26A5E8DA0094AF1D /* ReuseCalendarViewController.m */,
-				A53B6C7026A6080C0094AF1D /* ReuseLocationViewController.h */,
-				A53B6C7126A6080C0094AF1D /* ReuseLocationViewController.m */,
+				A53B6C6A26A5E8DA0094AF1D /* CalendarViewController.h */,
+				A53B6C6B26A5E8DA0094AF1D /* CalendarViewController.m */,
+				A53B6C7026A6080C0094AF1D /* LocationViewController.h */,
+				A53B6C7126A6080C0094AF1D /* LocationViewController.m */,
+				A50BEFB926A8CB8C00750B2A /* FilterViewController.h */,
+				A50BEFBA26A8CB8C00750B2A /* FilterViewController.m */,
 			);
 			path = "Other ";
 			sourceTree = "<group>";
@@ -618,7 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A53B6C6C26A5E8DA0094AF1D /* ReuseCalendarViewController.m in Sources */,
+				A53B6C6C26A5E8DA0094AF1D /* CalendarViewController.m in Sources */,
 				A5941D80269D02A80086BA9C /* ConfirmReservationViewController.m in Sources */,
 				A5941D64269CF7490086BA9C /* Reservation.m in Sources */,
 				A5941D67269CF7570086BA9C /* Vehicle.m in Sources */,
@@ -626,7 +631,7 @@
 				A50BEFAD26A61B1400750B2A /* VehicleLocationViewController.m in Sources */,
 				A5941D7D269D02610086BA9C /* SelectVehicleViewController.m in Sources */,
 				A5941CE7269CD4E60086BA9C /* AppDelegate.m in Sources */,
-				A53B6C7226A6080C0094AF1D /* ReuseLocationViewController.m in Sources */,
+				A53B6C7226A6080C0094AF1D /* LocationViewController.m in Sources */,
 				A50BEFB526A8768900750B2A /* VehicleImageViewController.m in Sources */,
 				A5941D77269D00210086BA9C /* ProfileViewController.m in Sources */,
 				A53B6C6F26A5EE460094AF1D /* ReservationCalendarViewController.m in Sources */,
@@ -635,6 +640,7 @@
 				A5941D8C269DFDFD0086BA9C /* VehicleRegistrationViewController.m in Sources */,
 				A5941CEA269CD4E60086BA9C /* SceneDelegate.m in Sources */,
 				A5941DA226A1E4380086BA9C /* ConfirmVehicleViewController.m in Sources */,
+				A50BEFBB26A8CB8C00750B2A /* FilterViewController.m in Sources */,
 				A5941D74269D00100086BA9C /* ReservationsViewController.m in Sources */,
 				A5941D83269D02D40086BA9C /* DetailsViewController.m in Sources */,
 				A50BEFB126A778E600750B2A /* VehicleCell.m in Sources */,

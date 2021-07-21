@@ -8,7 +8,7 @@
 #import "ReservationCalendarViewController.h"
 
 #import "SelectVehicleViewController.h"
-#import "ReuseCalendarViewController.h"
+#import "CalendarViewController.h"
 
 @interface ReservationCalendarViewController ()<ReuseCalendarViewDelegate>
 
@@ -30,7 +30,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"toCalendar"]){
-        ReuseCalendarViewController *reuseCalendar = [segue destinationViewController];
+        CalendarViewController *reuseCalendar = [segue destinationViewController];
         reuseCalendar.delegate = self;
     }
     if ([[segue identifier] isEqualToString:@"fromReservationCalendar"]){

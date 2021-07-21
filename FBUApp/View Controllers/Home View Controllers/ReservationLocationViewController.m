@@ -15,7 +15,7 @@
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 #import "ReservationCalendarViewController.h"
-#import "ReuseLocationViewController.h"
+#import "LocationViewController.h"
 
 
 @interface ReservationLocationViewController ()<ReuseLocationDelegate>
@@ -60,7 +60,7 @@
         calendarVehicleViewController.location = self.location;
     }
     if ([[segue identifier] isEqualToString:@"fromLocation"]){
-        ReuseLocationViewController *reuseLocation = [segue destinationViewController];
+        LocationViewController *reuseLocation = [segue destinationViewController];
         reuseLocation.delegate = self;
     }
 }
