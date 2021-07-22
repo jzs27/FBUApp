@@ -7,7 +7,7 @@
 
 #import "FilterViewController.h"
 
-@interface FilterViewController ()<BEMCheckBoxDelegate>
+@interface FilterViewController ()
 
 @end
 
@@ -15,6 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 
 }
 
@@ -28,7 +29,11 @@
 }
 */
 
+
+
+
 - (void)didTapCheckBox:(BEMCheckBox *)checkBox{
+    NSLog(@"tapping box");
     NSString *tappedBox = @"";
     if (checkBox == self.smallCheckBox && self.smallCheckBox.on ==YES){
         tappedBox = @"Small to Full Size";
@@ -43,6 +48,7 @@
     if (checkBox == self.wagonCheckBox && self.wagonCheckBox.on == YES){
         tappedBox = @"SUVs & Wagons";
     }
+    [self.delegate addQueryFilter:tappedBox];
 }
 
 - (IBAction)didTapReset:(id)sender {
@@ -54,5 +60,10 @@
     self.vanCheckBox.on = NO;
     self.wagonCheckBox.on = NO;
 }
+
+- (IBAction)didTapApply:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
