@@ -34,8 +34,6 @@
     self.tableView.delegate = self;
     [self fetchVehicles];
     
-    
-    
 }
 
 - (void)fetchVehicles {    
@@ -53,9 +51,9 @@
 }
 - (void)addTypeFilter:(NSString *)type{
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    NSLog(@"she's running");
+    
     query.limit = 20;
-    //[query orderByAscending:@"rate"];
+    
     [query whereKey:@"type" equalTo:type];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
@@ -70,7 +68,7 @@
 
 - (void)addPriceFilter:(NSString *)price{
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    NSLog(@"she's running");
+    
     query.limit = 20;
     if ([price  isEqual: @"highToLow"]){
         [query orderByDescending:@"rate"];
@@ -89,6 +87,27 @@
     }];
 }
 
+- (void)addMultiFilter:(NSArray *)filters{
+    for (int i=0; i< [filters count];i++){
+        PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
+        
+        query.limit = 20;
+        [query whereKey:@"type" equalTo:filters[i]];
+        NSLog(@"%@",filters[i]);
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
+            if (vehicles != nil) {
+                self.arrayOfVehicles = [vehicles arrayByAddingObjectsFromArray:self.arrayOfVehicles];
+                [self.tableView reloadData];
+            } else {
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }];
+    }
+    [self.tableView reloadData];
+    
+    
+}
 
 #pragma mark - Navigation
 

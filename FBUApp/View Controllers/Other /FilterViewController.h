@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) addTypeFilter:(NSString*)type;
 -(void) addPriceFilter:(NSString*)price;
+-(void) addMultiFilter:(NSArray*)filters;
 
 @end
 
