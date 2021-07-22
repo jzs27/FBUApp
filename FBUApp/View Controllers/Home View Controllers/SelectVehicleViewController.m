@@ -88,6 +88,8 @@
 }
 
 - (void)addMultiFilter:(NSArray *)filters{
+    NSLog(@"%@",filters);
+    self.arrayOfVehicles = [NSArray new];
     for (int i=0; i< [filters count];i++){
         PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
         
