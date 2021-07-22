@@ -65,6 +65,14 @@
 - (IBAction)didTapConfirm:(id)sender {
     if (self.image != nil){
         self.vehicle.image = [Vehicle getPFFileFromImage:self.image];
+        [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error){
+                NSLog(@"Error:%@",error.localizedDescription);
+            }
+            else{
+                NSLog(@"Image saved");
+            }
+        }];
         
         [self performSegueWithIdentifier:@"fromVehicleImage" sender:nil];
     }

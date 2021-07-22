@@ -28,15 +28,14 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self onTimer];
+    [self fetchVehicles];
 }
 
 - (IBAction)didTapRegister:(id)sender {
     [self performSegueWithIdentifier:@"fromProfile" sender:nil];
 }
 
-- (void)onTimer {
-    //[NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+- (void)fetchVehicles {
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
     //[query whereKey:@"owner" equalTo:[PFUser currentUser]];

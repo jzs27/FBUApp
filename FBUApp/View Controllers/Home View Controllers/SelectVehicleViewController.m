@@ -88,14 +88,32 @@
 }
 
 - (void)addMultiFilter:(NSArray *)filters{
+    BOOL highToLow = [filters containsObject:@"highToLow"];
+    BOOL lowToHigh = [filters containsObject:@"lowToHigh"];
     NSLog(@"%@",filters);
-    self.arrayOfVehicles = [NSArray new];
+    self.arrayOfVehicles = [NSMutableArray new];
     for (int i=0; i< [filters count];i++){
         PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
         
         query.limit = 20;
-        [query whereKey:@"type" equalTo:filters[i]];
-        NSLog(@"%@",filters[i]);
+        
+        if (![filters[i]  isEqual: @"highToLow"] || ![filters[i]  isEqual: @"lowToHigh"]){
+            [query whereKey:@"type" equalTo:filters[i]];
+            NSLog(@"%@",filters[i]);
+        }
+        if (highToLow){
+            [query orderByDescending:@"rate"];
+        }
+        if (lowToHigh){
+            [query orderByAscending:@"rate"];
+        }
+//        if ([filters[i]  isEqual: @"highToLow"]){
+//            [query orderByDescending:@"rate"];
+//            NSLog(@"She's running");
+//        }
+//        if ([filters[i] isEqual: @"lowToHigh"]){
+//            [query orderByAscending:@"rate"];
+//        }
         
         [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
             if (vehicles != nil) {

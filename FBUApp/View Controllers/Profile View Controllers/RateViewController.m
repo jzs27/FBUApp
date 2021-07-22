@@ -33,13 +33,12 @@
     self.rateField.text = [NSString stringWithFormat:@"%i",self.currentValue];
 }
 
-- (IBAction)didType:(id)sender {
+
+- (IBAction)didTypeRate:(id)sender {
     self.currentValue = [self.rateField.text intValue];
 }
 
-
 - (IBAction)didTapConfirm:(id)sender {
-    
     self.vehicle.rate = [NSNumber numberWithInt:self.currentValue];
     [self.vehicle saveInBackground];
     
