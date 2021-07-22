@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a2g-6Z-bMc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ipS-u8-j5P">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -223,23 +223,20 @@
                                 <state key="normal" title="Apply"/>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uEd-qI-oYQ" customClass="BEMCheckBox">
-                                <rect key="frame" x="40" y="139" width="87" height="43"/>
+                                <rect key="frame" x="72" y="139" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="on" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                        <color key="value" red="0.19053888320000001" green="0.63147366049999998" blue="0.93729144330000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5X-Hj-ygn" customClass="BEMCheckBox">
-                                <rect key="frame" x="158" y="139" width="75" height="41"/>
+                                <rect key="frame" x="219" y="139" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x42-6f-8V0" customClass="BEMCheckBox">
-                                <rect key="frame" x="48" y="390" width="99" height="46"/>
+                                <rect key="frame" x="72" y="371" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -257,23 +254,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sPM-tH-igJ" customClass="BEMCheckBox">
-                                <rect key="frame" x="203" y="371" width="115" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Pj-Jm-fjp" customClass="BEMCheckBox">
-                                <rect key="frame" x="213" y="268" width="77" height="50"/>
+                                <rect key="frame" x="72" y="190" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NHX-r1-fEc" customClass="BEMCheckBox">
-                                <rect key="frame" x="50" y="256" width="66" height="54"/>
+                                <rect key="frame" x="72" y="244" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ET-if-c8e" customClass="BEMCheckBox">
-                                <rect key="frame" x="292" y="176" width="67" height="68"/>
+                                <rect key="frame" x="219" y="190" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sPM-tH-igJ" customClass="BEMCheckBox">
+                                <rect key="frame" x="72" y="433" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -309,13 +306,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="Sjh-bS-EwW">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="179"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dif-cp-WQ4">
                                 <rect key="frame" x="0.0" y="178" width="390" height="128"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="brY-pu-B1Y" kind="embed" id="Gd3-3z-TrJ"/>
+                                </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Your Vehicle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1f-0k-6t6">
                                 <rect key="frame" x="38" y="223" width="217" height="30"/>
@@ -332,9 +328,16 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="a2g-6Z-bMc" kind="show" id="s5Y-MG-YbQ"/>
+                                    <segue destination="a2g-6Z-bMc" kind="show" identifier="toFilter" id="s5Y-MG-YbQ"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hau-W7-SDr">
+                                <rect key="frame" x="0.0" y="-9" width="390" height="179"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="bUs-XB-W4p" kind="embed" id="7Tk-cH-E1B"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jdm-76-MNt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -504,6 +507,9 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4g-Hd-U8D">
                                 <rect key="frame" x="0.0" y="79" width="390" height="138"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="brY-pu-B1Y" kind="embed" id="FnC-wX-kVu"/>
+                                </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Reservations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNw-Pw-2Lf">
                                 <rect key="frame" x="63" y="129" width="249" height="38"/>
@@ -773,20 +779,6 @@
                                     <segue destination="ipS-u8-j5P" kind="embed" identifier="toCalendar" id="A7e-D1-ojQ"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CxX-Rb-bDg">
-                                <rect key="frame" x="0.0" y="143" width="390" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Rental Dates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8g-j8-k7d">
-                                        <rect key="frame" x="27" y="22" width="166" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q0w-CR-JIP">
                                 <rect key="frame" x="0.0" y="750" width="390" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -807,7 +799,7 @@
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59G-HZ-kyZ">
-                                <rect key="frame" x="0.0" y="7" width="390" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="135"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="bUs-XB-W4p" kind="embed" id="qM1-dj-yiu"/>
@@ -820,6 +812,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NHY-8q-VB2">
+                                <rect key="frame" x="0.0" y="119" width="390" height="104"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="brY-pu-B1Y" kind="embed" id="ry7-ic-56m"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A1V-OZ-xPK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1027,7 +1026,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-VY-nqY" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="536"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -1048,7 +1047,7 @@
             <objects>
                 <viewController id="Zjf-WK-AxB" customClass="LocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Yn-2I-JPG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="408"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="485"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeG-AN-GHQ" customClass="GMSMapView">
@@ -1095,11 +1094,11 @@
             <objects>
                 <viewController id="bUs-XB-W4p" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eki-uE-Bpn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="179"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-UK-TYq">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1109,13 +1108,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buJ-Du-p9j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-789.23076923076917" y="1427.4881516587677"/>
+            <point key="canvasLocation" x="-298.46153846153845" y="1576.4218009478673"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7DV-TB-wTu">
+            <objects>
+                <viewController id="brY-pu-B1Y" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jD5-Xn-ZhV">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-Ew-zFA">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O4U-8U-LKu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJn-sc-Tur" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-298" y="2947"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="3ET-if-c8e">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="4Pj-Jm-fjp">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="NHX-r1-fEc">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="d5X-Hj-ygn">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="sPM-tH-igJ">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="uEd-qI-oYQ">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="x42-6f-8V0">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="JIa-zd-pXy"/>
-        <segue reference="qM1-dj-yiu"/>
-        <segue reference="uMG-oa-tSl"/>
+        <segue reference="Gd3-3z-TrJ"/>
+        <segue reference="7Tk-cH-E1B"/>
+        <segue reference="Ili-VQ-fpO"/>
         <segue reference="A7e-D1-ojQ"/>
         <segue reference="dK1-l8-BbS"/>
         <segue reference="58D-qP-Bub"/>

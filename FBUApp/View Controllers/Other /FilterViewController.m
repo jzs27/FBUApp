@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 }
 
 /*
@@ -30,17 +30,17 @@
 
 - (void)didTapCheckBox:(BEMCheckBox *)checkBox{
     NSString *tappedBox = @"";
-    if (checkBox == self.smallCheckBox){
+    if (checkBox == self.smallCheckBox && self.smallCheckBox.on ==YES){
         tappedBox = @"Small to Full Size";
     }
     
-    if (checkBox == self.luxuryCheckBox){
+    if (checkBox == self.luxuryCheckBox && self.luxuryCheckBox.on == YES){
         tappedBox = @"Luxury & Convertible";
     }
-    if (checkBox == self.vanCheckBox){
+    if (checkBox == self.vanCheckBox && self.vanCheckBox.on == YES){
         tappedBox = @"Vans & Trucks";
     }
-    if (checkBox == self.wagonCheckBox){
+    if (checkBox == self.wagonCheckBox && self.wagonCheckBox.on == YES){
         tappedBox = @"SUVs & Wagons";
     }
 }
@@ -53,10 +53,6 @@
     self.luxuryCheckBox.on = NO;
     self.vanCheckBox.on = NO;
     self.wagonCheckBox.on = NO;
-    
-}
-
-- (IBAction)didTapApply:(id)sender {
 }
 
 @end

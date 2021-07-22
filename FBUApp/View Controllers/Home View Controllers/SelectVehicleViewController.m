@@ -16,8 +16,9 @@
 #import "VehicleCell.h"
 #import "ConfirmReservationViewController.h"
 #import "VehicleCell.h"
+#import "FilterViewController.h"
 
-@interface SelectVehicleViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface SelectVehicleViewController ()<UITableViewDataSource,UITableViewDelegate,FilterViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
@@ -34,12 +35,10 @@
     
 }
 
-- (void)fetchVehicles {
-    
+- (void)fetchVehicles {    
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
     //[query whereKey:@"location" equalTo:self.location];
-    
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
@@ -59,6 +58,10 @@
     confirmVehicleViewController.vehicle = vehicle;
     confirmVehicleViewController.startDate = self.startDate;
     confirmVehicleViewController.endDate = self.endDate;
+    }
+    if ([[segue identifier] isEqualToString:@"toFilter"]){
+        FilterViewController *filter = [segue destinationViewController];
+        filter.delegate = self;
     }
 }
 

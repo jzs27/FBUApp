@@ -10,7 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol FilterViewControllerDelegate
+
+-(void) addQueryFilter:(NSString*)filter;
+
+@end
+
 @interface FilterViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet BEMCheckBox *allCheckBox;
 @property (weak, nonatomic) IBOutlet BEMCheckBox *vanCheckBox;
 @property (weak, nonatomic) IBOutlet BEMCheckBox *highToLowCheckBox;
@@ -18,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet BEMCheckBox *luxuryCheckBox;
 @property (weak, nonatomic) IBOutlet BEMCheckBox *wagonCheckBox;
 @property (weak, nonatomic) IBOutlet BEMCheckBox *lowToHighCheckBox;
+@property (nonatomic,weak) id<FilterViewControllerDelegate> delegate;
 
 @end
 
