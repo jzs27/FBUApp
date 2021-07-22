@@ -29,6 +29,8 @@
     self.rateLabel.text = [NSString stringWithFormat:@"%@/per day",self.vehicle.rate];
     
     self.vehicleInfoLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.vehicle.make,self.vehicle.model,self.vehicle.year ];
+    
+    self.typeLabel.text = self.vehicle.type;
 }
 
 @end

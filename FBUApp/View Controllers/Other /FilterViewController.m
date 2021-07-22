@@ -36,19 +36,24 @@
     NSLog(@"tapping box");
     NSString *tappedBox = @"";
     if (checkBox == self.smallCheckBox && self.smallCheckBox.on ==YES){
-        tappedBox = @"Small to Full Size";
+        [self.delegate addTypeFilter:@"Small to Full Size"];
     }
     
     if (checkBox == self.luxuryCheckBox && self.luxuryCheckBox.on == YES){
-        tappedBox = @"Luxury & Convertible";
+        [self.delegate addTypeFilter:@"Luxury & Convertible"];
     }
     if (checkBox == self.vanCheckBox && self.vanCheckBox.on == YES){
-        tappedBox = @"Vans & Trucks";
+        [self.delegate addTypeFilter:@"Vans & Trucks"];
     }
     if (checkBox == self.wagonCheckBox && self.wagonCheckBox.on == YES){
-        tappedBox = @"SUVs & Wagons";
+        [self.delegate addTypeFilter:@"SUVs & Wagons"];
     }
-    [self.delegate addQueryFilter:tappedBox];
+    if (checkBox == self.lowToHighCheckBox && self.lowToHighCheckBox.on == YES){
+        [self.delegate addPriceFilter:@"lowToHigh"];
+    }
+    if (checkBox == self.highToLowCheckBox && self.highToLowCheckBox.on == YES){
+        [self.delegate addPriceFilter:@"highToLow"];
+    }
 }
 
 - (IBAction)didTapReset:(id)sender {
