@@ -13,6 +13,7 @@
 @interface ReservationCalendarViewController ()<ReuseCalendarViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property UIActivityIndicatorView *activityView;
 
 @end
 
@@ -21,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = self.reservation.location;
-    
 }
 
 #pragma mark - Navigation
@@ -40,24 +40,28 @@
 
 -(void)addDate:(NSDate *)date{
     self.startDate = date;
-    }
+}
+
+- (IBAction)didTapNext:(id)sender {
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityView.center=self.view.center;
+    [self.activityView startAnimating];
+    [self.view addSubview:self.activityView];
+    [self updateDates];
+}
 
 -(void)updateDates{
     self.reservation.startRentDate = self.startDate;
     self.reservation.endRentDate = self.endDate;
     [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
-            
         }
         else{
+            [self.activityView stopAnimating];
             [self performSegueWithIdentifier:@"fromReservationCalendar" sender:nil];
         }
     }];
-}
-
-- (IBAction)didTapNext:(id)sender {
-    [self updateDates];
-    
 }
 
 @end

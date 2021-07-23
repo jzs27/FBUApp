@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
+@property UIActivityIndicatorView *activityView;
 
 @end
 
@@ -140,14 +141,22 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityView.center=self.view.center;
+    [self.activityView startAnimating];
+    [self.view addSubview:self.activityView];
+    
     Vehicle *vehicle = self.arrayOfVehicles[indexPath.row];
     self.reservation.vehicle = vehicle;
     self.reservation.renter = vehicle.owner;
+    
     [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (error){
             
         }
         else{
+            [self.activityView stopAnimating];
             [self performSegueWithIdentifier:@"fromSelectVehicle" sender:vehicle];
         }
     }];
