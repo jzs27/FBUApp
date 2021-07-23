@@ -20,9 +20,11 @@
 
 @interface SelectVehicleViewController ()<UITableViewDataSource,UITableViewDelegate,FilterViewControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
 @property UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -33,7 +35,9 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self fetchVehicles];
-    NSLog(@"%@",self.reservation.startRentDate);
+    self.locationLabel.text = self.reservation;
+    //self.dateLabel.text = 
+    
     
 }
 

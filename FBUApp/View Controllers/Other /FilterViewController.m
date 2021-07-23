@@ -42,6 +42,10 @@
         [self.filters addObject:@"Small to Full Size"];
 
     }
+    if (checkBox == self.smallCheckBox && self.smallCheckBox.on ==NO){
+        [self didTapReset:nil];
+
+    }
     
     if (checkBox == self.luxuryCheckBox && self.luxuryCheckBox.on == YES){
         [self.filters addObject:@"Luxury & Convertible"];
