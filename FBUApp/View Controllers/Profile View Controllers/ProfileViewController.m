@@ -12,7 +12,6 @@
 #import <Parse/Parse.h>
 
 #import "Vehicle.h"
-
 #import "VehicleCell.h"
 
 @interface ProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -29,6 +28,9 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self fetchVehicles];
+    PFUser *currentUser = [PFUser currentUser];
+    
+    self.usernameLabel.text = [NSString stringWithFormat:@"%@ %@!",@"Hi",currentUser.username];
 }
 
 - (IBAction)didTapRegister:(id)sender {
@@ -38,7 +40,6 @@
 - (void)fetchVehicles {
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
-    //[query whereKey:@"owner" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;

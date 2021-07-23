@@ -21,9 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *type;
 @property Vehicle *vehicle;
 
-
-
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -71,10 +71,9 @@
             }
             else{
                 NSLog(@"Image saved");
+                [self performSegueWithIdentifier:@"fromVehicleImage" sender:nil];
             }
         }];
-        
-        [self performSegueWithIdentifier:@"fromVehicleImage" sender:nil];
     }
 }
 #pragma mark - Navigation
@@ -85,6 +84,5 @@
         rate.vehicle = self.vehicle;
     }
 }
-
 
 @end

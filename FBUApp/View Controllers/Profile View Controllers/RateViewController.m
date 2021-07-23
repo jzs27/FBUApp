@@ -33,7 +33,6 @@
     self.rateField.text = [NSString stringWithFormat:@"%i",self.currentValue];
 }
 
-
 - (IBAction)didTypeRate:(id)sender {
     self.currentValue = [self.rateField.text intValue];
 }
@@ -43,12 +42,10 @@
     [self.vehicle saveInBackground];
     
     [self performSegueWithIdentifier:@"fromRate" sender:nil];
-    
 }
 
 
 #pragma mark - Navigation
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"fromRate"]){
@@ -56,6 +53,5 @@
         confirmVehicle.vehicle = self.vehicle;
     }
 }
-
 
 @end

@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *modelTextField;
 @property (weak, nonatomic) IBOutlet UIButton *typeButton;
 @property (weak, nonatomic) IBOutlet UITableView *typeTableView;
-@property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UITableView *yearTableView;
 @property (weak, nonatomic) IBOutlet UIButton *yearButton;
 @property (weak, nonatomic) IBOutlet UITextField *makeTextField;
@@ -92,7 +91,6 @@
         
         self.typeTableView.hidden = YES;
     }
-    
     else{
         UITableViewCell *cell = [self.yearTableView cellForRowAtIndexPath:indexPath];
         [self.yearButton setTitle:cell.textLabel.text forState:UIControlStateNormal];
@@ -143,7 +141,6 @@
         }
     
     [self.vehicle saveInBackground];
-    
     
     [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
 }

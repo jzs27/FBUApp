@@ -24,7 +24,8 @@
 }
 
 -(void)didSetLocation:(NSString *)location;{
-    [self createVehicle:location];
+    self.location = location;
+    
 }
 
 -(void)createVehicle:(NSString*)location{
@@ -58,6 +59,7 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
+    [self createVehicle:self.location];
     [self performSegueWithIdentifier:@"fromVehicleLocation" sender:nil];
 }
 

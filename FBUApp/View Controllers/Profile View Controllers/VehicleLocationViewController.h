@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VehicleLocationViewController : UIViewController
 
 @property Vehicle *vehicle;
+@property (nonatomic) NSString *location;
 
 @end
 

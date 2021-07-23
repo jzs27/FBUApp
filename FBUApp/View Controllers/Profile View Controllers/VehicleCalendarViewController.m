@@ -19,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.firstDate = YES;
-
 }
 
 - (void)viewWillAppear:(BOOL)animated{
