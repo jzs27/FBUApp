@@ -5,7 +5,6 @@
 //  Created by jessicasyl on 7/12/21.
 //
 
-
 // interface header
 #import "ProfileViewController.h"
 
@@ -75,7 +74,6 @@
     cell.vehicle = vehicle;
     
     return cell;
-    
 }
 
 @end

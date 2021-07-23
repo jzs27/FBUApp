@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSDate *startDate;
 @property NSDate *endDate;
-@property bool *firstDate;
 @property NSString *location;
 @property Reservation *reservation;
 

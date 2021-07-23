@@ -11,6 +11,8 @@
 
 @interface VehicleImageViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property UIActivityIndicatorView *activityView;
+
 @end
 
 @implementation VehicleImageViewController
@@ -63,6 +65,12 @@
 }
 
 - (IBAction)didTapConfirm:(id)sender {
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityView.center=self.view.center;
+    [self.activityView startAnimating];
+    [self.view addSubview:self.activityView];
+    
     if (self.image != nil){
         self.vehicle.image = [Vehicle getPFFileFromImage:self.image];
         [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -70,7 +78,7 @@
                 NSLog(@"Error:%@",error.localizedDescription);
             }
             else{
-                NSLog(@"Image saved");
+                [self.activityView stopAnimating];
                 [self performSegueWithIdentifier:@"fromVehicleImage" sender:nil];
             }
         }];

@@ -13,6 +13,8 @@
 
 @interface RateViewController ()
 
+@property UIActivityIndicatorView *activityView;
+
 @end
 
 @implementation RateViewController
@@ -38,10 +40,26 @@
 }
 
 - (IBAction)didTapConfirm:(id)sender {
-    self.vehicle.rate = [NSNumber numberWithInt:self.currentValue];
-    [self.vehicle saveInBackground];
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityView.center=self.view.center;
+    [self.activityView startAnimating];
+    [self.view addSubview:self.activityView];
     
-    [self performSegueWithIdentifier:@"fromRate" sender:nil];
+    self.vehicle.rate = [NSNumber numberWithInt:self.currentValue];
+    
+    [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"Error:%@",error.localizedDescription);
+        }
+        else{
+            [self.activityView stopAnimating];
+            [self performSegueWithIdentifier:@"fromRate" sender:nil];
+            
+        }
+    }];
+    
+    
 }
 
 

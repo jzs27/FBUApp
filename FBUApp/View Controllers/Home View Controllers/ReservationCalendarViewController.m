@@ -14,6 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property UIActivityIndicatorView *activityView;
+@property bool *selectedOneDate;
+@property NSDate *date1;
+@property NSDate *date2;
 
 @end
 
@@ -22,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = self.reservation.location;
+    self.selectedOneDate = YES;
 }
 
 #pragma mark - Navigation
@@ -40,6 +44,16 @@
 
 -(void)addDate:(NSDate *)date{
     self.startDate = date;
+    
+    if (self.selectedOneDate == YES){
+        self.date1 = date;
+        self.selectedOneDate = NO;
+    }
+    else{
+        self.date2 = date;
+        self.startDate = [self.date1 earlierDate:self.date2];
+        self.endDate = [self.date1 laterDate:self.date2];
+    }
 }
 
 - (IBAction)didTapNext:(id)sender {

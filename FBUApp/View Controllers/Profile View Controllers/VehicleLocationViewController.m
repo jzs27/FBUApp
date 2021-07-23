@@ -14,6 +14,8 @@
 
 @interface VehicleLocationViewController ()<ReuseLocationDelegate>
 
+@property UIActivityIndicatorView *activityView;
+
 @end
 
 @implementation VehicleLocationViewController
@@ -27,23 +29,6 @@
     self.location = location;
     
 }
-
--(void)createVehicle:(NSString*)location{
-    Vehicle *newVehicle = [Vehicle new];
-    newVehicle.location = location;
-    newVehicle.owner = [PFUser currentUser];
-    
-    [newVehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"Here's the error, %@",error);
-                
-            } else {
-                NSLog(@"Yo it succeeded!");
-            }
-    }];
-    self.vehicle = newVehicle;
-}
-
 
 #pragma mark - Navigation
 
@@ -59,8 +44,31 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityView.center=self.view.center;
+    [self.activityView startAnimating];
+    [self.view addSubview:self.activityView];
+    
     [self createVehicle:self.location];
-    [self performSegueWithIdentifier:@"fromVehicleLocation" sender:nil];
+}
+
+-(void)createVehicle:(NSString*)location{
+    Vehicle *newVehicle = [Vehicle new];
+    newVehicle.location = location;
+    newVehicle.owner = [PFUser currentUser];
+    
+    [newVehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Here's the error, %@",error);
+                
+            } else {
+                NSLog(@"Yo it succeeded!");
+                [self.activityView stopAnimating];
+                [self performSegueWithIdentifier:@"fromVehicleLocation" sender:nil];
+            }
+    }];
+    self.vehicle = newVehicle;
 }
 
 @end

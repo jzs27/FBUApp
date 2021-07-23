@@ -12,13 +12,19 @@
 
 @interface VehicleCalendarViewController ()<ReuseCalendarViewDelegate>
 
+@property UIActivityIndicatorView *activityView;
+@property NSDate *startDate;
+@property NSDate *endDate;
+@property NSDate *date1;
+@property NSDate *date2;
+
 @end
 
 @implementation VehicleCalendarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.firstDate = YES;
+    self.selectedOneDate = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -40,18 +46,41 @@
 }
 
 -(void)addDate:(NSDate *)date{
-    if (self.firstDate == YES){
-        self.vehicle.availableStartDate = date;
-        self.firstDate = NO;
+    
+    if (self.selectedOneDate == YES){
+        self.date1 = date;
+        self.selectedOneDate = NO;
     }
     else{
-        self.vehicle.availableEndDate = date;
+        self.date2 = date;
+        self.startDate = [self.date1 earlierDate:self.date2];
+        self.endDate = [self.date1 laterDate:self.date2];
     }
-    [self.vehicle saveInBackground];
-    }
+}
+
 
 - (IBAction)didTapNext:(id)sender {
-    [self performSegueWithIdentifier:@"fromVehicleCalendar" sender:nil];
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityView.center=self.view.center;
+    [self.activityView startAnimating];
+    [self.view addSubview:self.activityView];
+    [self updateDates];
+}
+
+-(void)updateDates{
+    self.vehicle.availableStartDate = self.startDate;
+    self.vehicle.availableEndDate  = self.endDate;
+    [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"Error:%@",error.localizedDescription);
+        }
+        else{
+            [self.activityView stopAnimating];
+            [self performSegueWithIdentifier:@"fromVehicleCalendar" sender:nil];
+            
+        }
+    }];
 }
 
 @end

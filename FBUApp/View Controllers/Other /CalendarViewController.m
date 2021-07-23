@@ -32,10 +32,13 @@ int calendarCount;
     }
 }
 
+
+
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
     calendarCount++;
     if (calendarCount == 2){
-        self.calendar.allowsMultipleSelection = NO;
+        self.calendar.allowsSelection = NO;
+        
     }
     [self.delegate addDate:date];
     
@@ -44,7 +47,7 @@ int calendarCount;
 - (void)calendar:(FSCalendar *)calendar didDeselectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
     calendarCount--;
     if (calendarCount < 2){
-        self.calendar.allowsMultipleSelection = YES;
+        self.calendar.allowsSelection = YES;
     }
     NSLog(@"%d",calendarCount);
 }
@@ -53,6 +56,9 @@ int calendarCount;
     
 }
 
+- (IBAction)didClearSelection:(id)sender {
+
+}
 
 
 /*

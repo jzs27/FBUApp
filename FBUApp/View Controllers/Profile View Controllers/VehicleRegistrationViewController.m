@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *yearTableView;
 @property (weak, nonatomic) IBOutlet UIButton *yearButton;
 @property (weak, nonatomic) IBOutlet UITextField *makeTextField;
+@property UIActivityIndicatorView *activityView;
 
 @end
 
@@ -127,6 +128,12 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.activityView.center=self.view.center;
+    [self.activityView startAnimating];
+    [self.view addSubview:self.activityView];
+
     if (self.year != nil){
             self.vehicle.year= self.year;
         }
@@ -140,9 +147,16 @@
             self.vehicle.type = self.type;
         }
     
-    [self.vehicle saveInBackground];
-    
-    [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
+    [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            NSLog(@"Error:%@",error.localizedDescription);
+        }
+        else{
+            [self.activityView stopAnimating];
+            [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
+            
+        }
+    }];
 }
 
 
