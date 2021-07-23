@@ -28,38 +28,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setVehicle:self.vehicle];
-    NSLog(@"Date at confirm vehicle:");
-    NSLog(@"%@",self.startDate);
+    [self setVehicle:self.reservation.vehicle];
     
 }
 
 - (IBAction)didTapConfirmButton:(id)sender {
-    PFUser *renter = self.vehicle.owner;
-    [Reservation createReservation:renter withVehicle:self.vehicle withStartDate:self.startDate withEndDate:self.endDate withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error) {
-
-        } else {
-            NSLog(@"Yo it succeeded!");
-        }
-    }];
-    
     [self performSegueWithIdentifier:@"fromConfirmVehicle" sender:nil];
 }
 
 - (void)setVehicle:(Vehicle *)vehicle{
-    _vehicle = vehicle;
     
-    PFFileObject *image = self.vehicle.image;
+    PFFileObject *image = self.reservation.vehicle.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%@",self.vehicle.rate];
+    self.priceLabel.text = [NSString stringWithFormat:@"%@",self.reservation.vehicle.rate];
     
-    self.vehicleLabel.text = [NSString stringWithFormat:@"%@/%@/%@", self.vehicle.make,self.vehicle.model,self.vehicle.year ];
+    self.vehicleLabel.text = [NSString stringWithFormat:@"%@/%@/%@", self.reservation.vehicle.make,self.reservation.vehicle.model,self.reservation.vehicle.year ];
     
-    
-    NSDate *date= self.startDate;
+    NSDate *date= self.reservation.startRentDate;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
     formatter.dateFormat = @"MMM dd";

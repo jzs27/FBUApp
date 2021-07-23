@@ -22,7 +22,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
-@property UIRefreshControl *refreshControl;
 
 @end
 
@@ -33,13 +32,13 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self fetchVehicles];
+    NSLog(@"%@",self.reservation.startRentDate);
     
 }
 
 - (void)fetchVehicles {    
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
-    //[query whereKey:@"location" equalTo:self.location];
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
@@ -49,6 +48,7 @@
         }
     }];
 }
+
 - (void)addTypeFilter:(NSString *)type{
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     
@@ -107,13 +107,6 @@
         if (lowToHigh){
             [query orderByAscending:@"rate"];
         }
-//        if ([filters[i]  isEqual: @"highToLow"]){
-//            [query orderByDescending:@"rate"];
-//            NSLog(@"She's running");
-//        }
-//        if ([filters[i] isEqual: @"lowToHigh"]){
-//            [query orderByAscending:@"rate"];
-//        }
         
         [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
             if (vehicles != nil) {
@@ -125,8 +118,6 @@
         }];
     }
     [self.tableView reloadData];
-    
-    
 }
 
 #pragma mark - Navigation
@@ -134,10 +125,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"fromSelectVehicle"]){
     Vehicle *vehicle = sender;
-    ConfirmReservationViewController *confirmVehicleViewController   = [segue destinationViewController];
-    confirmVehicleViewController.vehicle = vehicle;
-    confirmVehicleViewController.startDate = self.startDate;
-    confirmVehicleViewController.endDate = self.endDate;
+    ConfirmReservationViewController *confirmReservationViewController   = [segue destinationViewController];
+    confirmReservationViewController.reservation = self.reservation;
+    
     }
     if ([[segue identifier] isEqualToString:@"toFilter"]){
         FilterViewController *filter = [segue destinationViewController];
@@ -151,7 +141,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Vehicle *vehicle = self.arrayOfVehicles[indexPath.row];
-    [self performSegueWithIdentifier:@"fromSelectVehicle" sender:vehicle];
+    self.reservation.vehicle = vehicle;
+    self.reservation.renter = vehicle.owner;
+    [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            
+        }
+        else{
+            [self performSegueWithIdentifier:@"fromSelectVehicle" sender:vehicle];
+        }
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

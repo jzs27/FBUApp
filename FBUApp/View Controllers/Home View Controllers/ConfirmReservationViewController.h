@@ -6,15 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "Vehicle.h"
+#import "Reservation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ConfirmReservationViewController : UIViewController
 
-@property (nonatomic) Vehicle *vehicle;
-@property NSDate *startDate;
-@property NSDate *endDate;
+@property Reservation *reservation;
 
 @end
 

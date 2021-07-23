@@ -20,10 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.locationLabel.text = self.location;
+    self.locationLabel.text = self.reservation.location;
     
 }
-
 
 #pragma mark - Navigation
 
@@ -35,20 +34,30 @@
     }
     if ([[segue identifier] isEqualToString:@"fromReservationCalendar"]){
         SelectVehicleViewController *selectVehicle = [segue destinationViewController];
-        selectVehicle.startDate= self.startDate;
-        selectVehicle.endDate = self.endDate;
-        selectVehicle.location = self.location;
+        selectVehicle.reservation = self.reservation;
     }
-        
-
 }
 
 -(void)addDate:(NSDate *)date{
     self.startDate = date;
     }
 
+-(void)updateDates{
+    self.reservation.startRentDate = self.startDate;
+    self.reservation.endRentDate = self.endDate;
+    [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error){
+            
+        }
+        else{
+            [self performSegueWithIdentifier:@"fromReservationCalendar" sender:nil];
+        }
+    }];
+}
+
 - (IBAction)didTapNext:(id)sender {
-    [self performSegueWithIdentifier:@"fromReservationCalendar" sender:nil];
+    [self updateDates];
+    
 }
 
 @end

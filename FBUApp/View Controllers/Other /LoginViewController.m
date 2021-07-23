@@ -15,7 +15,6 @@
 #import "Vehicle.h"
 #import "Reservation.h"
 
-
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -54,17 +53,14 @@
             NSLog(@"User logged in successfully");
             [self clearFields];
             [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
-            
         }
     }];
-    
 }
 
 - (void)registerUser {
     [self performSegueWithIdentifier:@"fromLoginToSignUp" sender:nil];
             
 }
-
 
 -(void) createAlert:(NSString *)error{
     self.alert = [UIAlertController alertControllerWithTitle:@"Error" message:error preferredStyle:(UIAlertControllerStyleAlert)];
@@ -82,12 +78,6 @@
     self.usernameTextField.text = @"";
     self.passwordTextField.text=@"";
 }
-
-
-
-
-
-
 
 /*
 #pragma mark - Navigation

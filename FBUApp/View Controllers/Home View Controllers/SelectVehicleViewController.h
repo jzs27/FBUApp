@@ -7,13 +7,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Reservation.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SelectVehicleViewController : UIViewController
 
-@property NSDate *startDate;
-@property NSDate *endDate;
-@property NSString *location;
+@property Reservation *reservation;
 
 @end
 

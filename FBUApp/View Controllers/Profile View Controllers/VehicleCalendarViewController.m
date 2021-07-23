@@ -33,7 +33,7 @@
         CalendarViewController *reuseCalendar = [segue destinationViewController];
         reuseCalendar.delegate = self;
     }
-    else{
+    if ([[segue identifier] isEqualToString:@"fromVehicleCalendar"]){
         VehicleRegistrationViewController *vehicleRegistration = [segue destinationViewController];
         vehicleRegistration.vehicle = self.vehicle;
     }

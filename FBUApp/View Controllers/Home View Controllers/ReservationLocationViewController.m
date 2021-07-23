@@ -17,7 +17,6 @@
 #import "ReservationCalendarViewController.h"
 #import "LocationViewController.h"
 
-
 @interface ReservationLocationViewController ()<ReuseLocationDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -50,14 +49,29 @@
     self.locationLabel.text = self.location;
 }
 
+-(void)createReservaton:(NSString*)location{
+    Reservation *newReservation = [Reservation new];
+    newReservation.location = self.location;
+    newReservation.rentee = [PFUser currentUser];
+    
+    [newReservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Here's the error, %@",error);
+                
+            } else {
+                NSLog(@"Yo it succeeded!");
+                [self performSegueWithIdentifier:@"fromReservationLocation" sender:nil];
+            }
+    }];
+    self.reservation = newReservation;
+}
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"fromReservationLocation"]){
-        //[self getReservationObject];
         ReservationCalendarViewController *calendarVehicleViewController  = [segue destinationViewController];
-        calendarVehicleViewController.location = self.location;
+        calendarVehicleViewController.reservation = self.reservation;
     }
     if ([[segue identifier] isEqualToString:@"fromLocation"]){
         LocationViewController *reuseLocation = [segue destinationViewController];
@@ -66,7 +80,7 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
-    [self performSegueWithIdentifier:@"fromReservationLocation" sender:nil];
+    [self createReservaton:self.location];
 }
 
 @end
