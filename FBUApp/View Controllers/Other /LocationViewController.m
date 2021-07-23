@@ -208,6 +208,28 @@
 }
 
 
+- (IBAction)didTapMap:(id)sender {
+    //[self raiseMap];
+}
+
+
+//-(void)raiseMap{
+//    [UIView animateWithDuration:0.5 animations:^{
+//            CGRect mapFrame = self.mapView.frame;
+//            mapFrame.origin.y -= 200;
+//            self.mapView.frame = mapFrame;
+//
+//        CGRect tableFrame = self.tableView.frame;
+//        tableFrame.origin.y += 200;
+//        self.tableView.frame = mapFrame;
+//
+//        
+//
+//    }];
+//
+//}
+
+
 
 
 

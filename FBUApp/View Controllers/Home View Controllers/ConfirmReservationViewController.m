@@ -55,12 +55,17 @@
  
 }
 
-/*
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"fromConfirmVehicle"]){
+        UITabBarController *tabBar = [segue destinationViewController];
+        
+        tabBar.selectedIndex = 1;
+    }
     
 }
-*/
+
 
 @end
