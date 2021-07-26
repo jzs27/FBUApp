@@ -45,4 +45,16 @@
     return [PFFileObject fileObjectWithName:@"image.png"  data:imageData];
 }
 
++(NSString *)createDateString:(NSDate *)startDate withEndDate:(NSDate *)endDate {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"MMM dd";
+    
+    NSString *startDateString = [formatter stringFromDate:startDate];
+    NSString *endDateString = [formatter stringFromDate:endDate];
+    
+    return [NSString stringWithFormat:@"%@ - %@",startDateString,endDateString];
+        
+}
+
 @end

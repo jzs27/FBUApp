@@ -17,6 +17,8 @@
 @property NSDate *endDate;
 @property NSDate *date1;
 @property NSDate *date2;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -25,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.selectedOneDate = YES;
+    self.locationLabel.text = self.vehicle.location;
+    self.dateLabel.text = @"";
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -55,6 +60,8 @@
         self.date2 = date;
         self.startDate = [self.date1 earlierDate:self.date2];
         self.endDate = [self.date1 laterDate:self.date2];
+        
+        self.dateLabel.text = [Vehicle createDateString:self.startDate withEndDate:self.endDate];
     }
 }
 
@@ -81,6 +88,10 @@
             
         }
     }];
+}
+
+- (IBAction)didTapX:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

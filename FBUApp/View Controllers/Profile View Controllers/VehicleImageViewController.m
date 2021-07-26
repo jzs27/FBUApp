@@ -12,6 +12,8 @@
 @interface VehicleImageViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -19,6 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.locationLabel.text = self.vehicle.location;
+    
+    self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
     
 }
 
@@ -91,6 +97,10 @@
         RateViewController *rate = [segue destinationViewController];
         rate.vehicle = self.vehicle;
     }
+}
+
+- (IBAction)didTapX:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -69,6 +69,9 @@
     }
     
 }
+- (IBAction)didTapBack:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)didTapReset:(id)sender {
     self.allCheckBox.on = NO;

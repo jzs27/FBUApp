@@ -21,12 +21,6 @@
     return @"Reservation";
 }
 
-//+ (void) createReservation:(NSString *)location withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-//    Reservation *newReservation = [Reservation new];
-//    newReservation.rentee = [PFUser currentUser];
-//    newReservation.location = location;
-//}
-
 + (void) createReservation:( PFUser*)renter withVehicle:(Vehicle*)vehicle withStartDate:(NSDate*)startDate withEndDate:(NSDate*)endDate withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Reservation *newReservation = [Reservation new];
@@ -39,7 +33,17 @@
     [newReservation saveInBackgroundWithBlock: completion];
 }
 
++(NSString *)createDateString:(NSDate *)startDate withEndDate:(NSDate *)endDate {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"MMM dd";
+    
+    NSString *startDateString = [formatter stringFromDate:startDate];
+    NSString *endDateString = [formatter stringFromDate:endDate];
+    
+    return [NSString stringWithFormat:@"%@ - %@",startDateString,endDateString];
 
-
+        
+}
 
 @end

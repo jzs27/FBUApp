@@ -17,6 +17,7 @@
 @property bool *selectedOneDate;
 @property NSDate *date1;
 @property NSDate *date2;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -26,6 +27,9 @@
     [super viewDidLoad];
     self.locationLabel.text = self.reservation.location;
     self.selectedOneDate = YES;
+    self.dateLabel.text = @"";
+    
+    
 }
 
 #pragma mark - Navigation
@@ -53,6 +57,8 @@
         self.date2 = date;
         self.startDate = [self.date1 earlierDate:self.date2];
         self.endDate = [self.date1 laterDate:self.date2];
+        
+        self.dateLabel.text = [Reservation createDateString:self.startDate withEndDate:self.endDate];
     }
 }
 
@@ -76,6 +82,10 @@
             [self performSegueWithIdentifier:@"fromReservationCalendar" sender:nil];
         }
     }];
+}
+
+- (IBAction)didTapX:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

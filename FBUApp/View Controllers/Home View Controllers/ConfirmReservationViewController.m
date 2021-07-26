@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *vehicleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @end
 
@@ -42,17 +43,13 @@
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"%@",self.reservation.vehicle.rate];
+    self.priceLabel.text = [NSString stringWithFormat:@"$ %@ /day",self.reservation.vehicle.rate];
+    self.locationLabel.text = self.reservation.location;
     
-    self.vehicleLabel.text = [NSString stringWithFormat:@"%@/%@/%@", self.reservation.vehicle.make,self.reservation.vehicle.model,self.reservation.vehicle.year ];
+    self.vehicleLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.reservation.vehicle.make,self.reservation.vehicle.model,self.reservation.vehicle.year ];
     
-    NSDate *date= self.reservation.startRentDate;
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    
-    formatter.dateFormat = @"MMM dd";
-    
-    self.dateLabel.text = [formatter stringFromDate:date];
- 
+    self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
+
 }
 
 

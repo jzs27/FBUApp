@@ -16,6 +16,7 @@
 
 @interface VehicleRegistrationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UITextField *modelTextField;
 @property (weak, nonatomic) IBOutlet UIButton *typeButton;
 @property (weak, nonatomic) IBOutlet UITableView *typeTableView;
@@ -23,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *yearButton;
 @property (weak, nonatomic) IBOutlet UITextField *makeTextField;
 @property UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -41,6 +43,11 @@
     self.typeData = [[NSArray alloc]initWithObjects:@"Small to Full Size",@"Luxury & Convertible",@"SUVs & Wagons",@"Vans & Trucks", nil];
     
     self.yearData = [[NSArray alloc]initWithObjects:@"2021",@"2020",@"2019",@"2018", nil];
+    
+    self.locationLabel.text = self.vehicle.location;
+    
+    self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
+
 }
 
 #pragma mark - Navigation
@@ -159,6 +166,8 @@
     }];
 }
 
-
+- (IBAction)didTapX:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(Vehicle *) createVehicle: (NSString*)location withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
-
++(NSString *)createDateString:(NSDate *)startDate withEndDate:(NSDate *)endDate;
 @end
 
 NS_ASSUME_NONNULL_END

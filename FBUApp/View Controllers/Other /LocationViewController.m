@@ -16,7 +16,9 @@
 @property (strong, nonatomic) NSMutableArray *arrayOfLocations;
 @property (strong, nonatomic) NSMutableArray *filteredArrayOfLocations;
 @property CLLocationManager *locationManager;
+@property bool *mapOn;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIButton *mapButton;
 
 @end
 
@@ -24,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mapOn = NO;
   
   GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:31.968599
                                                           longitude:-99.901813
@@ -209,19 +212,56 @@
 
 
 - (IBAction)didTapMap:(id)sender {
-    //[self raiseMap];
+    if (self.mapOn == NO){
+        [self raiseMap];
+        self.mapOn = YES;
+        [self.mapButton setTitle:@"Location List" forState:UIControlStateNormal];
+        
+    }
+    else{
+        [self lowerMap];
+        self.mapOn = NO;
+        [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
+    }
+    
 }
 
 
 -(void)raiseMap{
     [UIView animateWithDuration:0.5 animations:^{
             CGRect mapFrame = self.mapView.frame;
-            mapFrame.origin.y -= 500;
+            mapFrame.origin.y -= 448;
             self.mapView.frame = mapFrame;
 
         CGRect tableFrame = self.tableView.frame;
-        tableFrame.origin.y += 500;
-        self.tableView.frame = mapFrame;
+        tableFrame.origin.y += 404;
+        self.tableView.frame = tableFrame;
+        
+        CGRect searchFrame = self.searchBar.frame;
+        searchFrame.origin.y += 448;
+        self.searchBar.frame = searchFrame;
+
+        
+
+    }];
+
+}
+
+-(void)lowerMap{
+    [UIView animateWithDuration:0.5 animations:^{
+            CGRect mapFrame = self.mapView.frame;
+            mapFrame.origin.y += 448;
+            self.mapView.frame = mapFrame;
+
+        CGRect tableFrame = self.tableView.frame;
+        tableFrame.origin.y -= 404;
+        self.tableView.frame = tableFrame;
+        
+        CGRect searchFrame = self.searchBar.frame;
+        //searchFrame.origin.y = 0;
+        searchFrame.origin.y -= 448;
+        self.searchBar.frame = searchFrame;
+        
 
         
 

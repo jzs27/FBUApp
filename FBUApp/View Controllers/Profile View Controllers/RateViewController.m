@@ -14,6 +14,8 @@
 @interface RateViewController ()
 
 @property UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -23,6 +25,9 @@
     [super viewDidLoad];
     self.currentValue = 30;
     self.rateField.text = [NSString stringWithFormat:@"%i",self.currentValue];
+    self.locationLabel.text = self.vehicle.location;
+    
+    self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
 }
 
 - (IBAction)didTapPlusButton:(id)sender {
@@ -55,10 +60,8 @@
         else{
             [self.activityView stopAnimating];
             [self performSegueWithIdentifier:@"fromRate" sender:nil];
-            
         }
     }];
-    
     
 }
 
@@ -71,5 +74,10 @@
         confirmVehicle.vehicle = self.vehicle;
     }
 }
+
+- (IBAction)didTapX:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

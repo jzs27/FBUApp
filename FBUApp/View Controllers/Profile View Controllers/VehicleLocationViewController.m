@@ -14,6 +14,8 @@
 
 @interface VehicleLocationViewController ()<ReuseLocationDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
 @property UIActivityIndicatorView *activityView;
 
 @end
@@ -22,11 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.locationLabel.text = @"";
+    
     
 }
 
 -(void)didSetLocation:(NSString *)location;{
     self.location = location;
+    self.locationLabel.text = self.location;
     
 }
 
@@ -69,6 +74,10 @@
             }
     }];
     self.vehicle = newVehicle;
+}
+
+- (IBAction)didTapx:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

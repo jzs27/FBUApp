@@ -12,6 +12,12 @@
 
 @interface ConfirmVehicleViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
+@property (weak, nonatomic) IBOutlet UILabel *vehicleInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @end
 
 @implementation ConfirmVehicleViewController
@@ -24,6 +30,11 @@
     [self.vehicleView setImageWithURL:imageURL];
     
     self.vehicleInfoLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.vehicle.make,self.vehicle.model,self.vehicle.year ];
+    
+    self.priceLabel.text = [NSString stringWithFormat:@"$ %@ /day",self.vehicle.rate];
+    self.locationLabel.text = self.vehicle.location;
+    
+    self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
 }
 
 - (IBAction)didTapConfirm:(id)sender {

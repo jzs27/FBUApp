@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) createReservation:( PFUser*)renter withVehicle:(Vehicle*)vehicle withStartDate:(NSDate*)startDate withEndDate:(NSDate*)endDate withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
++(NSString *)createDateString:(NSDate *)startDate withEndDate:(NSDate *)endDate;
+
 @end
 
 NS_ASSUME_NONNULL_END

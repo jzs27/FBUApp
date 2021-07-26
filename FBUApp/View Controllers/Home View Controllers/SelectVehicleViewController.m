@@ -35,8 +35,10 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self fetchVehicles];
-    self.locationLabel.text = self.reservation;
-    //self.dateLabel.text = 
+    self.locationLabel.text = self.reservation.location;
+    
+    self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
+    
     
     
 }
@@ -177,6 +179,10 @@
     cell.vehicle = vehicle;
     
     return cell;
+}
+
+- (IBAction)didTapX:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
