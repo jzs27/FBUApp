@@ -66,10 +66,8 @@
     
     [newReservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error) {
-                NSLog(@"Here's the error, %@",error);
-                
-            } else {
-                NSLog(@"Yo it succeeded!");
+            }
+            else {
                 [self.activityView stopAnimating];
                 [self performSegueWithIdentifier:@"fromReservationLocation" sender:nil];
             }

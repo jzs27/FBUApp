@@ -223,9 +223,7 @@
         self.mapOn = NO;
         [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
     }
-    
 }
-
 
 -(void)raiseMap{
     [UIView animateWithDuration:0.5 animations:^{
@@ -240,9 +238,6 @@
         CGRect searchFrame = self.searchBar.frame;
         searchFrame.origin.y += 448;
         self.searchBar.frame = searchFrame;
-
-        
-
     }];
 
 }
@@ -261,16 +256,7 @@
         //searchFrame.origin.y = 0;
         searchFrame.origin.y -= 448;
         self.searchBar.frame = searchFrame;
-        
-
-        
-
     }];
-
 }
-
-
-
-
 
 @end

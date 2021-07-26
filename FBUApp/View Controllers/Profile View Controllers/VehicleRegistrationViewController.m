@@ -161,7 +161,6 @@
         else{
             [self.activityView stopAnimating];
             [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
-            
         }
     }];
 }

@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 
 #import "ConfirmVehicleViewController.h"
+#import "APIManager.h"
 
 @interface RateViewController ()
 
@@ -23,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.currentValue = 30;
     self.rateField.text = [NSString stringWithFormat:@"%i",self.currentValue];
     self.locationLabel.text = self.vehicle.location;
@@ -65,7 +67,6 @@
     
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -78,6 +79,5 @@
 - (IBAction)didTapX:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 @end

@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *location;
 @property Reservation *reservation;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

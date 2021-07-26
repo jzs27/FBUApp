@@ -49,9 +49,7 @@
     self.vehicleLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.reservation.vehicle.make,self.reservation.vehicle.model,self.reservation.vehicle.year ];
     
     self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
-
 }
-
 
 #pragma mark - Navigation
 
@@ -61,8 +59,6 @@
         
         tabBar.selectedIndex = 1;
     }
-    
 }
-
 
 @end

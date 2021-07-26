@@ -25,14 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = @"";
-    
-    
 }
 
 -(void)didSetLocation:(NSString *)location;{
     self.location = location;
     self.locationLabel.text = self.location;
-    
 }
 
 #pragma mark - Navigation
@@ -65,10 +62,9 @@
     
     [newVehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error) {
-                NSLog(@"Here's the error, %@",error);
+                NSLog(@"Error:, %@",error);
                 
             } else {
-                NSLog(@"Yo it succeeded!");
                 [self.activityView stopAnimating];
                 [self performSegueWithIdentifier:@"fromVehicleLocation" sender:nil];
             }

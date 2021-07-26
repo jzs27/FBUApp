@@ -28,8 +28,6 @@
     self.locationLabel.text = self.reservation.location;
     self.selectedOneDate = YES;
     self.dateLabel.text = @"";
-    
-    
 }
 
 #pragma mark - Navigation

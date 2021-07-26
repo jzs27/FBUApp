@@ -46,11 +46,10 @@
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
-            NSLog(@"User log in failed: %@", error.localizedDescription);
             [self createAlert:error.localizedDescription];
             [self clearFields];
-        } else {
-            NSLog(@"User logged in successfully");
+        }
+        else {
             [self clearFields];
             [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
         }
@@ -58,8 +57,7 @@
 }
 
 - (void)registerUser {
-    [self performSegueWithIdentifier:@"fromLoginToSignUp" sender:nil];
-            
+    [self performSegueWithIdentifier:@"fromLoginToSignUp" sender:nil];          
 }
 
 -(void) createAlert:(NSString *)error{

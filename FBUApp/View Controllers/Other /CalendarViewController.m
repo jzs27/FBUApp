@@ -7,8 +7,6 @@
 
 #import "CalendarViewController.h"
 
-
-
 @interface CalendarViewController ()<FSCalendarDelegate,FSCalendarDataSource>
 
 @end
@@ -16,8 +14,6 @@
 int calendarCount;
 
 @implementation CalendarViewController
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,8 +28,6 @@ int calendarCount;
     }
 }
 
-
-
 - (void)calendar:(FSCalendar *)calendar didSelectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{
     calendarCount++;
     if (calendarCount == 2){
@@ -41,7 +35,6 @@ int calendarCount;
         
     }
     [self.delegate addDate:date];
-    
 }
 
 - (void)calendar:(FSCalendar *)calendar didDeselectDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition{

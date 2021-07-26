@@ -38,9 +38,6 @@
     self.locationLabel.text = self.reservation.location;
     
     self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
-    
-    
-    
 }
 
 - (void)fetchVehicles {    

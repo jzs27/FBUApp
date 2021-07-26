@@ -67,8 +67,8 @@
         [self.delegate addPriceFilter:@"highToLow"];
         [self.filters addObject:@"highToLow"];
     }
-    
 }
+
 - (IBAction)didTapBack:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
