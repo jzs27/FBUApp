@@ -40,7 +40,6 @@
 		A5941D96269F93FF0086BA9C /* ReservationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D95269F93FF0086BA9C /* ReservationCell.m */; };
 		A5941D9C26A090F00086BA9C /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D9B26A090F00086BA9C /* RateViewController.m */; };
 		A5941DA226A1E4380086BA9C /* ConfirmVehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941DA126A1E4380086BA9C /* ConfirmVehicleViewController.m */; };
-		A5F43E4626AF35AF00D05F39 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F43E4526AF35AF00D05F39 /* APIManager.m */; };
 		CACDADDC2F6F7714348AB92D /* Pods_FBUApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D513AD403B5284048E00F701 /* Pods_FBUApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,8 +127,6 @@
 		A5941D9B26A090F00086BA9C /* RateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RateViewController.m; sourceTree = "<group>"; };
 		A5941DA026A1E4380086BA9C /* ConfirmVehicleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmVehicleViewController.h; sourceTree = "<group>"; };
 		A5941DA126A1E4380086BA9C /* ConfirmVehicleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmVehicleViewController.m; sourceTree = "<group>"; };
-		A5F43E4426AF35AF00D05F39 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
-		A5F43E4526AF35AF00D05F39 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		BABCDC28C50BE8C063C36793 /* Pods_FBUAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10FD91B8EEB9134A0289F23 /* Pods-FBUApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBUApp.release.xcconfig"; path = "Target Support Files/Pods-FBUApp/Pods-FBUApp.release.xcconfig"; sourceTree = "<group>"; };
 		D513AD403B5284048E00F701 /* Pods_FBUApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,8 +247,6 @@
 				A5941D63269CF7490086BA9C /* Reservation.m */,
 				A5941D65269CF7570086BA9C /* Vehicle.h */,
 				A5941D66269CF7570086BA9C /* Vehicle.m */,
-				A5F43E4426AF35AF00D05F39 /* APIManager.h */,
-				A5F43E4526AF35AF00D05F39 /* APIManager.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -650,7 +645,6 @@
 				A5941D83269D02D40086BA9C /* DetailsViewController.m in Sources */,
 				A50BEFB126A778E600750B2A /* VehicleCell.m in Sources */,
 				A5941D96269F93FF0086BA9C /* ReservationCell.m in Sources */,
-				A5F43E4626AF35AF00D05F39 /* APIManager.m in Sources */,
 				A5941D9C26A090F00086BA9C /* RateViewController.m in Sources */,
 				A5941D71269CFFFA0086BA9C /* ReservationLocationViewController.m in Sources */,
 				A53B6C6926A5E8660094AF1D /* VehicleCalendarViewController.m in Sources */,

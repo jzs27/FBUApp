@@ -10,7 +10,6 @@
 #import <Parse/Parse.h>
 
 #import "ConfirmVehicleViewController.h"
-#import "APIManager.h"
 
 @interface RateViewController ()
 

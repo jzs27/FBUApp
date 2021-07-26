@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //self.mapView.constraints = self.view.frame.size.height;
     self.mapOn = NO;
   
   GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:31.968599
