@@ -28,12 +28,10 @@
     [super viewDidLoad];
     self.tableView.dataSource=self;
     self.tableView.delegate = self;
-    [self onTimer];
-
+    [self fetchReservations];
 }
 
-- (void)onTimer {
-    //[NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
+- (void)fetchReservations{
     PFQuery *query = [PFQuery queryWithClassName:@"Reservation"];
     query.limit = 20;
     [query includeKey:@"vehicle"];

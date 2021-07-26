@@ -94,37 +94,30 @@
     }];
 }
 
-- (void)addMultiFilter:(NSArray *)filters{
+-(void)addMultiFilter:(NSArray *)filters{
+    
     BOOL highToLow = [filters containsObject:@"highToLow"];
     BOOL lowToHigh = [filters containsObject:@"lowToHigh"];
-    NSLog(@"%@",filters);
-    self.arrayOfVehicles = [NSMutableArray new];
-    for (int i=0; i< [filters count];i++){
-        PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-        
-        query.limit = 20;
-        
-        if (![filters[i]  isEqual: @"highToLow"] || ![filters[i]  isEqual: @"lowToHigh"]){
-            [query whereKey:@"type" equalTo:filters[i]];
-            NSLog(@"%@",filters[i]);
-        }
-        if (highToLow){
-            [query orderByDescending:@"rate"];
-        }
-        if (lowToHigh){
-            [query orderByAscending:@"rate"];
-        }
-        
-        [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
-            if (vehicles != nil) {
-                self.arrayOfVehicles = [vehicles arrayByAddingObjectsFromArray:self.arrayOfVehicles];
-                [self.tableView reloadData];
-            } else {
-                NSLog(@"%@", error.localizedDescription);
-            }
-        }];
+    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
+    
+    query.limit = 20;
+    [query whereKey:@"type" containedIn:filters];
+    if (highToLow){
+        [query orderByDescending:@"rate"];
     }
-    [self.tableView reloadData];
+    if (lowToHigh){
+        [query orderByAscending:@"rate"];
+        
+    }
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
+        if (vehicles != nil) {
+            self.arrayOfVehicles = vehicles;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 #pragma mark - Navigation
