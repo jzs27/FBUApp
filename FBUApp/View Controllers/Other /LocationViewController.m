@@ -89,39 +89,75 @@
     CLLocationCoordinate2D houston = CLLocationCoordinate2DMake(29.760427, -95.369803);
     CLLocationCoordinate2D austin = CLLocationCoordinate2DMake(30.267153, -97.743061);
     CLLocationCoordinate2D dallas = CLLocationCoordinate2DMake(32.776664, -96.796988);
-    
     CLLocationCoordinate2D sanAntonio = CLLocationCoordinate2DMake(29.422122, -98.493628);
+    CLLocationCoordinate2D NYC = CLLocationCoordinate2DMake(40.712775, -74.005973);
+    CLLocationCoordinate2D albany = CLLocationCoordinate2DMake(42.652579, -73.756232);
+    CLLocationCoordinate2D boston = CLLocationCoordinate2DMake(42.360083, -71.05888);
+    CLLocationCoordinate2D atlanta = CLLocationCoordinate2DMake(33.748995, -84.387982);
+    CLLocationCoordinate2D losAngeles = CLLocationCoordinate2DMake(34.052234, -118.243685);
+    CLLocationCoordinate2D miami = CLLocationCoordinate2DMake(25.76168, -80.19179);
     
     GMSMarker *marker = [[GMSMarker alloc] init];
       marker.position = houston;
       marker.title = @"Houston";
-      marker.snippet = @"Texas";
+      marker.snippet = @"TX";
       marker.map = self.mapView;
-      [self.arrayOfLocations addObject:marker];
-    
       
       GMSMarker *marker2 = [[GMSMarker alloc] init];
         marker2.position = austin;
         marker2.title = @"Austin";
-        marker2.snippet = @"Texas";
+        marker2.snippet = @"TX";
         marker2.map = self.mapView;
-      [self.arrayOfLocations addObject:marker2];
       
       GMSMarker *marker3 = [[GMSMarker alloc] init];
         marker3.position = dallas;
         marker3.title = @"Dallas";
-        marker3.snippet = @"Texas";
+        marker3.snippet = @"TX";
         marker3.map = self.mapView;
-      [self.arrayOfLocations addObject:marker3];
       
       GMSMarker *marker4 = [[GMSMarker alloc] init];
         marker4.position = sanAntonio;
         marker4.title = @"San Antonio";
-        marker4.snippet = @"Texas";
+        marker4.snippet = @"TX";
         marker4.map = self.mapView;
-      [self.arrayOfLocations addObject:marker4];
       
-    self.arrayOfLocations = [NSMutableArray arrayWithObjects:marker,marker2,marker3,marker4, nil];
+    GMSMarker *marker5 = [[GMSMarker alloc] init];
+      marker5.position = boston;
+      marker5.title = @"Boston";
+      marker5.snippet = @"MA";
+      marker5.map = self.mapView;
+    
+    GMSMarker *marker6 = [[GMSMarker alloc] init];
+      marker6.position = atlanta;
+      marker6.title = @"Atlanta";
+      marker6.snippet = @"GA";
+      marker6.map = self.mapView;
+    
+    GMSMarker *marker7 = [[GMSMarker alloc] init];
+      marker7.position = NYC;
+      marker7.title = @"New York City";
+      marker7.snippet = @"NY";
+      marker7.map = self.mapView;
+    
+    GMSMarker *marker8 = [[GMSMarker alloc] init];
+      marker8.position = albany;
+      marker8.title = @"Albany";
+      marker8.snippet = @"NY";
+      marker8.map = self.mapView;
+    
+    GMSMarker *marker9 = [[GMSMarker alloc] init];
+      marker9.position = losAngeles;
+      marker9.title = @"Los Angeles";
+      marker9.snippet = @"CA";
+      marker9.map = self.mapView;
+    
+    GMSMarker *marker10 = [[GMSMarker alloc] init];
+      marker10.position = miami;
+      marker10.title = @"Miami";
+      marker10.snippet = @"FL";
+      marker10.map = self.mapView;
+   
+    self.arrayOfLocations = [NSMutableArray arrayWithObjects:marker,marker2,marker3,marker4,marker5,marker6,marker7,marker8,marker9, marker10, nil];
     self.filteredArrayOfLocations = self.arrayOfLocations;
 }
 

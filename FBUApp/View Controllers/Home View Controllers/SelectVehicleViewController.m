@@ -43,6 +43,10 @@
 - (void)fetchVehicles {    
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 20;
+    [query whereKey:@"location" equalTo:self.reservation.location];
+    [query whereKey:@"availableStartDate" lessThan:self.reservation.startRentDate];
+    [query whereKey:@"availableEndDate" greaterThan:self.reservation.endRentDate];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;

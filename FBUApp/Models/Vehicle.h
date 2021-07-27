@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFUser *owner;
 @property (nonatomic, strong) NSDate *availableStartDate;
 @property (nonatomic, strong) NSDate *availableEndDate;
+@property (nonatomic) BOOL *currentlyRented;
+
 
 +(Vehicle *) createVehicle: (NSString*)location withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;

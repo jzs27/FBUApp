@@ -20,6 +20,7 @@
 @dynamic seats;
 @dynamic availableEndDate;
 @dynamic availableStartDate;
+@dynamic currentlyRented;
 
 + (nonnull NSString *)parseClassName {
     return @"Vehicle";
