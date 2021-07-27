@@ -26,30 +26,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //self.mapView.constraints = self.view.frame.size.height;
-    self.mapOn = NO;
-  
-  GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:31.968599
-                                                          longitude:-99.901813
-                                                               zoom:5];
-    [self.mapView setCamera:camera];
-    self.mapView.settings.myLocationButton = YES;
-    self.mapView.settings.zoomGestures = YES;
-    self.mapView.settings.scrollGestures = YES;
-    self.mapView.delegate = self;
-    [self createLocations];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.searchBar.delegate = self;
+    [self setInitialConstraints];
+    
+    [self setUpMapCamera];
+  
+}
+
+-(void)setInitialConstraints{
+    self.searchBar.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.mapView.translatesAutoresizingMaskIntoConstraints = NO;
+   
+    [self.searchBar.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+    [self.searchBar.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:0.0].active = YES;
+    [self.searchBar.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:0.0].active = YES;
+    
+    [self.tableView.topAnchor constraintEqualToAnchor:self.searchBar.bottomAnchor].active = YES;
+    [self.tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+    [self.tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    [self.tableView.heightAnchor constraintEqualToConstant:350.0].active = YES;
+    
+    [self.mapView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+    [self.mapView.heightAnchor constraintEqualToConstant:350.0].active= YES;
+
+}
+
+-(void)setUpMapCamera{
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:37.968599
+                                                            longitude:-95.901813
+                                                                 zoom:3];
+      [self.mapView setCamera:camera];
+      self.mapView.settings.myLocationButton = YES;
+      self.mapView.settings.zoomGestures = YES;
+      self.mapView.settings.scrollGestures = YES;
+      self.mapView.delegate = self;
+      [self createLocations];
+      
 }
 
 #pragma mark - GSMapViewDelegate
 
 -(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
     [self.delegate didSetLocation:marker.title];
-    NSLog(@"Tapped on marker");
-    }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+        
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:marker.position.latitude
+                                                                longitude:marker.position.longitude
+                                                                     zoom:7];
+          [self.mapView setCamera:camera];
+        
+    }];
+}
 
 -(void)createLocations{
     
@@ -153,6 +185,11 @@
         }
     }
     
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:closestLocation.position.latitude
+                                                            longitude:closestLocation.position.longitude
+                                                                 zoom:7];
+      [self.mapView setCamera:camera];
+    
     [self.delegate didSetLocation:closestLocation.title];
 }
 
@@ -228,37 +265,72 @@
 }
 
 -(void)raiseMap{
-    [UIView animateWithDuration:0.5 animations:^{
-            CGRect mapFrame = self.mapView.frame;
-            mapFrame.origin.y -= 448;
-            self.mapView.frame = mapFrame;
+    [self.view layoutIfNeeded];
+    
+    [self.searchBar.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = NO;
+    [self.mapView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = NO;
+    [self.searchBar.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = NO;
+    [self.searchBar.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
+    [self.tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = NO;
+    [self.tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
 
-        CGRect tableFrame = self.tableView.frame;
-        tableFrame.origin.y += 404;
-        self.tableView.frame = tableFrame;
+    
+    //[self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+    [self.mapView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+    [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    
+    //[self.searchBar.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect mapFrame = self.mapView.frame;
+        mapFrame.origin.y -= self.view.frame.size.height;
+        self.mapView.frame = mapFrame;
         
         CGRect searchFrame = self.searchBar.frame;
-        searchFrame.origin.y += 448;
+        searchFrame.origin.y += self.view.frame.size.height;
         self.searchBar.frame = searchFrame;
+        
+        CGRect tableFrame = self.tableView.frame;
+        tableFrame.origin.y += self.view.frame.size.height;
+        self.tableView.frame = tableFrame;
+        
     }];
-
+    
 }
 
 -(void)lowerMap{
+    [self.view layoutIfNeeded];
+    
+    [self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = NO;
+    [self.mapView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = NO;
+    [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
+    [self.searchBar.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = NO;
+   
+    [self.searchBar.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+    [self.mapView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+    [self.searchBar.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+    [self.searchBar.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    [self.tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+    [self.tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    
+    
     [UIView animateWithDuration:0.5 animations:^{
-            CGRect mapFrame = self.mapView.frame;
-            mapFrame.origin.y += 448;
-            self.mapView.frame = mapFrame;
+        [self.view layoutIfNeeded];
+        
+        CGRect mapFrame = self.mapView.frame;
+        mapFrame.origin.y += self.view.frame.size.height;
+        self.mapView.frame = mapFrame;
+
+        CGRect searchFrame = self.searchBar.frame;
+        searchFrame.origin.y -= self.view.frame.size.height;
+        self.searchBar.frame = searchFrame;
 
         CGRect tableFrame = self.tableView.frame;
-        tableFrame.origin.y -= 404;
+        tableFrame.origin.y -= self.view.frame.size.height;
         self.tableView.frame = tableFrame;
         
-        CGRect searchFrame = self.searchBar.frame;
-        //searchFrame.origin.y = 0;
-        searchFrame.origin.y -= 448;
-        self.searchBar.frame = searchFrame;
     }];
+    
 }
 
 @end

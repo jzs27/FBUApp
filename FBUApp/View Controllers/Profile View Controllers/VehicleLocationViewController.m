@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = @"";
+    
 }
 
 -(void)didSetLocation:(NSString *)location;{
