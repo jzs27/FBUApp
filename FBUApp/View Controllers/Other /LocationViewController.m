@@ -30,9 +30,7 @@
     self.tableView.delegate = self;
     self.searchBar.delegate = self;
     [self setInitialConstraints];
-    
     [self setUpMapCamera];
-  
 }
 
 -(void)setInitialConstraints{
@@ -51,7 +49,6 @@
     
     [self.mapView.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
     [self.mapView.heightAnchor constraintEqualToConstant:350.0].active= YES;
-
 }
 
 -(void)setUpMapCamera{
@@ -67,19 +64,23 @@
       
 }
 
+-(void)moveCamera:(CLLocationDegrees)latitude withLogitude:(CLLocationDegrees)longitude withZoom:(float)zoom{
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:latitude
+                                                            longitude:longitude
+                                                                 zoom:zoom];
+      [self.mapView setCamera:camera];
+}
+
 #pragma mark - GSMapViewDelegate
 
 -(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
-    [self.delegate didSetLocation:marker.title];
     
+    NSString *location = [NSString stringWithFormat:@"%@, %@",marker.title,marker.snippet];
+    [self.delegate didSetLocation:location];
+    
+    [self moveCamera:marker.position.latitude withLogitude:marker.position.longitude withZoom:6];
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
-        
-        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:marker.position.latitude
-                                                                longitude:marker.position.longitude
-                                                                     zoom:7];
-          [self.mapView setCamera:camera];
-        
     }];
 }
 
@@ -146,7 +147,6 @@
       curPosMarker.map = self.mapView;
     
     [self findClosestLocation:currentLocation];
-    
 }
 
 -(void)findClosestLocation:(CLLocationCoordinate2D) currentLocation{
@@ -185,12 +185,10 @@
         }
     }
     
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:closestLocation.position.latitude
-                                                            longitude:closestLocation.position.longitude
-                                                                 zoom:7];
-      [self.mapView setCamera:camera];
+    [self moveCamera:closestLocation.position.latitude withLogitude:closestLocation.position.longitude withZoom:6];
+    NSString *location = [NSString stringWithFormat:@"%@, %@",closestLocation.title,closestLocation.snippet];
     
-    [self.delegate didSetLocation:closestLocation.title];
+    [self.delegate didSetLocation:location];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -204,7 +202,8 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         }
         GMSMarker *marker = [self.filteredArrayOfLocations objectAtIndex:indexPath.row] ;
-        cell.textLabel.text = marker.title;
+        cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",marker.title,marker.snippet];
+    
     }
     
     return cell;
@@ -220,6 +219,7 @@
         
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(GMSMarker *evaluatedObject, NSDictionary *bindings) {
             GMSMarker *marker = evaluatedObject;
+            
             NSString *title = evaluatedObject.title;
             return [title containsString:searchText];
         }];
@@ -261,6 +261,7 @@
         [self lowerMap];
         self.mapOn = NO;
         [self.mapButton setTitle:@"Map" forState:UIControlStateNormal];
+        [self moveCamera:37.968599 withLogitude:-95.901813 withZoom:3];
     }
 }
 
