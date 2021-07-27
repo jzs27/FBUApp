@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *reEnterPasswordField;
 @property UIAlertController *alert;
 @property UIAlertAction *okAction;
 
@@ -35,21 +36,26 @@
     PFUser *newUser = [PFUser user];
 
     newUser.username = self.usernameTextField.text;
-    newUser.password = self.passwordTextField.text;
+    
+    if (self.passwordTextField.text == self.reEnterPasswordField.text){
+        newUser.password = self.passwordTextField.text;
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            if (error != nil) {
+                NSLog(@"Error: %@", error.localizedDescription);
+                [self clearFields];
+                [self createAlert:error.localizedDescription];
 
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            NSLog(@"Error: %@", error.localizedDescription);
-            [self clearFields];
-            [self createAlert:error.localizedDescription];
-
-        } else {
-            NSLog(@"User registered successfully");
-            [self clearFields];
-            [self performSegueWithIdentifier:@"fromSignUp" sender:nil];
-            
-        }
-    }];
+            } else {
+                NSLog(@"User registered successfully");
+                [self clearFields];
+                [self performSegueWithIdentifier:@"fromSignUp" sender:nil];
+            }
+        }];
+    }
+    else{
+        [self clearFields];
+        [self createAlert:@"Passwords do not match."];
+    }
 }
 
 -(void) createAlert:(NSString *)error{
@@ -67,6 +73,7 @@
 -(void)clearFields{
     self.usernameTextField.text = @"";
     self.passwordTextField.text=@"";
+    self.reEnterPasswordField.text = @"";
 }
 
 /*
