@@ -61,7 +61,7 @@
 -(void)createReservaton:(NSString*)location{
     Reservation *newReservation = [Reservation new];
     newReservation.location = self.location;
-    newReservation.rentee = [PFUser currentUser];
+    //newReservation.rentee = [PFUser currentUser];
     [self.activityView startAnimating];
     
     [newReservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {

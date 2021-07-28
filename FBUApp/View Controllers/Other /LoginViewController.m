@@ -28,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@",self.reservation);
+    
     
 }
 

@@ -14,8 +14,10 @@
 //relative includes
 #import "Vehicle.h"
 #import "Reservation.h"
+#import "PopUpViewController.h"
+#import "LoginViewController.h"
 
-@interface ConfirmReservationViewController ()
+@interface ConfirmReservationViewController ()<PopViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -30,15 +32,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setVehicle:self.reservation.vehicle];
-    
 }
 
 - (IBAction)didTapConfirmButton:(id)sender {
-    [self performSegueWithIdentifier:@"fromConfirmVehicle" sender:nil];
+    PFUser *user = [PFUser currentUser];
+        if (user != nil) {
+            self.reservation.rentee = [PFUser currentUser];
+            [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (error){
+                }
+                else{
+                    [self performSegueWithIdentifier:@"fromConfirmVehicle" sender:nil];
+                }
+            }];
+        }
+        else{
+            [self showPopUp];
+        }
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.delegate = self;
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
 }
 
 - (void)setVehicle:(Vehicle *)vehicle{
-    
     PFFileObject *image = self.reservation.vehicle.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
@@ -56,9 +79,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"fromConfirmVehicle"]){
         UITabBarController *tabBar = [segue destinationViewController];
-        
         tabBar.selectedIndex = 1;
     }
+    if ([[segue identifier] isEqualToString:@"backToLogin"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        LoginViewController *login = (LoginViewController*)navigationController.topViewController;
+        login.reservation = self.reservation;
+    }
+}
+
+- (void)returnToLogin{
+    [self performSegueWithIdentifier:@"backToLogin" sender:nil];
 }
 
 @end

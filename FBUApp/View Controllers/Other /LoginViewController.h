@@ -7,9 +7,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Reservation.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginViewController : UIViewController
+
+@property Reservation *reservation;
 
 @end
 

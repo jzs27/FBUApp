@@ -40,6 +40,7 @@
 		A5941D96269F93FF0086BA9C /* ReservationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D95269F93FF0086BA9C /* ReservationCell.m */; };
 		A5941D9C26A090F00086BA9C /* RateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941D9B26A090F00086BA9C /* RateViewController.m */; };
 		A5941DA226A1E4380086BA9C /* ConfirmVehicleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941DA126A1E4380086BA9C /* ConfirmVehicleViewController.m */; };
+		A5F43E4926B0CC4200D05F39 /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F43E4826B0CC4200D05F39 /* PopUpViewController.m */; };
 		CACDADDC2F6F7714348AB92D /* Pods_FBUApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D513AD403B5284048E00F701 /* Pods_FBUApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,8 @@
 		A5941D9B26A090F00086BA9C /* RateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RateViewController.m; sourceTree = "<group>"; };
 		A5941DA026A1E4380086BA9C /* ConfirmVehicleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmVehicleViewController.h; sourceTree = "<group>"; };
 		A5941DA126A1E4380086BA9C /* ConfirmVehicleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmVehicleViewController.m; sourceTree = "<group>"; };
+		A5F43E4726B0CC4200D05F39 /* PopUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopUpViewController.h; sourceTree = "<group>"; };
+		A5F43E4826B0CC4200D05F39 /* PopUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopUpViewController.m; sourceTree = "<group>"; };
 		BABCDC28C50BE8C063C36793 /* Pods_FBUAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10FD91B8EEB9134A0289F23 /* Pods-FBUApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBUApp.release.xcconfig"; path = "Target Support Files/Pods-FBUApp/Pods-FBUApp.release.xcconfig"; sourceTree = "<group>"; };
 		D513AD403B5284048E00F701 /* Pods_FBUApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FBUApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +268,8 @@
 		A5941D85269D03000086BA9C /* Home View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A50BEFB926A8CB8C00750B2A /* FilterViewController.h */,
+				A50BEFBA26A8CB8C00750B2A /* FilterViewController.m */,
 				A5941D6F269CFFFA0086BA9C /* ReservationLocationViewController.h */,
 				A5941D70269CFFFA0086BA9C /* ReservationLocationViewController.m */,
 				A5941D7B269D02610086BA9C /* SelectVehicleViewController.h */,
@@ -273,6 +278,8 @@
 				A5941D7F269D02A80086BA9C /* ConfirmReservationViewController.m */,
 				A53B6C6D26A5EE460094AF1D /* ReservationCalendarViewController.h */,
 				A53B6C6E26A5EE460094AF1D /* ReservationCalendarViewController.m */,
+				A5F43E4726B0CC4200D05F39 /* PopUpViewController.h */,
+				A5F43E4826B0CC4200D05F39 /* PopUpViewController.m */,
 			);
 			path = "Home View Controllers";
 			sourceTree = "<group>";
@@ -299,8 +306,6 @@
 				A53B6C6B26A5E8DA0094AF1D /* CalendarViewController.m */,
 				A53B6C7026A6080C0094AF1D /* LocationViewController.h */,
 				A53B6C7126A6080C0094AF1D /* LocationViewController.m */,
-				A50BEFB926A8CB8C00750B2A /* FilterViewController.h */,
-				A50BEFBA26A8CB8C00750B2A /* FilterViewController.m */,
 			);
 			path = "Other ";
 			sourceTree = "<group>";
@@ -624,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53B6C6C26A5E8DA0094AF1D /* CalendarViewController.m in Sources */,
+				A5F43E4926B0CC4200D05F39 /* PopUpViewController.m in Sources */,
 				A5941D80269D02A80086BA9C /* ConfirmReservationViewController.m in Sources */,
 				A5941D64269CF7490086BA9C /* Reservation.m in Sources */,
 				A5941D67269CF7570086BA9C /* Vehicle.m in Sources */,
