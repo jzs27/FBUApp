@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xJi-07-iml">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFc-CW-GiA">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -249,12 +249,6 @@
                                     <segue destination="bUs-XB-W4p" kind="embed" id="vcg-B5-aaW"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Houston, Texas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-Lv-tuU">
-                                <rect key="frame" x="109" y="63" width="172" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k34-zB-68a">
                                 <rect key="frame" x="0.0" y="110" width="390" height="105"/>
                                 <constraints>
@@ -293,6 +287,12 @@
                                     <constraint firstItem="I7T-60-jnW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Amp-MT-BUp" secondAttribute="leading" constant="20" symbolic="YES" id="fjM-5n-1Xm"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Houston, Texas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY1-Lv-tuU">
+                                <rect key="frame" x="109" y="44" width="172" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IrS-35-TzL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -898,6 +898,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x1Y-uj-y3f"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="VKH-Hm-XeA" id="WIP-gG-FW8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fv-EC-iK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1033,9 +1036,12 @@
                     <navigationItem key="navigationItem" id="FBo-2j-U7L"/>
                     <connections>
                         <outlet property="tableView" destination="eVv-8x-Fcp" id="JdL-vl-yXR"/>
+                        <segue destination="hv9-qr-B7Z" kind="unwind" identifier="returnToStepOne" unwindAction="returnToStepOne:" id="Er5-L7-U3S"/>
+                        <segue destination="kPI-2w-Tpi" kind="show" identifier="fromReservationToLogin" id="k3d-dT-8Zm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64o-Sq-k1U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hv9-qr-B7Z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="407.69230769230768" y="3976.7772511848339"/>
         </scene>
@@ -1044,11 +1050,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="nGK-ph-CG9" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vfc-gW-KU0">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Hw-at3">
-                                <rect key="frame" x="0.0" y="651" width="390" height="110"/>
+                                <rect key="frame" x="0.0" y="597" width="390" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5v-X7-efd">
                                         <rect key="frame" x="30" y="31" width="71" height="50"/>
@@ -1095,13 +1101,13 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-if-qZC">
-                                <rect key="frame" x="157" y="67" width="204" height="21"/>
+                                <rect key="frame" x="157" y="23" width="204" height="65"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e8q-jz-Qzo">
-                                <rect key="frame" x="0.0" y="220" width="390" height="431"/>
+                                <rect key="frame" x="0.0" y="220" width="390" height="377"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-mA-2R3">
@@ -2371,11 +2377,12 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="mkP-Kp-VQ4"/>
-        <segue reference="Gkv-2g-0fb"/>
+        <segue reference="FnC-wX-kVu"/>
+        <segue reference="nnS-W1-o1P"/>
         <segue reference="Ili-VQ-fpO"/>
         <segue reference="A7e-D1-ojQ"/>
-        <segue reference="dK1-l8-BbS"/>
+        <segue reference="3EK-Vw-FB5"/>
+        <segue reference="k3d-dT-8Zm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>

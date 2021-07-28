@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property Reservation *reservation;
 @property (nonatomic,weak) id<PopViewControllerDelegate> delegate;
+@property (nonatomic) NSString *message;
 
 @end
 

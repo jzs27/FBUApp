@@ -9,6 +9,8 @@
 
 @interface PopUpViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+
 @end
 
 @implementation PopUpViewController
@@ -16,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.8];
+    self.messageLabel.text = self.message;
 }
 
 - (IBAction)didPressLogin:(id)sender {

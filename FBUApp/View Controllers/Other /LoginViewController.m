@@ -79,12 +79,26 @@
     self.passwordTextField.text=@"";
 }
 
-/*
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-   
+    if ([[segue identifier] isEqualToString:@"fromLoginToHome"] && self.reservation != nil){
+        
+        UITabBarController *tabBar = [segue destinationViewController];
+        
+        tabBar.selectedIndex = 1;
+    }
+    if ([[segue identifier] isEqualToString:@"fromLoginToHome"] && self.reservation == nil){
+        
+        UITabBarController *tabBar = [segue destinationViewController];
+        
+        tabBar.selectedIndex = 0;
+    }
 }
-*/
+
+-(IBAction)returnToStepOne:(UIStoryboardSegue *)segue{
+    NSLog(@"we back");
+}
 
 @end

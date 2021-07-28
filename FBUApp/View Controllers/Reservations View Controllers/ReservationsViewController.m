@@ -14,8 +14,9 @@
 // relative includes
 #import "Reservation.h"
 #import "ReservationCell.h"
+#import "PopUpViewController.h"
 
-@interface ReservationsViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ReservationsViewController ()<UITableViewDelegate,UITableViewDataSource, PopViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfReservations;
@@ -26,9 +27,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    PFUser *user = [PFUser currentUser];
+    if (user == nil){
+        [self showPopUp];
+    }
     self.tableView.dataSource=self;
     self.tableView.delegate = self;
-    [self fetchReservations];
+    
+    if (user != nil){
+        [self fetchReservations];
+    }
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.delegate = self;
+    popUp.message = @"To view your current reservation, please login.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
+}
+
+-(void)returnToLogin{
+    [self performSegueWithIdentifier:@"fromReservationToLogin" sender:self];
 }
 
 - (void)fetchReservations{
