@@ -15,6 +15,7 @@
 #import "Reservation.h"
 #import "ReservationCell.h"
 #import "PopUpViewController.h"
+#import "UpdateReservationViewController.h"
 
 @interface ReservationsViewController ()<UITableViewDelegate,UITableViewDataSource, PopViewControllerDelegate>
 
@@ -56,8 +57,9 @@
 
 - (void)fetchReservations{
     PFQuery *query = [PFQuery queryWithClassName:@"Reservation"];
-    query.limit = 20;
+    query.limit = 40;
     [query includeKey:@"vehicle"];
+    [query orderByDescending:@"createdAt"];
     
     [query whereKey:@"rentee" equalTo:[PFUser currentUser]];
     
@@ -71,13 +73,18 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"toUpdateReservation"]){
+        UpdateReservationViewController *updateReservation = [segue destinationViewController];
+        updateReservation.reservation = self.reservation;
+        
+    }
     
 }
-*/
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ReservationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReservationCell" forIndexPath:indexPath];
@@ -88,6 +95,13 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfReservations.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Reservation *reservation = self.arrayOfReservations[indexPath.row];
+    self.reservation = reservation;
+    [self performSegueWithIdentifier:@"toUpdateReservation" sender:nil];
+    
 }
 
 @end

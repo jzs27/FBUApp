@@ -1,8 +1,8 @@
 //
-//  ReservationsViewController.h
+//  UpdateReservationViewController.h
 //  FBUApp
 //
-//  Created by jessicasyl on 7/12/21.
+//  Created by jessicasyl on 7/28/21.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ReservationsViewController : UIViewController
+@interface UpdateReservationViewController : UIViewController
 
 @property Reservation *reservation;
 

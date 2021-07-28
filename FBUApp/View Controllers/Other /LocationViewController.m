@@ -74,17 +74,18 @@
 
 #pragma mark - GSMapViewDelegate
 
--(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
+-(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
     
     NSString *location = [NSString stringWithFormat:@"%@, %@",marker.title,marker.snippet];
     PFGeoPoint *locationGeoPoint = [PFGeoPoint geoPointWithLatitude:marker.position.latitude longitude:marker.position.longitude];
-    
-    [self.delegate didSetLocation:location withGeoPoint:locationGeoPoint];
+    [self.delegate didSetLocation:location];
     
     [self moveCamera:marker.position.latitude withLogitude:marker.position.longitude withZoom:6];
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
     }];
+    
+    return YES;
 }
 
 -(void)createLocations{
@@ -228,7 +229,7 @@
     NSString *location = [NSString stringWithFormat:@"%@, %@",closestLocation.title,closestLocation.snippet];
     
     PFGeoPoint *locationGeoPoint = [PFGeoPoint geoPointWithLatitude:closestLocation.position.latitude longitude:closestLocation.position.longitude];
-    [self.delegate didSetLocation:location withGeoPoint:locationGeoPoint];
+    [self.delegate didSetLocation:location];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -243,9 +244,7 @@
         }
         GMSMarker *marker = [self.filteredArrayOfLocations objectAtIndex:indexPath.row] ;
         cell.textLabel.text = [NSString stringWithFormat:@"%@, %@",marker.title,marker.snippet];
-    
     }
-    
     return cell;
 }
 
@@ -264,12 +263,10 @@
             return [title containsString:searchText];
         }];
         self.filteredArrayOfLocations = [self.arrayOfLocations filteredArrayUsingPredicate:predicate];
-                
     }
     else {
         self.filteredArrayOfLocations = self.arrayOfLocations;
     }
-    
     [self.tableView reloadData];
  
 }
@@ -315,7 +312,6 @@
     [self.tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = NO;
     [self.tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
 
-    
     //[self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     [self.mapView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
     [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
@@ -335,9 +331,7 @@
         CGRect tableFrame = self.tableView.frame;
         tableFrame.origin.y += self.view.frame.size.height;
         self.tableView.frame = tableFrame;
-        
     }];
-    
 }
 
 -(void)lowerMap{
@@ -354,8 +348,7 @@
     [self.searchBar.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
     [self.tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
     [self.tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
-    
-    
+
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded];
         
@@ -370,9 +363,7 @@
         CGRect tableFrame = self.tableView.frame;
         tableFrame.origin.y -= self.view.frame.size.height;
         self.tableView.frame = tableFrame;
-        
     }];
-    
 }
 
 @end

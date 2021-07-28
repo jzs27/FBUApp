@@ -38,6 +38,8 @@
     self.locationLabel.text = self.reservation.location;
     
     self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
+    
+    NSLog(@"%@",self.reservation);
 }
 
 - (void)fetchVehicles {    

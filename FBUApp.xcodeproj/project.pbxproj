@@ -18,6 +18,7 @@
 		A53B6C6C26A5E8DA0094AF1D /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6B26A5E8DA0094AF1D /* CalendarViewController.m */; };
 		A53B6C6F26A5EE460094AF1D /* ReservationCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C6E26A5EE460094AF1D /* ReservationCalendarViewController.m */; };
 		A53B6C7226A6080C0094AF1D /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53B6C7126A6080C0094AF1D /* LocationViewController.m */; };
+		A58818C226B1F78300D33948 /* UpdateReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A58818C126B1F78300D33948 /* UpdateReservationViewController.m */; };
 		A5941CE7269CD4E60086BA9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CE6269CD4E60086BA9C /* AppDelegate.m */; };
 		A5941CEA269CD4E60086BA9C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5941CE9269CD4E60086BA9C /* SceneDelegate.m */; };
 		A5941CF0269CD4E60086BA9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5941CEE269CD4E60086BA9C /* Main.storyboard */; };
@@ -84,6 +85,8 @@
 		A53B6C6E26A5EE460094AF1D /* ReservationCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReservationCalendarViewController.m; sourceTree = "<group>"; };
 		A53B6C7026A6080C0094AF1D /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		A53B6C7126A6080C0094AF1D /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		A58818C026B1F78300D33948 /* UpdateReservationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateReservationViewController.h; sourceTree = "<group>"; };
+		A58818C126B1F78300D33948 /* UpdateReservationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateReservationViewController.m; sourceTree = "<group>"; };
 		A5941CE2269CD4E60086BA9C /* FBUApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBUApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5941CE5269CD4E60086BA9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A5941CE6269CD4E60086BA9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 				A5941D72269D00100086BA9C /* ReservationsViewController.h */,
 				A5941D81269D02D40086BA9C /* DetailsViewController.h */,
 				A5941D82269D02D40086BA9C /* DetailsViewController.m */,
+				A58818C026B1F78300D33948 /* UpdateReservationViewController.h */,
+				A58818C126B1F78300D33948 /* UpdateReservationViewController.m */,
 			);
 			path = "Reservations View Controllers";
 			sourceTree = "<group>";
@@ -631,6 +636,7 @@
 				A53B6C6C26A5E8DA0094AF1D /* CalendarViewController.m in Sources */,
 				A5F43E4926B0CC4200D05F39 /* PopUpViewController.m in Sources */,
 				A5941D80269D02A80086BA9C /* ConfirmReservationViewController.m in Sources */,
+				A58818C226B1F78300D33948 /* UpdateReservationViewController.m in Sources */,
 				A5941D64269CF7490086BA9C /* Reservation.m in Sources */,
 				A5941D67269CF7570086BA9C /* Vehicle.m in Sources */,
 				A5941D6B269CFF0C0086BA9C /* LoginViewController.m in Sources */,
