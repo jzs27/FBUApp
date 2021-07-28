@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property UIActivityIndicatorView *activityView;
-@property bool *selectedOneDate;
+@property bool selectedOneDate;
 @property NSDate *date1;
 @property NSDate *date2;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;

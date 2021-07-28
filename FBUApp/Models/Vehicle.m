@@ -27,14 +27,6 @@
     return @"Vehicle";
 }
 
-+(void) createVehicle: (NSString*)location withCompletion: (PFBooleanResultBlock  _Nullable)completion{
-    Vehicle *newVehicle = [Vehicle new];
-    newVehicle.location = location;
-    newVehicle.owner = [PFUser currentUser];
-    
-    [newVehicle saveInBackgroundWithBlock: completion];    
-}
-
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
     if (!image) {
         return nil;

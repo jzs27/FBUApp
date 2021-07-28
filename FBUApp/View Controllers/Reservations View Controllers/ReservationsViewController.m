@@ -20,7 +20,7 @@
 @interface ReservationsViewController ()<UITableViewDelegate,UITableViewDataSource, PopViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSMutableArray *arrayOfReservations;
+@property NSArray *arrayOfReservations;
 
 @end
 
@@ -60,7 +60,6 @@
     query.limit = 40;
     [query includeKey:@"vehicle"];
     [query orderByDescending:@"createdAt"];
-    
     [query whereKey:@"rentee" equalTo:[PFUser currentUser]];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *reservations, NSError *error) {
@@ -80,11 +79,8 @@
     if ([[segue identifier] isEqualToString:@"toUpdateReservation"]){
         UpdateReservationViewController *updateReservation = [segue destinationViewController];
         updateReservation.reservation = self.reservation;
-        
     }
-    
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ReservationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReservationCell" forIndexPath:indexPath];
@@ -101,7 +97,6 @@
     Reservation *reservation = self.arrayOfReservations[indexPath.row];
     self.reservation = reservation;
     [self performSegueWithIdentifier:@"toUpdateReservation" sender:nil];
-    
 }
 
 @end

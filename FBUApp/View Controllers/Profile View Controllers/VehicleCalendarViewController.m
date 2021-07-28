@@ -29,7 +29,6 @@
     self.selectedOneDate = YES;
     self.locationLabel.text = self.vehicle.location;
     self.dateLabel.text = @"";
-    
 }
 
 #pragma mark - Navigation
@@ -47,7 +46,6 @@
 }
 
 -(void)addDate:(NSDate *)date{
-    
     if (self.selectedOneDate == YES){
         self.date1 = date;
         self.selectedOneDate = NO;
@@ -60,7 +58,6 @@
         self.dateLabel.text = [Vehicle createDateString:self.startDate withEndDate:self.endDate];
     }
 }
-
 
 - (IBAction)didTapNext:(id)sender {
     self.activityView = [[UIActivityIndicatorView alloc]
@@ -81,7 +78,6 @@
         else{
             [self.activityView stopAnimating];
             [self performSegueWithIdentifier:@"fromVehicleCalendar" sender:nil];
-            
         }
     }];
 }

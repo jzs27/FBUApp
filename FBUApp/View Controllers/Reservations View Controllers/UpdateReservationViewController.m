@@ -21,12 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",self.reservation);
 }
 
-
 #pragma mark - Navigation
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     

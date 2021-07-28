@@ -23,7 +23,7 @@
 - (void)setVehicle:(Vehicle *)vehicle{
     _vehicle = vehicle;
     
-    PFFileObject *image = self.vehicle.image;
+    PFFileObject *image = (PFFileObject*) self.vehicle.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     self.rateLabel.text = [NSString stringWithFormat:@"%@ / day",self.vehicle.rate];

@@ -42,7 +42,6 @@ int calendarCount;
     if (calendarCount < 2){
         self.calendar.allowsSelection = YES;
     }
-    NSLog(@"%d",calendarCount);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -52,7 +51,6 @@ int calendarCount;
 - (IBAction)didClearSelection:(id)sender {
 
 }
-
 
 /*
 #pragma mark - Navigation

@@ -28,15 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    PFFileObject *image = self.vehicle.image;
+    PFFileObject *image = (PFFileObject*) self.vehicle.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     
     self.vehicleInfoLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.vehicle.make,self.vehicle.model,self.vehicle.year ];
-    
     self.priceLabel.text = [NSString stringWithFormat:@"$ %@ /day",self.vehicle.rate];
     self.locationLabel.text = self.vehicle.location;
-    
     self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
 }
 

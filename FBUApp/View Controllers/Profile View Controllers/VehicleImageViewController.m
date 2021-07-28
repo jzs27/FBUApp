@@ -23,7 +23,6 @@
     [super viewDidLoad];
     
     self.locationLabel.text = self.vehicle.location;
-    
     self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
     
 }
@@ -78,7 +77,7 @@
     [self.view addSubview:self.activityView];
     
     if (self.image != nil){
-        self.vehicle.image = [Vehicle getPFFileFromImage:self.image];
+        self.vehicle.image = (UIImage*)[Vehicle getPFFileFromImage:self.image];
         [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error){
                 NSLog(@"Error:%@",error.localizedDescription);

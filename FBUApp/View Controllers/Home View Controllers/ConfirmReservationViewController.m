@@ -63,15 +63,13 @@
 }
 
 - (void)setVehicle:(Vehicle *)vehicle{
-    PFFileObject *image = self.reservation.vehicle.image;
+    PFFileObject *image = (PFFileObject*) self.reservation.vehicle.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.vehicleView setImageWithURL:imageURL];
     
     self.priceLabel.text = [NSString stringWithFormat:@"$ %@ /day",self.reservation.vehicle.rate];
     self.locationLabel.text = self.reservation.location;
-    
     self.vehicleLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.reservation.vehicle.make,self.reservation.vehicle.model,self.reservation.vehicle.year ];
-    
     self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
 }
 

@@ -22,7 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSMutableArray *arrayOfVehicles;
+@property NSArray *arrayOfVehicles;
 @property UIActivityIndicatorView *activityView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
@@ -34,12 +34,11 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
     [self fetchVehicles];
+    
     self.locationLabel.text = self.reservation.location;
-    
     self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
-    
-    NSLog(@"%@",self.reservation);
 }
 
 - (void)fetchVehicles {    
@@ -61,9 +60,7 @@
 
 - (void)addTypeFilter:(NSString *)type{
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    
     query.limit = 20;
-    
     [query whereKey:@"type" equalTo:type];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
@@ -127,10 +124,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"fromSelectVehicle"]){
-    Vehicle *vehicle = sender;
     ConfirmReservationViewController *confirmReservationViewController   = [segue destinationViewController];
     confirmReservationViewController.reservation = self.reservation;
-    
     }
     if ([[segue identifier] isEqualToString:@"toFilter"]){
         FilterViewController *filter = [segue destinationViewController];

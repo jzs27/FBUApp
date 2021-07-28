@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *model;
 @property (strong, nonatomic) NSString *year;
 @property (strong, nonatomic) NSString *type;
-@property Vehicle *vehicle;
+@property (nonatomic) Vehicle *vehicle;
 
 @end
 

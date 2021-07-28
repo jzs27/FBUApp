@@ -14,13 +14,12 @@
 #import "VehicleCell.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
-#import "PopUpViewController.h"
 
 @interface ProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSMutableArray *arrayOfVehicles;
+@property NSArray *arrayOfVehicles;
 
 @end
 
@@ -78,17 +77,6 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-}
-
--(void)showPopUp{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
-    popUp.delegate = self;
-    popUp.message = @"To view your current reservation, please login.";
-    [self addChildViewController:popUp];
-    popUp.view.frame = self.view.frame;
-    [self.view addSubview:popUp.view];
-    [popUp didMoveToParentViewController:self];
 }
 
 - (IBAction)didTapLogout:(id)sender {

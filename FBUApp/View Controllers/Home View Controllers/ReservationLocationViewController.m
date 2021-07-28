@@ -36,6 +36,9 @@
     self.locationLabel.text = self.location;
 }
 
+- (void)didSetLocation:(nonnull NSString *)location withGeoPoint:(nonnull PFGeoPoint *)geoPoint {    
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -51,7 +54,7 @@
 
 - (IBAction)didTapNext:(id)sender {
     self.activityView = [[UIActivityIndicatorView alloc]
-                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+                         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
     self.activityView.center=self.view.center;
     [self.activityView startAnimating];
     [self.view addSubview:self.activityView];
@@ -64,12 +67,12 @@
     [self.activityView startAnimating];
     
     [newReservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (error) {
-            }
-            else {
-                [self.activityView stopAnimating];
-                [self performSegueWithIdentifier:@"fromReservationLocation" sender:nil];
-            }
+        if (error) {
+        }
+        else {
+            [self.activityView stopAnimating];
+            [self performSegueWithIdentifier:@"fromReservationLocation" sender:nil];
+        }
     }];
     self.reservation = newReservation;
 }

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VehicleCalendarViewController : UIViewController
 
 @property Vehicle *vehicle;
-@property bool *selectedOneDate;
+@property BOOL selectedOneDate;
 
 @end
 

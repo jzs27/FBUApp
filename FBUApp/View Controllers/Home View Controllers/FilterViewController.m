@@ -36,35 +36,29 @@
         self.luxuryCheckBox.on = YES;
         self.vanCheckBox.on = YES;
         self.wagonCheckBox.on = YES;
-        self.filters = [[NSArray alloc]initWithObjects:@"Small to Full Size",@"Luxury & Convertible",@"SUVs & Wagons",@"Vans & Trucks", nil];
+        self.filters =
+        self.filters = [[NSMutableArray alloc]initWithObjects:@"Small to Full Size",@"Luxury & Convertible",@"SUVs & Wagons",@"Vans & Trucks", nil];
     }
     if (checkBox == self.smallCheckBox && self.smallCheckBox.on ==YES){
         [self.filters addObject:@"Small to Full Size"];
-
     }
     if (checkBox == self.smallCheckBox && self.smallCheckBox.on ==NO){
         [self didTapReset:nil];
-
     }
     
     if (checkBox == self.luxuryCheckBox && self.luxuryCheckBox.on == YES){
         [self.filters addObject:@"Luxury & Convertible"];
-        
     }
     if (checkBox == self.vanCheckBox && self.vanCheckBox.on == YES){
         [self.filters addObject:@"Vans & Trucks"];
-        
     }
     if (checkBox == self.wagonCheckBox && self.wagonCheckBox.on == YES){
         [self.filters addObject:@"SUVs & Wagons"];
-        
     }
     if (checkBox == self.lowToHighCheckBox && self.lowToHighCheckBox.on == YES){
-        [self.delegate addPriceFilter:@"lowToHigh"];
         [self.filters addObject:@"lowToHigh"];
     }
     if (checkBox == self.highToLowCheckBox && self.highToLowCheckBox.on == YES){
-        [self.delegate addPriceFilter:@"highToLow"];
         [self.filters addObject:@"highToLow"];
     }
 }

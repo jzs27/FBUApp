@@ -25,10 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSDate *availableEndDate;
 @property (nonatomic) PFGeoPoint *geoPoint;
 
-
-+(Vehicle *) createVehicle: (NSString*)location withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 +(NSString *)createDateString:(NSDate *)startDate withEndDate:(NSDate *)endDate;
+
 @end
 
 NS_ASSUME_NONNULL_END

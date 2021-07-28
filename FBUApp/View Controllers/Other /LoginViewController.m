@@ -28,14 +28,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@",self.reservation);
-    
-    
 }
 
 - (IBAction)didTapLogin:(id)sender {
     [self loginUser];
-    
 }
 
 - (IBAction)didTapSignUp:(id)sender {
@@ -101,7 +97,6 @@
     self.passwordTextField.text=@"";
 }
 
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -123,10 +118,6 @@
         
         tabBar.selectedIndex = 2;
     }
-}
-
--(IBAction)returnToStepOne:(UIStoryboardSegue *)segue{
-    NSLog(@"we back");
 }
 
 @end

@@ -10,14 +10,13 @@
 #import <CoreLocation/CoreLocation.h>
 #import "math.h"
 
-
-@interface LocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface LocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *arrayOfLocations;
-@property (strong, nonatomic) NSMutableArray *filteredArrayOfLocations;
+@property (strong, nonatomic) NSArray *arrayOfLocations;
+@property (strong, nonatomic) NSArray *filteredArrayOfLocations;
 @property CLLocationManager *locationManager;
-@property bool *mapOn;
+@property BOOL mapOn;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *mapButton;
 
@@ -77,7 +76,6 @@
 -(BOOL)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
     
     NSString *location = [NSString stringWithFormat:@"%@, %@",marker.title,marker.snippet];
-    PFGeoPoint *locationGeoPoint = [PFGeoPoint geoPointWithLatitude:marker.position.latitude longitude:marker.position.longitude];
     [self.delegate didSetLocation:location];
     
     [self moveCamera:marker.position.latitude withLogitude:marker.position.longitude withZoom:6];
@@ -228,7 +226,6 @@
     [self moveCamera:closestLocation.position.latitude withLogitude:closestLocation.position.longitude withZoom:6];
     NSString *location = [NSString stringWithFormat:@"%@, %@",closestLocation.title,closestLocation.snippet];
     
-    PFGeoPoint *locationGeoPoint = [PFGeoPoint geoPointWithLatitude:closestLocation.position.latitude longitude:closestLocation.position.longitude];
     [self.delegate didSetLocation:location];
 }
 
@@ -257,7 +254,6 @@
     if (searchText.length != 0) {
         
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(GMSMarker *evaluatedObject, NSDictionary *bindings) {
-            GMSMarker *marker = evaluatedObject;
             
             NSString *title = evaluatedObject.title;
             return [title containsString:searchText];
@@ -275,7 +271,7 @@
     self.searchBar.showsCancelButton = YES;
 }
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    NSString *searchText = (NSString *) self.searchBar.text;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -292,7 +288,6 @@
         [self raiseMap];
         self.mapOn = YES;
         [self.mapButton setTitle:@"Location List" forState:UIControlStateNormal];
-        
     }
     else{
         [self lowerMap];
@@ -311,15 +306,10 @@
     [self.searchBar.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
     [self.tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = NO;
     [self.tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
-
-    //[self.mapView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     [self.mapView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
     [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
-    
-    //[self.searchBar.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
     [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.5 animations:^{
-//        [self.view layoutIfNeeded];
         CGRect mapFrame = self.mapView.frame;
         mapFrame.origin.y -= self.view.frame.size.height;
         self.mapView.frame = mapFrame;
