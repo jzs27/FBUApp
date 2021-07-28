@@ -7,8 +7,6 @@
 
 #import "VehicleLocationViewController.h"
 
-#import <Parse/Parse.h>
-
 #import "LocationViewController.h"
 #import "VehicleCalendarViewController.h"
 
@@ -30,6 +28,11 @@
 -(void)didSetLocation:(NSString *)location;{
     self.location = location;
     self.locationLabel.text = self.location;
+}
+
+-(void)didSetLocation:(NSString *)location withGeoPoint:(PFGeoPoint *)geoPoint{
+    self.location = location;
+    self.geoPoint = geoPoint;
 }
 
 #pragma mark - Navigation
@@ -58,6 +61,10 @@
 -(void)createVehicle:(NSString*)location{
     Vehicle *newVehicle = [Vehicle new];
     newVehicle.location = location;
+    
+    if (self.geoPoint != nil){
+        newVehicle.geoPoint = self.geoPoint;
+    }
     
     [newVehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error) {

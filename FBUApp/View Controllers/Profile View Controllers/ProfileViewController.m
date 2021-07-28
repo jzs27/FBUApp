@@ -68,6 +68,7 @@
 - (void)fetchVehicles {
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 40;
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;

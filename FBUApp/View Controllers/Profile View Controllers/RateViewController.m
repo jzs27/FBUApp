@@ -8,6 +8,7 @@
 #import "RateViewController.h"
 
 #import <Parse/Parse.h>
+#import "math.h"
 
 #import "ConfirmVehicleViewController.h"
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@", self.vehicle.geoPoint);
     
     
     [self calculateRate];
@@ -69,6 +71,35 @@
     }
     
     self.currentValue = 50 * self.recommendedRate;
+}
+
+-(void)calculateDistanceRate{
+    int radEarth = 6371;
+
+    PFGeoPoint *marker = self.vehicle.geoPoint;
+    CLLocationCoordinate2D dallas = CLLocationCoordinate2DMake(32.776664, -96.796988);
+    
+        double lat = marker.latitude;
+        double lng = marker.longitude;
+        double mlat = dallas.latitude;
+        double mlng = dallas.longitude;
+        
+        double chLat = mlat - lat;
+        double chLng = mlng -lng;
+        
+        double dLat = chLat * (M_PI/180);
+        double dLng = chLng * (M_PI/180);
+        
+        double rLat1 = mlat * (M_PI/180);
+        double rLat2 = lat * (M_PI/180);
+
+        double a = sin(dLat/2) * sin(dLat/2) + sin(dLng/2) *sin(dLng/2) * cos(rLat1) * cos(rLat2);
+        
+        double c = 2 * atan2(sqrt(a),sqrt(1-a));
+        double d = radEarth * c;
+    
+    
+    
 }
 
 - (IBAction)didTapPlusButton:(id)sender {

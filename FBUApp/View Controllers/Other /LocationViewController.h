@@ -8,12 +8,14 @@
 #import <UIKit/UIKit.h>
 
 #import <GoogleMaps/GoogleMaps.h>
+#import <Parse/Parse.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ReuseLocationDelegate
 
 -(void)didSetLocation:(NSString *)location;
+-(void)didSetLocation:(NSString *)location withGeoPoint:(PFGeoPoint*)geoPoint;
 
 @end
 

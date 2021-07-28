@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFUser *owner;
 @property (nonatomic, strong) NSDate *availableStartDate;
 @property (nonatomic, strong) NSDate *availableEndDate;
-@property (nonatomic) BOOL *currentlyRented;
+@property (nonatomic) PFGeoPoint *geoPoint;
 
 
 +(Vehicle *) createVehicle: (NSString*)location withCompletion: (PFBooleanResultBlock  _Nullable)completion;

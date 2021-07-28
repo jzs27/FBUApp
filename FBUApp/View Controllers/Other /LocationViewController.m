@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "math.h"
 
+
 @interface LocationViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -76,7 +77,9 @@
 -(void)mapView:(GMSMapView *)mapView didTapMarker:(nonnull GMSMarker *)marker{
     
     NSString *location = [NSString stringWithFormat:@"%@, %@",marker.title,marker.snippet];
-    [self.delegate didSetLocation:location];
+    PFGeoPoint *locationGeoPoint = [PFGeoPoint geoPointWithLatitude:marker.position.latitude longitude:marker.position.longitude];
+    
+    [self.delegate didSetLocation:location withGeoPoint:locationGeoPoint];
     
     [self moveCamera:marker.position.latitude withLogitude:marker.position.longitude withZoom:6];
     [UIView animateWithDuration:0.5 animations:^{
@@ -224,7 +227,8 @@
     [self moveCamera:closestLocation.position.latitude withLogitude:closestLocation.position.longitude withZoom:6];
     NSString *location = [NSString stringWithFormat:@"%@, %@",closestLocation.title,closestLocation.snippet];
     
-    [self.delegate didSetLocation:location];
+    PFGeoPoint *locationGeoPoint = [PFGeoPoint geoPointWithLatitude:closestLocation.position.latitude longitude:closestLocation.position.longitude];
+    [self.delegate didSetLocation:location withGeoPoint:locationGeoPoint];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -319,14 +323,15 @@
     //[self.searchBar.topAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
     [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.5 animations:^{
+//        [self.view layoutIfNeeded];
         CGRect mapFrame = self.mapView.frame;
         mapFrame.origin.y -= self.view.frame.size.height;
         self.mapView.frame = mapFrame;
-        
+
         CGRect searchFrame = self.searchBar.frame;
         searchFrame.origin.y += self.view.frame.size.height;
         self.searchBar.frame = searchFrame;
-        
+
         CGRect tableFrame = self.tableView.frame;
         tableFrame.origin.y += self.view.frame.size.height;
         self.tableView.frame = tableFrame;

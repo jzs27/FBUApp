@@ -78,7 +78,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"backToProfile"]){
         UITabBarController *tabBar = [segue destinationViewController];
-        
         tabBar.selectedIndex = 2;
     }
     

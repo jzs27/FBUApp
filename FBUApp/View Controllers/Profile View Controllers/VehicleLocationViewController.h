@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 
 #import "Vehicle.h"
+#import <Parse/Parse.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property Vehicle *vehicle;
 @property (nonatomic) NSString *location;
+@property (nonatomic) PFGeoPoint *geoPoint;
 
 @end
 
