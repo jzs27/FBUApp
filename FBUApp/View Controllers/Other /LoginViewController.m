@@ -53,7 +53,29 @@
         }
         else {
             [self clearFields];
-            [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
+            if (self.reservation != nil){
+                self.reservation.rentee = user;
+                [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (error){
+                    }
+                    else{
+                        [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
+                    }
+                }];
+            }
+            if (self.vehicle != nil){
+                self.vehicle.owner = user;
+                [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (error){
+                    }
+                    else{
+                        [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
+                    }
+                }];
+            }
+            else{
+                [self performSegueWithIdentifier:@"fromLoginToHome" sender:nil];
+            }
         }
     }];
 }
@@ -94,6 +116,12 @@
         UITabBarController *tabBar = [segue destinationViewController];
         
         tabBar.selectedIndex = 0;
+    }
+    if ([[segue identifier] isEqualToString:@"fromLoginToHome"] && self.vehicle != nil){
+        
+        UITabBarController *tabBar = [segue destinationViewController];
+        
+        tabBar.selectedIndex = 2;
     }
 }
 

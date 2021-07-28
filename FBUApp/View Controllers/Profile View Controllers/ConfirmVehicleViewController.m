@@ -10,7 +10,10 @@
 #import "UIImageView+AFNetworking.h"
 #import <Parse/Parse.h>
 
-@interface ConfirmVehicleViewController ()
+#import "PopUpViewController.h"
+#import "LoginViewController.h"
+
+@interface ConfirmVehicleViewController ()<PopViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
 @property (weak, nonatomic) IBOutlet UILabel *vehicleInfoLabel;
@@ -38,7 +41,36 @@
 }
 
 - (IBAction)didTapConfirm:(id)sender {
-    [self performSegueWithIdentifier:@"backToProfile" sender:nil];
+    PFUser *user = [PFUser currentUser];
+        if (user != nil) {
+            self.vehicle.owner = [PFUser currentUser];
+            [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (error){
+                }
+                else{
+                    [self performSegueWithIdentifier:@"backToProfile" sender:nil];
+                }
+            }];
+        }
+        else{
+            [self showPopUp];
+        }
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.delegate = self;
+    popUp.message = @"To register your vehicle, please login.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
+}
+
+- (void)returnToLogin{
+    [self performSegueWithIdentifier:@"fromConfirmVehicletoLogin" sender:nil];
+    
 }
 
 #pragma mark - Navigation
@@ -48,6 +80,12 @@
         UITabBarController *tabBar = [segue destinationViewController];
         
         tabBar.selectedIndex = 2;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"fromConfirmVehicletoLogin"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        LoginViewController *login = (LoginViewController*)navigationController.topViewController;
+        login.vehicle = self.vehicle;
     }
 }
 

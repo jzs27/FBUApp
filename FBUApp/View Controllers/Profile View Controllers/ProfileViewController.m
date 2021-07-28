@@ -14,9 +14,11 @@
 #import "VehicleCell.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
+#import "PopUpViewController.h"
 
 @interface ProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfVehicles;
 
@@ -28,10 +30,35 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self fetchVehicles];
+    
     PFUser *currentUser = [PFUser currentUser];
     
-    self.usernameLabel.text = [NSString stringWithFormat:@"%@ %@!",@"Hi",currentUser.username];
+    if (currentUser != nil){
+        self.usernameLabel.text = [NSString stringWithFormat:@"%@ %@!",@"Hi",currentUser.username];
+        [self fetchVehicles];
+        [self.logoutButton setTitle:@"Logout" forState:UIControlStateNormal];
+    }
+    else{
+        [self.tableView setHidden:YES];
+        [self createNoVehiclesView];
+        [self.logoutButton setTitle:@"Login" forState:UIControlStateNormal];
+    }
+}
+
+-(void)createNoVehiclesView{
+    CGRect frame = self.tableView.frame;
+    UIView *noVehicleView = [[UIView alloc]initWithFrame:frame];
+    [noVehicleView setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:noVehicleView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 30, 300, 50)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor blackColor];
+    label.numberOfLines = 0;
+    
+    label.text = @"Login To View Listed Vehicles";
+    [noVehicleView addSubview:label];
 }
 
 - (IBAction)didTapRegister:(id)sender {
@@ -40,7 +67,7 @@
 
 - (void)fetchVehicles {
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    query.limit = 20;
+    query.limit = 40;
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;
@@ -50,6 +77,17 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.delegate = self;
+    popUp.message = @"To view your current reservation, please login.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
 }
 
 - (IBAction)didTapLogout:(id)sender {

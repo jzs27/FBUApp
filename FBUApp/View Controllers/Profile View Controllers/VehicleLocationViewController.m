@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = @"";
-    
 }
 
 -(void)didSetLocation:(NSString *)location;{
@@ -59,8 +58,6 @@
 -(void)createVehicle:(NSString*)location{
     Vehicle *newVehicle = [Vehicle new];
     newVehicle.location = location;
-    newVehicle.owner = [PFUser currentUser];
-    //newVehicle.currentlyRented = NO;
     
     [newVehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error) {

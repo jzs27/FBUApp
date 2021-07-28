@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFc-CW-GiA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nGK-ph-CG9">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -228,7 +228,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="vot-fK-aZo" customClass="ReservationLocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R49-c4-7zN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAJ-zI-qQA">
@@ -265,10 +265,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-MT-BUp">
-                                <rect key="frame" x="0.0" y="671" width="390" height="173"/>
+                                <rect key="frame" x="0.0" y="671" width="390" height="119"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7T-60-jnW">
-                                        <rect key="frame" x="191" y="18" width="191" height="64"/>
+                                        <rect key="frame" x="191" y="18" width="191" height="10"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                         <state key="normal" title="Confirm Location">
@@ -911,11 +911,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NbS-RH-vEh" customClass="ReservationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hs1-db-vKZ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="409" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-8x-Fcp">
-                                <rect key="frame" x="0.0" y="260" width="390" height="501"/>
+                                <rect key="frame" x="0.0" y="260" width="390" height="447"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReservationCell" rowHeight="409" id="aet-dc-Xpl" customClass="ReservationCell">
@@ -1057,10 +1057,10 @@
                                 <rect key="frame" x="0.0" y="597" width="390" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5v-X7-efd">
-                                        <rect key="frame" x="30" y="31" width="71" height="50"/>
+                                        <rect key="frame" x="30" y="31" width="30" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                        <state key="normal" title="Logout">
+                                        <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -1068,7 +1068,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hY-JT-ZcE">
-                                        <rect key="frame" x="123" y="30" width="248" height="50"/>
+                                        <rect key="frame" x="82" y="30" width="289" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <state key="normal" title="Register New Vehicle">
@@ -1155,14 +1155,16 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="nmb-1u-DHN"/>
                     <navigationItem key="navigationItem" id="INq-kN-ybn"/>
                     <connections>
+                        <outlet property="logoutButton" destination="V5v-X7-efd" id="CQC-t4-Xij"/>
                         <outlet property="tableView" destination="e8q-jz-Qzo" id="hlK-mq-Om2"/>
                         <outlet property="usernameLabel" destination="2UO-if-qZC" id="rUk-6b-dOG"/>
                         <segue destination="cuI-FF-pPC" kind="show" identifier="fromProfile" id="a6H-Zo-OcX"/>
+                        <segue destination="kPI-2w-Tpi" kind="show" identifier="fromProfileToLogin" id="c1f-Ot-WRQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhw-YN-HQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3210.7692307692305" y="1623.6966824644549"/>
+            <point key="canvasLocation" x="3211" y="1494"/>
         </scene>
         <!--Vehicle Registration View Controller-->
         <scene sceneID="RvF-6B-KN0">
@@ -2166,11 +2168,12 @@
                         <outlet property="vehicleInfoLabel" destination="GXL-JF-xyc" id="MhZ-5u-msI"/>
                         <outlet property="vehicleView" destination="81R-aQ-jxv" id="9ow-9F-h9s"/>
                         <segue destination="mFc-CW-GiA" kind="show" identifier="backToProfile" id="SdM-7N-vzJ"/>
+                        <segue destination="kPI-2w-Tpi" kind="show" identifier="fromConfirmVehicletoLogin" id="wUP-1d-r5r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrf-xu-eHw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3210.7692307692305" y="6502.6066350710898"/>
+            <point key="canvasLocation" x="3211" y="6559"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FYG-Yx-RYG">
@@ -2313,7 +2316,7 @@
             <objects>
                 <viewController id="bUs-XB-W4p" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eki-uE-Bpn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-UK-TYq">
@@ -2334,11 +2337,11 @@
             <objects>
                 <viewController id="brY-pu-B1Y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jD5-Xn-ZhV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-Ew-zFA">
-                                <rect key="frame" x="-1" y="-1" width="390" height="130"/>
+                                <rect key="frame" x="-1" y="-1" width="390" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
@@ -2377,12 +2380,12 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="FnC-wX-kVu"/>
-        <segue reference="nnS-W1-o1P"/>
+        <segue reference="Sof-wE-czT"/>
+        <segue reference="Yn5-tG-pZ6"/>
         <segue reference="Ili-VQ-fpO"/>
         <segue reference="A7e-D1-ojQ"/>
-        <segue reference="3EK-Vw-FB5"/>
-        <segue reference="k3d-dT-8Zm"/>
+        <segue reference="SdM-7N-vzJ"/>
+        <segue reference="c1f-Ot-WRQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>
