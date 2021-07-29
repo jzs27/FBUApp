@@ -859,30 +859,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRd-lQ-2iJ">
                                 <rect key="frame" x="57.666666666666657" y="247" width="275" height="350"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Uh Oh! You're not Logged In!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRn-hZ-MwU">
-                                        <rect key="frame" x="35" y="61" width="220" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In order to save your progress, log in" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKH-Hm-XeA">
-                                        <rect key="frame" x="8" y="134" width="226" height="88"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to save your progress, log in" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKH-Hm-XeA">
+                                        <rect key="frame" x="20" y="125" width="235" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
+                                    <constraint firstItem="VKH-Hm-XeA" firstAttribute="leading" secondItem="lRd-lQ-2iJ" secondAttribute="leading" constant="20" id="7Nj-Iu-dUl"/>
+                                    <constraint firstItem="VKH-Hm-XeA" firstAttribute="top" secondItem="lRd-lQ-2iJ" secondAttribute="top" constant="125" id="UBF-ZE-fzu"/>
                                     <constraint firstAttribute="width" constant="275" id="bva-aB-8ov"/>
+                                    <constraint firstAttribute="trailing" secondItem="VKH-Hm-XeA" secondAttribute="trailing" constant="20" id="qO6-qE-pnm"/>
                                     <constraint firstAttribute="height" constant="350" id="tKl-Og-MWd"/>
+                                    <constraint firstAttribute="bottom" secondItem="VKH-Hm-XeA" secondAttribute="bottom" constant="125" id="ulN-Ed-Z4n"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRU-TO-dy4">
-                                <rect key="frame" x="176" y="526" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uh Oh! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRn-hZ-MwU">
+                                <rect key="frame" x="152.66666666666666" y="303" width="84.666666666666657" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRU-TO-dy4">
+                                <rect key="frame" x="139" y="500" width="113" height="62"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="UxA-fh-Qfp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -894,8 +900,15 @@
                         <viewLayoutGuide key="safeArea" id="fVe-2J-Afq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="xRU-TO-dy4" firstAttribute="centerX" secondItem="GRn-hZ-MwU" secondAttribute="centerX" id="CoA-sJ-icr"/>
                             <constraint firstItem="lRd-lQ-2iJ" firstAttribute="centerY" secondItem="Dhk-Hq-qWW" secondAttribute="centerY" id="E9V-RZ-ked"/>
+                            <constraint firstItem="xRU-TO-dy4" firstAttribute="leading" secondItem="fVe-2J-Afq" secondAttribute="leading" constant="139" id="IMk-m3-0MF"/>
+                            <constraint firstItem="GRn-hZ-MwU" firstAttribute="leading" secondItem="fVe-2J-Afq" secondAttribute="leading" constant="152.66666666666666" id="Ie1-B0-H4l"/>
+                            <constraint firstItem="GRn-hZ-MwU" firstAttribute="centerX" secondItem="lRd-lQ-2iJ" secondAttribute="centerX" id="MOf-Bs-rW3"/>
                             <constraint firstItem="lRd-lQ-2iJ" firstAttribute="centerX" secondItem="Dhk-Hq-qWW" secondAttribute="centerX" id="TwV-f6-bBi"/>
+                            <constraint firstItem="GRn-hZ-MwU" firstAttribute="top" secondItem="fVe-2J-Afq" secondAttribute="top" constant="259" id="Uat-KY-VbO"/>
+                            <constraint firstItem="fVe-2J-Afq" firstAttribute="bottom" secondItem="xRU-TO-dy4" secondAttribute="bottom" constant="248" id="l5R-fi-sNk"/>
+                            <constraint firstItem="VKH-Hm-XeA" firstAttribute="centerX" secondItem="GRn-hZ-MwU" secondAttribute="centerX" id="yqo-q0-w3X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x1Y-uj-y3f"/>
@@ -2429,15 +2442,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pal-Em-ERc"/>
-        <segue reference="BqU-5I-nUW"/>
+        <segue reference="cMc-tT-cBH"/>
+        <segue reference="yTN-B8-AYf"/>
         <segue reference="uMG-oa-tSl"/>
         <segue reference="5au-pz-vJ4"/>
-        <segue reference="dK1-l8-BbS"/>
+        <segue reference="3EK-Vw-FB5"/>
         <segue reference="5aq-PP-Hoh"/>
         <segue reference="nXx-gZ-clR"/>
         <segue reference="WDn-vb-zPQ"/>
-        <segue reference="c1f-Ot-WRQ"/>
+        <segue reference="E54-eY-0hS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>
