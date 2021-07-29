@@ -9,6 +9,7 @@
 
 #import "SelectVehicleViewController.h"
 #import "CalendarViewController.h"
+#import "PopUpViewController.h"
 
 @interface ReservationCalendarViewController ()<ReuseCalendarViewDelegate>
 
@@ -60,13 +61,28 @@
     }
 }
 
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.message = @"Please select both your rental start and end date";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
+}
+
 - (IBAction)didTapNext:(id)sender {
-    self.activityView = [[UIActivityIndicatorView alloc]
-                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-    self.activityView.center=self.view.center;
-    [self.activityView startAnimating];
-    [self.view addSubview:self.activityView];
-    [self updateDates];
+    if (self.startDate == nil || self.endDate == nil){
+        [self showPopUp];
+    }
+    else{
+        self.activityView = [[UIActivityIndicatorView alloc]
+                                                 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+        self.activityView.center=self.view.center;
+        [self.activityView startAnimating];
+        [self.view addSubview:self.activityView];
+        [self updateDates];
+    }
 }
 
 -(void)updateDates{

@@ -9,6 +9,7 @@
 
 #import "LocationViewController.h"
 #import "VehicleCalendarViewController.h"
+#import "PopUpViewController.h"
 
 @interface VehicleLocationViewController ()<ReuseLocationDelegate>
 
@@ -49,13 +50,18 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
-    self.activityView = [[UIActivityIndicatorView alloc]
-                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-    self.activityView.center=self.view.center;
-    [self.activityView startAnimating];
-    [self.view addSubview:self.activityView];
-    
-    [self createVehicle:self.location];
+    if (self.location == nil){
+        [self showPopUp];
+    }
+    else{
+        self.activityView = [[UIActivityIndicatorView alloc]
+                                                 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+        self.activityView.center=self.view.center;
+        [self.activityView startAnimating];
+        [self.view addSubview:self.activityView];
+        
+        [self createVehicle:self.location];
+    }
 }
 
 -(void)createVehicle:(NSString*)location{
@@ -80,6 +86,16 @@
 
 - (IBAction)didTapx:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.message = @"Please select your vehicle location.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
 }
 
 @end

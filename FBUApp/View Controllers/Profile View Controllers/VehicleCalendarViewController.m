@@ -9,6 +9,7 @@
 
 #import "CalendarViewController.h"
 #import "VehicleRegistrationViewController.h"
+#import "PopUpViewController.h"
 
 @interface VehicleCalendarViewController ()<ReuseCalendarViewDelegate>
 
@@ -60,12 +61,17 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
-    self.activityView = [[UIActivityIndicatorView alloc]
-                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-    self.activityView.center=self.view.center;
-    [self.activityView startAnimating];
-    [self.view addSubview:self.activityView];
-    [self updateDates];
+    if (self.startDate == nil || self.endDate == nil){
+        [self showPopUp];
+    }
+    else{
+        self.activityView = [[UIActivityIndicatorView alloc]
+                                                 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+        self.activityView.center=self.view.center;
+        [self.activityView startAnimating];
+        [self.view addSubview:self.activityView];
+        [self updateDates];
+    }
 }
 
 -(void)updateDates{
@@ -84,6 +90,16 @@
 
 - (IBAction)didTapX:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.message = @"Please select your vehicle availability dates.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
 }
 
 @end

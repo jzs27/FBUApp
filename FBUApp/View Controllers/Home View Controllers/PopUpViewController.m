@@ -23,7 +23,10 @@
 
 - (IBAction)didPressLogin:(id)sender {
     [self.view removeFromSuperview];
-    [self.delegate returnToLogin];
+    if (self.returnToLogin){
+        [self.delegate returnToLogin];
+    }
+    
 }
 
 /*

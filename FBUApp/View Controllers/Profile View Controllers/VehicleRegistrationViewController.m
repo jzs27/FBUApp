@@ -13,6 +13,7 @@
 
 // relative includes
 #import "VehicleImageViewController.h"
+#import "PopUpViewController.h"
 
 @interface VehicleRegistrationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -132,38 +133,54 @@
 }
 
 - (IBAction)didTapNext:(id)sender {
-    self.activityView = [[UIActivityIndicatorView alloc]
-                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-    self.activityView.center=self.view.center;
-    [self.activityView startAnimating];
-    [self.view addSubview:self.activityView];
+    if (self.makeTextField.text == nil || self.modelTextField.text == nil || self.type == nil || self.year == nil){
+        [self showPopUp];
+    }
+    else{
+        self.activityView = [[UIActivityIndicatorView alloc]
+                                                 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+        self.activityView.center=self.view.center;
+        [self.activityView startAnimating];
+        [self.view addSubview:self.activityView];
 
-    if (self.year != nil){
-            self.vehicle.year= self.year;
-        }
-        if (self.makeTextField.text != nil){
-            self.vehicle.make = self.makeTextField.text;
-        }
-        if (self.modelTextField.text != nil){
-            self.vehicle.model = self.modelTextField.text;
-        }
-        if (self.type != nil){
-            self.vehicle.type = self.type;
-        }
+        if (self.year != nil){
+                self.vehicle.year= self.year;
+            }
+            if (self.makeTextField.text != nil){
+                self.vehicle.make = self.makeTextField.text;
+            }
+            if (self.modelTextField.text != nil){
+                self.vehicle.model = self.modelTextField.text;
+            }
+            if (self.type != nil){
+                self.vehicle.type = self.type;
+            }
+        
+        [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error){
+                NSLog(@"Error:%@",error.localizedDescription);
+            }
+            else{
+                [self.activityView stopAnimating];
+                [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
+            }
+        }];
+    }
     
-    [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error){
-            NSLog(@"Error:%@",error.localizedDescription);
-        }
-        else{
-            [self.activityView stopAnimating];
-            [self performSegueWithIdentifier:@"fromVehicleRegistration" sender:nil];
-        }
-    }];
 }
 
 - (IBAction)didTapX:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.message = @"Please select your vehicle make, model, year and type.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
 }
 
 @end

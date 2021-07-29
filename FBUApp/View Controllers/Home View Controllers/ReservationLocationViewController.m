@@ -16,6 +16,7 @@
 #import "LoginViewController.h"
 #import "ReservationCalendarViewController.h"
 #import "LocationViewController.h"
+#import "PopUpViewController.h"
 
 @interface ReservationLocationViewController ()<ReuseLocationDelegate>
 
@@ -52,13 +53,28 @@
     }
 }
 
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.message = @"Please select your rental location.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
+}
+
 - (IBAction)didTapNext:(id)sender {
-    self.activityView = [[UIActivityIndicatorView alloc]
-                         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-    self.activityView.center=self.view.center;
-    [self.activityView startAnimating];
-    [self.view addSubview:self.activityView];
-    [self createReservaton:self.location];
+    if (self.location == nil){
+        [self showPopUp];
+    }
+    else{
+        self.activityView = [[UIActivityIndicatorView alloc]
+                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+        self.activityView.center=self.view.center;
+        [self.activityView startAnimating];
+        [self.view addSubview:self.activityView];
+        [self createReservaton:self.location];
+    }
 }
 
 -(void)createReservaton:(NSString*)location{

@@ -59,6 +59,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
     popUp.delegate = self;
+    popUp.returnToLogin = YES;
     popUp.message = @"To register your vehicle, please login.";
     [self addChildViewController:popUp];
     popUp.view.frame = self.view.frame;

@@ -8,6 +8,7 @@
 #import "VehicleImageViewController.h"
 
 #import "RateViewController.h"
+#import "PopUpViewController.h"
 
 @interface VehicleImageViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -70,13 +71,16 @@
 }
 
 - (IBAction)didTapConfirm:(id)sender {
-    self.activityView = [[UIActivityIndicatorView alloc]
-                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
-    self.activityView.center=self.view.center;
-    [self.activityView startAnimating];
-    [self.view addSubview:self.activityView];
-    
-    if (self.image != nil){
+    if (self.image == nil){
+        [self showPopUp];
+    }
+    else{
+        self.activityView = [[UIActivityIndicatorView alloc]
+                                                 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+        self.activityView.center=self.view.center;
+        [self.activityView startAnimating];
+        [self.view addSubview:self.activityView];
+        
         self.vehicle.image = (UIImage*)[Vehicle getPFFileFromImage:self.image];
         [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error){
@@ -100,6 +104,16 @@
 
 - (IBAction)didTapX:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)showPopUp{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
+    popUp.message = @"Please upload an image of your vehicle.";
+    [self addChildViewController:popUp];
+    popUp.view.frame = self.view.frame;
+    [self.view addSubview:popUp.view];
+    [popUp didMoveToParentViewController:self];
 }
 
 @end

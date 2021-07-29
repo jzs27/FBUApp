@@ -56,6 +56,7 @@
     PopUpViewController *popUp = (PopUpViewController*)[storyboard instantiateViewControllerWithIdentifier:@"popUp"];
     popUp.delegate = self;
     popUp.message = @"To save your reservation, please login.";
+    popUp.returnToLogin = YES;
     [self addChildViewController:popUp];
     popUp.view.frame = self.view.frame;
     [self.view addSubview:popUp.view];
