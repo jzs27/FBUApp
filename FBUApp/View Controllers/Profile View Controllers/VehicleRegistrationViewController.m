@@ -142,20 +142,10 @@
         self.activityView.center=self.view.center;
         [self.activityView startAnimating];
         [self.view addSubview:self.activityView];
-
-        if (self.year != nil){
-                self.vehicle.year= self.year;
-            }
-            if (self.makeTextField.text != nil){
-                self.vehicle.make = self.makeTextField.text;
-            }
-            if (self.modelTextField.text != nil){
-                self.vehicle.model = self.modelTextField.text;
-            }
-            if (self.type != nil){
-                self.vehicle.type = self.type;
-            }
-        
+        self.vehicle.year= self.year;
+        self.vehicle.make = self.makeTextField.text;
+        self.vehicle.model = self.modelTextField.text;
+        self.vehicle.type = self.type;
         [self.vehicle saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error){
                 NSLog(@"Error:%@",error.localizedDescription);
@@ -166,7 +156,6 @@
             }
         }];
     }
-    
 }
 
 - (IBAction)didTapX:(id)sender {

@@ -2401,7 +2401,7 @@
             <objects>
                 <viewController id="bUs-XB-W4p" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eki-uE-Bpn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="138"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-UK-TYq">
@@ -2422,11 +2422,11 @@
             <objects>
                 <viewController id="brY-pu-B1Y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jD5-Xn-ZhV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-Ew-zFA">
-                                <rect key="frame" x="-3" y="-1" width="389" height="129"/>
+                                <rect key="frame" x="-3" y="-1" width="389" height="109"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
@@ -2442,15 +2442,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lOQ-eL-Rbv"/>
-        <segue reference="Vas-6l-CeP"/>
+        <segue reference="Sof-wE-czT"/>
+        <segue reference="Yn5-tG-pZ6"/>
         <segue reference="uMG-oa-tSl"/>
         <segue reference="A7e-D1-ojQ"/>
         <segue reference="3EK-Vw-FB5"/>
         <segue reference="zAb-x1-uy7"/>
         <segue reference="fSy-ez-UHx"/>
         <segue reference="WDn-vb-zPQ"/>
-        <segue reference="E54-eY-0hS"/>
+        <segue reference="c1f-Ot-WRQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>

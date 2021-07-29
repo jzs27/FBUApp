@@ -50,14 +50,20 @@
     [noVehicleView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:noVehicleView];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 30, 300, 50)];
-    label.backgroundColor = [UIColor clearColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 25, 50)];
+    label.translatesAutoresizingMaskIntoConstraints = NO;
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor blackColor];
     label.numberOfLines = 0;
-    
+    label.font = [UIFont systemFontOfSize:25.0f];
+    label.backgroundColor = [UIColor systemGray5Color];
     label.text = @"Login To View Listed Vehicles";
     [noVehicleView addSubview:label];
+
+    [label.topAnchor constraintEqualToAnchor:noVehicleView.topAnchor constant:200.0].active = YES;
+    [label.leftAnchor constraintEqualToAnchor:noVehicleView.leftAnchor constant:0.0].active = YES;
+    [label.rightAnchor constraintEqualToAnchor:noVehicleView.rightAnchor constant:0.0].active = YES;
 }
 
 - (IBAction)didTapRegister:(id)sender {
