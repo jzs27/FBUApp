@@ -15,6 +15,11 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - BEMCheckBox (1.4.1)
+  - Bolts (1.9.1):
+    - Bolts/AppLinks (= 1.9.1)
+    - Bolts/Tasks (= 1.9.1)
+  - Bolts/AppLinks (1.9.1):
+    - Bolts/Tasks
   - Bolts/Tasks (1.9.1)
   - FSCalendar (2.8.2)
   - GoogleMaps (5.1.0):
@@ -31,6 +36,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BEMCheckBox
+  - Bolts
   - FSCalendar
   - GoogleMaps (= 5.1.0)
   - IQKeyboardManager
@@ -55,6 +61,6 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
 
-PODFILE CHECKSUM: 0df1cbb25d29bda85ea299e0de58cc8c391e1412
+PODFILE CHECKSUM: 16cd76c3447775b57af462fe3452660a1d3fbb52
 
 COCOAPODS: 1.10.1

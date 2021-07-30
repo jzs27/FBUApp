@@ -12,6 +12,7 @@ pod 'AFNetworking'
 pod 'GoogleMaps', '5.1.0' 
 pod 'BEMCheckBox'
 pod 'IQKeyboardManager'
+pod 'Bolts'
 
   target 'FBUAppTests' do
     inherit! :search_paths
