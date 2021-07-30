@@ -278,6 +278,18 @@
                                             <action selector="didTapNext:" destination="vot-fK-aZo" eventType="touchUpInside" id="a3u-JL-5Nd"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xM-2D-NTt">
+                                        <rect key="frame" x="41" y="38" width="84" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressLogin:" destination="vot-fK-aZo" eventType="touchUpInside" id="zzG-RB-BPG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
@@ -322,12 +334,14 @@
                     <navigationItem key="navigationItem" id="uHe-Um-loY"/>
                     <connections>
                         <outlet property="locationLabel" destination="qY1-Lv-tuU" id="8Om-qm-PeV"/>
+                        <outlet property="loginButton" destination="7xM-2D-NTt" id="YOm-Bd-MOU"/>
                         <segue destination="aHw-nd-1CW" kind="presentation" identifier="fromReservationLocation" id="zAb-x1-uy7"/>
+                        <segue destination="kPI-2w-Tpi" kind="show" identifier="fromHomeToLogin" id="wC5-Id-FY7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuZ-9G-3Dk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1515.3846153846152" y="1624.4075829383885"/>
+            <point key="canvasLocation" x="-1515" y="1534"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="Hhb-eL-JVd">
@@ -1162,11 +1176,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="nGK-ph-CG9" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vfc-gW-KU0">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Hw-at3">
-                                <rect key="frame" x="0.0" y="597" width="390" height="110"/>
+                                <rect key="frame" x="0.0" y="651" width="390" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5v-X7-efd">
                                         <rect key="frame" x="30" y="31" width="30" height="50"/>
@@ -1213,13 +1227,13 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi User!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-if-qZC">
-                                <rect key="frame" x="157" y="23" width="204" height="65"/>
+                                <rect key="frame" x="157" y="67" width="204" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e8q-jz-Qzo">
-                                <rect key="frame" x="0.0" y="220" width="390" height="377"/>
+                                <rect key="frame" x="0.0" y="220" width="390" height="431"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-mA-2R3">
@@ -2429,7 +2443,7 @@
             <objects>
                 <viewController id="bUs-XB-W4p" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eki-uE-Bpn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="138"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-UK-TYq">
@@ -2450,11 +2464,11 @@
             <objects>
                 <viewController id="brY-pu-B1Y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jD5-Xn-ZhV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="105"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-Ew-zFA">
-                                <rect key="frame" x="-3" y="-1" width="389" height="104"/>
+                                <rect key="frame" x="-3" y="-1" width="389" height="129"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
@@ -2470,15 +2484,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J9x-Ee-FVy"/>
-        <segue reference="vcg-B5-aaW"/>
+        <segue reference="lOQ-eL-Rbv"/>
+        <segue reference="Vas-6l-CeP"/>
         <segue reference="Ili-VQ-fpO"/>
         <segue reference="A7e-D1-ojQ"/>
-        <segue reference="3EK-Vw-FB5"/>
+        <segue reference="dK1-l8-BbS"/>
         <segue reference="zAb-x1-uy7"/>
         <segue reference="nXx-gZ-clR"/>
         <segue reference="WDn-vb-zPQ"/>
-        <segue reference="k3d-dT-8Zm"/>
+        <segue reference="wC5-Id-FY7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>

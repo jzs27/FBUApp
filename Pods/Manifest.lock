@@ -32,6 +32,7 @@ PODS:
     - Parse/Core (= 1.19.2)
   - Parse/Core (1.19.2):
     - Bolts/Tasks (= 1.9.1)
+  - SNNeuralNet (0.2.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - GoogleMaps (= 5.1.0)
   - IQKeyboardManager
   - Parse
+  - SNNeuralNet
 
 SPEC REPOS:
   trunk:
@@ -51,6 +53,7 @@ SPEC REPOS:
     - GoogleMaps
     - IQKeyboardManager
     - Parse
+    - SNNeuralNet
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -60,7 +63,8 @@ SPEC CHECKSUMS:
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
+  SNNeuralNet: 68ca5ce0a64be0991f7e9d94d2f570fad1f878d8
 
-PODFILE CHECKSUM: 16cd76c3447775b57af462fe3452660a1d3fbb52
+PODFILE CHECKSUM: 57f489d0766fad3ab3c460957cbe6f163d3aed75
 
 COCOAPODS: 1.10.1

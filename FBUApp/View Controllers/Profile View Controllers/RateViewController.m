@@ -9,6 +9,8 @@
 
 #import <Parse/Parse.h>
 #import "math.h"
+#import <SNNeuralNet/SNNeuralNet.h>
+
 
 #import "ConfirmVehicleViewController.h"
 
@@ -19,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property double recommendedRate;
 @property (weak, nonatomic) IBOutlet UILabel *rateCalculationLabel;
+@property NSDictionary *makes;
+@property NSDictionary *types;
+@property NSDictionary *year;
 
 @end
 
@@ -27,6 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self calculateRate];
+    [self createNeuralNet];
+    
+    self.makes = @{@"Tesla":@1, @"Toyota":@1, @"Porche":@1, @"Audi":@1,@"BMW":@1, @"Chevrolet":@1,@"Jeep":@1};
     
     NSString *currentValueString = [NSString stringWithFormat:@"$%d",self.currentValue];
     CGFloat boldTextSize = 17.0f;
@@ -111,6 +119,35 @@
 
 - (IBAction)didTapX:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)createNeuralNet{
+    SNTrainingRecord records[] = {
+        {SNInput(1,1,0), SNOutput(1)},
+        {SNInput(0,1,1), SNOutput(1)},
+        {SNInput(1,0,1), SNOutput(1)},
+        {SNInput(1,0,0), SNOutput(0)},
+        {SNInput(0,1,0), SNOutput(0)},
+        {SNInput(0,0,1), SNOutput(0)},
+        {SNInput(1,1,1), SNOutput(1)},
+        {SNInput(0,0,0), SNOutput(0)}
+    };
+
+    SNNeuralNet *net = [[SNNeuralNet alloc] initWithTrainingData:records
+                                                      numRecords:8
+                                                       numInputs:3
+                                                      numOutputs:1];
+
+    
+    
+    net.maxIterations = 20000;  // maximum training iterations
+    net.minError = 0.0001;       // error threshold to reach
+    net.learningRate = 0.03;     // influences how quickly the network trains
+    net.momentum = 0.1;         // influences learning rate
+    
+    
+    double error = [net train:records numRecords:8];
+    double *output = [net runInput:SNInput(1, 0,1)];
 }
 
 @end

@@ -305,6 +305,7 @@
     [self.searchBar.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = NO;
     [self.searchBar.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
     [self.tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = NO;
+
     [self.tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = NO;
     [self.mapView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
     [self.mapView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;

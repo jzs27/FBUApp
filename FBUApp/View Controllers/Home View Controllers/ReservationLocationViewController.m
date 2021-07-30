@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property UIActivityIndicatorView *activityView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -30,6 +31,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = @"";
+    
+    PFUser *user = [PFUser currentUser];
+    if (user != nil){
+        [self.loginButton setHidden:YES];
+    }
 }
 
 -(void)didSetLocation:(NSString *)location;{
@@ -91,6 +97,10 @@
         }
     }];
     self.reservation = newReservation;
+}
+
+- (IBAction)didPressLogin:(id)sender {
+    [self performSegueWithIdentifier:@"fromHomeToLogin" sender:nil];
 }
 
 @end
