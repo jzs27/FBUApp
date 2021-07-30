@@ -36,19 +36,23 @@
 
 - (IBAction)didTapConfirmButton:(id)sender {
     PFUser *user = [PFUser currentUser];
-        if (user != nil) {
-            self.reservation.rentee = [PFUser currentUser];
-            [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                if (error){
-                }
-                else{
-                    [self performSegueWithIdentifier:@"fromConfirmVehicle" sender:nil];
-                }
-            }];
-        }
-        else{
-            [self showPopUp];
-        }
+    if (user != nil) {
+        self.reservation.rentee = [PFUser currentUser];
+        [self.reservation saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (error){
+                
+            }
+            else{
+                [self performSegueWithIdentifier:@"fromConfirmVehicle" sender:nil];
+                
+            }
+            
+        }];
+        
+    }
+    else{
+        [self showPopUp];
+    }
 }
 
 -(void)showPopUp{
