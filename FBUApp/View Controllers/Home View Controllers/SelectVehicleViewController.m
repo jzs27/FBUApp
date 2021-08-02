@@ -58,42 +58,6 @@
     }];
 }
 
-- (void)addTypeFilter:(NSString *)type{
-    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    query.limit = 20;
-    [query whereKey:@"type" equalTo:type];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
-        if (vehicles != nil) {
-            self.arrayOfVehicles = vehicles;
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
-}
-
-- (void)addPriceFilter:(NSString *)price{
-    PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
-    
-    query.limit = 20;
-    if ([price  isEqual: @"highToLow"]){
-        [query orderByDescending:@"rate"];
-    }
-    if ([price  isEqual: @"lowToHigh"]){
-        [query orderByAscending:@"rate"];
-    }
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
-        if (vehicles != nil) {
-            self.arrayOfVehicles = vehicles;
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
-}
-
 -(void)addMultiFilter:(NSArray *)filters{
     
     BOOL highToLow = [filters containsObject:@"highToLow"];

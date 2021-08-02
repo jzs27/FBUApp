@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol FilterViewControllerDelegate
 
--(void) addTypeFilter:(NSString*)type;
--(void) addPriceFilter:(NSString*)price;
 -(void) addMultiFilter:(NSArray*)filters;
 
 @end

@@ -46,7 +46,6 @@
                 [self createAlert:error.localizedDescription];
 
             } else {
-                NSLog(@"User registered successfully");
                 [self clearFields];
                 [self performSegueWithIdentifier:@"fromSignUp" sender:nil];
             }

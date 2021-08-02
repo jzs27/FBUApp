@@ -26,7 +26,6 @@
     if (self.returnToLogin){
         [self.delegate returnToLogin];
     }
-    
 }
 
 /*

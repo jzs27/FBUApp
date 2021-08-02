@@ -16,10 +16,12 @@ int calendarCount;
 @implementation CalendarViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     calendarCount =0;
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
+    
     if (calendarCount > 2){
         self.calendar.allowsMultipleSelection = NO;
     }
@@ -42,10 +44,6 @@ int calendarCount;
     if (calendarCount < 2){
         self.calendar.allowsSelection = YES;
     }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
 }
 
 - (IBAction)didClearSelection:(id)sender {
