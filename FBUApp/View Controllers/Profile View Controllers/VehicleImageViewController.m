@@ -29,6 +29,10 @@
 }
 
 - (IBAction)didTapVehicle:(id)sender {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        [self createCameraOption];
+        return;
+    }
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
@@ -36,6 +40,38 @@
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+-(void)createCameraOption{
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+   
+    UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:nil
+                                     message:nil
+                                     preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction* libraryButton = [UIAlertAction
+                                    actionWithTitle:@"Photo Library"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:imagePickerVC animated:YES completion:nil];
+                                    }];
+
+        UIAlertAction* cameraButton = [UIAlertAction
+                                   actionWithTitle:@"Camera"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:imagePickerVC animated:YES completion:nil];
+                                   }];
+
+        [alert addAction:libraryButton];
+        [alert addAction:cameraButton];
+
+        [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
