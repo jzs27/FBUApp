@@ -23,9 +23,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *rateCalculationLabel;
 @property NSDictionary *makes;
 @property NSDictionary *types;
-@property NSDictionary *year;
+@property int make;
+@property int year;
+@property int type;
+@property int location;
+@property int time;
 @property int result;
-@property SNTrainingRecord *record;
 
 @end
 
@@ -33,11 +36,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNetInputs];
     [self calculateRate];
-    [self createNeuralNet];
+    [self setupLabels];
     
     self.makes = @{@"Tesla":@1, @"Toyota":@1, @"Porche":@1, @"Audi":@1,@"BMW":@1, @"Chevrolet":@1,@"Jeep":@1};
-    
+}
+
+-(void)setupLabels{
     NSString *currentValueString = [NSString stringWithFormat:@"$%d",self.currentValue];
     CGFloat boldTextSize = 17.0f;
 
@@ -51,28 +57,6 @@
     self.rateField.text = [NSString stringWithFormat:@"%i",self.currentValue];
     self.locationLabel.text = self.vehicle.location;
     self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
-}
-
--(void)calculateRate{
-    
-    self.recommendedRate = 1;
-    
-    if ([self.vehicle.year  isEqual: @"2020"]){
-        self.recommendedRate = self.recommendedRate - 0.01;
-    }
-    if ([self.vehicle.year  isEqual: @"2019"]){
-        self.recommendedRate = self.recommendedRate - 0.01;
-    }
-    if ([self.vehicle.year isEqual: @"2018"]){
-        self.recommendedRate -=0.03;
-    }
-    if ([self.vehicle.location containsString:@"TX"] ){
-        self.recommendedRate = self.recommendedRate - 0.01;
-    }
-    if ([self.vehicle.location containsString:@"NY"] || [self.vehicle.location containsString:@"CA"]){
-        self.recommendedRate +=0.01;
-    }
-    self.currentValue = 50 * self.recommendedRate;
 }
 
 - (IBAction)didTapPlusButton:(id)sender {
@@ -122,7 +106,35 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)createNeuralNet{
+-(void)setNetInputs{
+    self.location = 0;
+    if ([self.vehicle.location containsString:@"NY"] || [self.vehicle.location containsString:@"CA"]){
+        self.location = 1;
+    }
+    NSTimeInterval secondsBetween = [self.vehicle.availableStartDate timeIntervalSinceDate:self.vehicle.availableEndDate];
+    int days = secondsBetween / 86400;
+    self.time = 0;
+    if (days < 7){
+        self.time = 1;
+    }
+    
+    self.make = 0;
+    if ([self.makes objectForKey:self.vehicle.make]){
+        self.make =1;
+    }
+    
+    self.type = 0;
+    if (![self.vehicle.type  isEqual: @"Small to Full Size"]){
+        self.type = 1;
+    }
+    
+    self.year = 0;
+    if ([self.vehicle.year  isEqual: @"2021"] || [self.vehicle.year  isEqual: @"2020"] || [self.vehicle.year  isEqual: @"2019"]){
+        self.year = 1;
+    }
+}
+
+-(void)calculateRate{
     SNTrainingRecord records[] = {
         {SNInput(1,1,1,1,1), SNOutput(1)},
         {SNInput(1,1,1,1,0), SNOutput(1)},
@@ -163,44 +175,19 @@
                                                        numInputs:5
                                                       numOutputs:1];
     
-    net.maxIterations = 20000;  // maximum training iterations
-    net.minError = 0.0001;       // error threshold to reach
-    net.learningRate = 0.03;     // influences how quickly the network trains
-    net.momentum = 0.1;         // influences learning rate
+    net.maxIterations = 20000;
+    net.minError = 0.0001;
+    net.learningRate = 0.03;
+    net.momentum = 0.1;
     
-    double error = [net train:records numRecords:8];
+    [net train:records numRecords:31];
     
-    int location = 0;
-    if ([self.vehicle.location containsString:@"NY"] || [self.vehicle.location containsString:@"CA"]){
-        location = 1;
-    }
-    NSTimeInterval secondsBetween = [self.vehicle.availableStartDate timeIntervalSinceDate:self.vehicle.availableEndDate];
-    int days = secondsBetween / 86400;
-    int time = 0;
-    if (days < 7){
-        time = 1;
-    }
+    double *output = [net runInput:SNInput(self.make, self.year, self.type, self.location, self.time)];
     
-    int make = 0;
-    if ([self.makes objectForKey:self.vehicle.make]){
-        make =1;
-    }
+    self.currentValue = 40;
     
-    int type = 0;
-    if (![self.vehicle.type  isEqual: @"Small to Full Size"]){
-        type = 1;
-    }
-    
-    int year = 0;
-    if ([self.vehicle.year  isEqual: @"2021"] || [self.vehicle.year  isEqual: @"2020"] || [self.vehicle.year  isEqual: @"2019"]){
-        year = 1;
-    }
-    
-    double *output = [net runInput:SNInput(make, year, type, location, time)];
-    
-    self.result = 0;
     if (output[0] >= 0.9){
-        self.result = 1;
+        self.currentValue = 50;
     }
 }
 
