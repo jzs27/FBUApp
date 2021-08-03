@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFc-CW-GiA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3am-SO-i8d">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -228,7 +228,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="vot-fK-aZo" customClass="ReservationLocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R49-c4-7zN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAJ-zI-qQA">
@@ -265,10 +265,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-MT-BUp">
-                                <rect key="frame" x="0.0" y="671" width="390" height="119"/>
+                                <rect key="frame" x="0.0" y="671" width="390" height="173"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7T-60-jnW">
-                                        <rect key="frame" x="191" y="18" width="191" height="10"/>
+                                        <rect key="frame" x="191" y="18" width="191" height="64"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                         <state key="normal" title="Confirm Location">
@@ -939,11 +939,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="NbS-RH-vEh" customClass="ReservationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hs1-db-vKZ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="409" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVv-8x-Fcp">
-                                <rect key="frame" x="0.0" y="260" width="390" height="447"/>
+                                <rect key="frame" x="0.0" y="260" width="390" height="501"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReservationCell" rowHeight="409" id="aet-dc-Xpl" customClass="ReservationCell">
@@ -2484,7 +2484,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mkP-Kp-VQ4"/>
+        <segue reference="lOQ-eL-Rbv"/>
         <segue reference="Vas-6l-CeP"/>
         <segue reference="Ili-VQ-fpO"/>
         <segue reference="A7e-D1-ojQ"/>

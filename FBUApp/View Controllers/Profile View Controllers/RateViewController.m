@@ -169,25 +169,35 @@
         {SNInput(1,0,1,0,0), SNOutput(0)},
         {SNInput(1,1,0,0,0), SNOutput(0)}
     };
+    
+    
 
     SNNeuralNet *net = [[SNNeuralNet alloc] initWithTrainingData:records
                                                       numRecords:31
                                                        numInputs:5
                                                       numOutputs:1];
     
+    [net.hiddenLayers arrayByAddingObjectsFromArray:@[@4,]];
+
     net.maxIterations = 20000;
     net.minError = 0.0001;
     net.learningRate = 0.03;
     net.momentum = 0.1;
     
-    [net train:records numRecords:31];
+    if (!net.isTrained){
+        [net train:records numRecords:31];
+    }
+    
     
     double *output = [net runInput:SNInput(self.make, self.year, self.type, self.location, self.time)];
     
-    self.currentValue = 40;
+    self.currentValue = 0;
     
     if (output[0] >= 0.9){
         self.currentValue = 50;
+    }
+    if (output[0] >= 0.02){
+        self.currentValue = 40;
     }
 }
 
