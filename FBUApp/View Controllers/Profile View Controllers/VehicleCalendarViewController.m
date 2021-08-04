@@ -31,7 +31,7 @@
     self.locationLabel.text = self.vehicle.location;
     self.locationLabel.textAlignment = NSTextAlignmentCenter;
     self.dateLabel.text = @"";
-    self.dateLabel.textAlignment = NSTextAlignmentCenter;;
+    self.dateLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 #pragma mark - Navigation

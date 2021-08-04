@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = @"";
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 -(void)didSetLocation:(NSString *)location;{
