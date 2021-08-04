@@ -25,6 +25,8 @@
     
     self.locationLabel.text = self.vehicle.location;
     self.dateLabel.text = [Vehicle createDateString:self.vehicle.availableStartDate withEndDate:self.vehicle.availableEndDate];
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
+    self.dateLabel.textAlignment = NSTextAlignmentCenter;
     
 }
 
