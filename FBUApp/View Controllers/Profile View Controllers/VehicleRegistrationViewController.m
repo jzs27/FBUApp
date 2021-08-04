@@ -41,6 +41,9 @@
     self.yearTableView.delegate = self;
     self.yearTableView.hidden = YES;
     
+    self.dateLabel.textAlignment = NSTextAlignmentCenter;
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
+    
     self.typeData = [[NSArray alloc]initWithObjects:@"Small to Full Size",@"Luxury & Convertible",@"SUVs & Wagons",@"Vans & Trucks", nil];
     self.yearData = [[NSArray alloc]initWithObjects:@"2021",@"2020",@"2019",@"2018", nil];
     
