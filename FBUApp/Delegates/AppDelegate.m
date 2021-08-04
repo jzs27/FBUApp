@@ -19,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
 
-            configuration.applicationId = @"QUuVhJ9tB5HZ8w0h6F0KpqNmGcsJIMMFLKAqNzzb"; // <- UPDATE
-            configuration.clientKey = @"BNL8oHok4W3Ygc4Ppj0o0V1GrZmwtokCfjJC7QrX"; // <- UPDATE
+            configuration.applicationId = @"NW2Xf1Ug7br91i7cX1M7zYUy9svDUAZ6vMeVLSL1"; // <- UPDATE
+            configuration.clientKey = @"rez3vCpP6UQSZlBPlVZ2ltLOVmxIAB23Q7h8GyKh"; // <- UPDATE
             configuration.server = @"https://parseapi.back4app.com";
         }];
 
