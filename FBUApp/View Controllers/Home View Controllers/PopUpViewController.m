@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor.whiteColor colorWithAlphaComponent:0.8];
     self.messageLabel.text = self.message;
+    self.messageLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 - (IBAction)didPressLogin:(id)sender {
