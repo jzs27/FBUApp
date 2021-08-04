@@ -29,7 +29,9 @@
     [super viewDidLoad];
     self.selectedOneDate = YES;
     self.locationLabel.text = self.vehicle.location;
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
     self.dateLabel.text = @"";
+    self.dateLabel.textAlignment = NSTextAlignmentCenter;;
 }
 
 #pragma mark - Navigation

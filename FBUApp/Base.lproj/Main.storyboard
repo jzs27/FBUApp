@@ -1923,6 +1923,7 @@
                             <constraint firstItem="NHY-8q-VB2" firstAttribute="centerY" secondItem="0sR-9e-Tp2" secondAttribute="centerY" id="h6v-b3-Jvf"/>
                             <constraint firstItem="KeM-x1-Kxk" firstAttribute="top" secondItem="A1V-OZ-xPK" secondAttribute="top" constant="47" id="icx-xs-0yK"/>
                             <constraint firstItem="b8U-SD-gsN" firstAttribute="top" secondItem="A1V-OZ-xPK" secondAttribute="top" id="mLM-hD-CcS"/>
+                            <constraint firstItem="A1V-OZ-xPK" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0sR-9e-Tp2" secondAttribute="trailing" symbolic="YES" id="twe-xC-4ZY"/>
                             <constraint firstItem="NHY-8q-VB2" firstAttribute="top" secondItem="b8U-SD-gsN" secondAttribute="bottom" constant="29" id="vTw-ja-hyH"/>
                             <constraint firstItem="NHY-8q-VB2" firstAttribute="top" secondItem="59G-HZ-kyZ" secondAttribute="bottom" id="xRs-9J-MZu"/>
                             <constraint firstItem="eTJ-W1-EYQ" firstAttribute="leading" secondItem="Q0w-CR-JIP" secondAttribute="leading" id="xaT-qW-obT"/>
@@ -2421,7 +2422,7 @@
             <objects>
                 <viewController id="ipS-u8-j5P" customClass="CalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uqA-o1-NYf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="458"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="452"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-VY-nqY" customClass="FSCalendar">
@@ -2457,7 +2458,7 @@
             <objects>
                 <viewController id="Zjf-WK-AxB" customClass="LocationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Yn-2I-JPG">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="456"/>
+                        <rect key="frame" x="0.0" y="0.0" width="388" height="454"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qe8-0Q-Dts">
@@ -2466,7 +2467,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Enter Location" translatesAutoresizingMaskIntoConstraints="NO" id="hQT-vu-TFq">
-                                <rect key="frame" x="1" y="0.0" width="390" height="44"/>
+                                <rect key="frame" x="1" y="0.0" width="388" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -2581,10 +2582,10 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="sxd-Ds-EFp"/>
-        <segue reference="FD9-WY-vp1"/>
-        <segue reference="Ili-VQ-fpO"/>
-        <segue reference="5au-pz-vJ4"/>
+        <segue reference="Gd3-3z-TrJ"/>
+        <segue reference="7Tk-cH-E1B"/>
+        <segue reference="uMG-oa-tSl"/>
+        <segue reference="A7e-D1-ojQ"/>
         <segue reference="SdM-7N-vzJ"/>
         <segue reference="zAb-x1-uy7"/>
         <segue reference="fSy-ez-UHx"/>
