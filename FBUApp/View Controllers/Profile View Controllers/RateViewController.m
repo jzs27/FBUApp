@@ -39,6 +39,9 @@
     [self setNetInputs];
     [self calculateRate];
     [self setupLabels];
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
+    self.dateLabel.textAlignment = NSTextAlignmentCenter;
+    self.rateCalculationLabel.textAlignment = NSTextAlignmentCenter;
     
     self.makes = @{@"Tesla":@1, @"Toyota":@1, @"Porche":@1, @"Audi":@1,@"BMW":@1, @"Chevrolet":@1,@"Jeep":@1};
 }
@@ -47,7 +50,7 @@
     NSString *currentValueString = [NSString stringWithFormat:@"$%d",self.currentValue];
     CGFloat boldTextSize = 17.0f;
 
-    self.rateCalculationLabel.text = [NSString stringWithFormat:@"Based on vehicle, location, and other factors, it is suggested that you charge %@ /day.",currentValueString];
+    self.rateCalculationLabel.text = [NSString stringWithFormat:@"Based on vehicle, location, and other factors, it is suggested that you charge %@ / day.",currentValueString];
     
     NSRange range1 = [self.rateCalculationLabel.text rangeOfString:currentValueString];
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc]initWithString:self.rateCalculationLabel.text];
