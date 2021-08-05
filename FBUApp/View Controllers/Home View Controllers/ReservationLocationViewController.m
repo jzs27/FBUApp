@@ -31,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = @"";
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
     
     PFUser *user = [PFUser currentUser];
     if (user != nil){
