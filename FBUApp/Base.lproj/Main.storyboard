@@ -1765,12 +1765,6 @@
                                     <constraint firstAttribute="trailing" secondItem="hUY-ID-SDB" secondAttribute="trailing" constant="28" id="U01-8s-y60"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Availability Dates" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMH-1o-2HP">
-                                <rect key="frame" x="16" y="161" width="345" height="33.666666666666657"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Houston, Texas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPs-KP-p0R">
                                 <rect key="frame" x="75.666666666666686" y="55" width="239" height="30"/>
                                 <constraints>
@@ -1800,6 +1794,12 @@
                                     <action selector="didTapX:" destination="bdz-in-vOS" eventType="touchUpInside" id="IyS-tD-ZHv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Availability Dates" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMH-1o-2HP">
+                                <rect key="frame" x="16" y="177" width="345" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nNu-1c-qY5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1825,7 +1825,7 @@
                             <constraint firstItem="rnd-Xl-wca" firstAttribute="centerX" secondItem="JPs-KP-p0R" secondAttribute="centerX" id="gzN-qm-hQn"/>
                             <constraint firstItem="nNu-1c-qY5" firstAttribute="trailing" secondItem="gMH-1o-2HP" secondAttribute="trailing" constant="29" id="jYT-zR-jtl"/>
                             <constraint firstItem="PPu-pl-ROv" firstAttribute="top" secondItem="nNu-1c-qY5" secondAttribute="top" constant="84" id="lL8-Ii-ahm"/>
-                            <constraint firstItem="gMH-1o-2HP" firstAttribute="top" secondItem="ceS-0Y-pS4" secondAttribute="bottom" constant="31" id="qzv-ch-Gea"/>
+                            <constraint firstItem="gMH-1o-2HP" firstAttribute="top" secondItem="ceS-0Y-pS4" secondAttribute="bottom" constant="47" id="qzv-ch-Gea"/>
                             <constraint firstAttribute="bottom" secondItem="PPu-pl-ROv" secondAttribute="bottom" constant="586" id="srN-Ha-WEG"/>
                         </constraints>
                     </view>
@@ -2472,7 +2472,7 @@
             <objects>
                 <viewController id="ipS-u8-j5P" customClass="CalendarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uqA-o1-NYf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="452"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="458"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBQ-VY-nqY" customClass="FSCalendar">
@@ -2568,12 +2568,12 @@
             <objects>
                 <viewController id="bUs-XB-W4p" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eki-uE-Bpn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-UK-TYq">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8hc-2s-chA"/>
@@ -2589,12 +2589,12 @@
             <objects>
                 <viewController id="brY-pu-B1Y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jD5-Xn-ZhV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-Ew-zFA">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="-10" width="390" height="130"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
                         </subviews>
@@ -2632,15 +2632,15 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="cMc-tT-cBH"/>
-        <segue reference="yTN-B8-AYf"/>
+        <segue reference="Sof-wE-czT"/>
+        <segue reference="Yn5-tG-pZ6"/>
         <segue reference="Ili-VQ-fpO"/>
-        <segue reference="A7e-D1-ojQ"/>
+        <segue reference="5au-pz-vJ4"/>
         <segue reference="3EK-Vw-FB5"/>
         <segue reference="zAb-x1-uy7"/>
         <segue reference="fSy-ez-UHx"/>
         <segue reference="ZPE-OD-haq"/>
-        <segue reference="E54-eY-0hS"/>
+        <segue reference="c1f-Ot-WRQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>
