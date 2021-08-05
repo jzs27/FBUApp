@@ -172,8 +172,6 @@
         {SNInput(1,0,1,0,0), SNOutput(0)},
         {SNInput(1,1,0,0,0), SNOutput(0)}
     };
-    
-    
 
     SNNeuralNet *net = [[SNNeuralNet alloc] initWithTrainingData:records
                                                       numRecords:31
@@ -190,7 +188,6 @@
     if (!net.isTrained){
         [net train:records numRecords:31];
     }
-    
     
     double *output = [net runInput:SNInput(self.make, self.year, self.type, self.location, self.time)];
     

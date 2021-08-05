@@ -27,8 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.locationLabel.text = self.reservation.location;
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
+    self.dateLabel.textAlignment = NSTextAlignmentCenter;
     self.selectedOneDate = YES;
     self.dateLabel.text = @"";
+    
 }
 
 #pragma mark - Navigation
