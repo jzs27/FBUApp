@@ -38,6 +38,8 @@
     [self fetchVehicles];
     
     self.locationLabel.text = self.reservation.location;
+    self.locationLabel.textAlignment = NSTextAlignmentCenter;
+    self.dateLabel.textAlignment = NSTextAlignmentCenter;
     self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
 }
 
