@@ -1305,6 +1305,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="KY4-d5-pSQ"/>
                     <connections>
+                        <outlet property="dateLabel" destination="BcZ-s9-O0Y" id="zcF-VZ-fdN"/>
+                        <outlet property="locationLabel" destination="z8o-pj-kP0" id="OwM-98-CfG"/>
+                        <outlet property="vehicleInfoLabel" destination="BcT-6i-H15" id="Jvb-Cg-bve"/>
                         <outlet property="vehicleView" destination="d6V-k3-8HI" id="Q8C-lH-jQb"/>
                         <segue destination="shF-cd-jWi" kind="show" identifier="updateVehicle" id="nXx-gZ-clR"/>
                         <segue destination="aHw-nd-1CW" kind="show" identifier="updateDates" id="5aq-PP-Hoh"/>
@@ -2622,11 +2625,11 @@
             <objects>
                 <viewController id="bUs-XB-W4p" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eki-uE-Bpn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-UK-TYq">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
+                                <rect key="frame" x="-1" y="-1" width="389" height="129"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
@@ -2643,11 +2646,11 @@
             <objects>
                 <viewController id="brY-pu-B1Y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jD5-Xn-ZhV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="105"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-Ew-zFA">
-                                <rect key="frame" x="0.0" y="-10" width="390" height="115"/>
+                                <rect key="frame" x="-1" y="-11" width="389" height="141"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
@@ -2663,15 +2666,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J9x-Ee-FVy"/>
-        <segue reference="vcg-B5-aaW"/>
+        <segue reference="FnC-wX-kVu"/>
+        <segue reference="nnS-W1-o1P"/>
         <segue reference="Ili-VQ-fpO"/>
         <segue reference="A7e-D1-ojQ"/>
         <segue reference="3EK-Vw-FB5"/>
-        <segue reference="zAb-x1-uy7"/>
-        <segue reference="fSy-ez-UHx"/>
+        <segue reference="5aq-PP-Hoh"/>
+        <segue reference="nXx-gZ-clR"/>
         <segue reference="WDn-vb-zPQ"/>
-        <segue reference="wC5-Id-FY7"/>
+        <segue reference="k3d-dT-8Zm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>

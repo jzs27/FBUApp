@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UpdateReservationViewController : UIViewController
 
-@property Reservation *reservation;
+@property (nonatomic) Reservation *reservation;
 
 @end
 

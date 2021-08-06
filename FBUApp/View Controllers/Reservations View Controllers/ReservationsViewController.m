@@ -79,6 +79,7 @@
     if ([[segue identifier] isEqualToString:@"toUpdateReservation"]){
         UpdateReservationViewController *updateReservation = [segue destinationViewController];
         updateReservation.reservation = self.reservation;
+        NSLog(@"set reservation: %@",self.reservation);
     }
 }
 
@@ -96,7 +97,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Reservation *reservation = self.arrayOfReservations[indexPath.row];
     self.reservation = reservation;
+    NSLog(@"Tapped cell: %@",self.reservation);
     [self performSegueWithIdentifier:@"toUpdateReservation" sender:nil];
+    
 }
 
 @end

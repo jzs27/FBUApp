@@ -74,6 +74,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Vehicle"];
     query.limit = 40;
     [query orderByDescending:@"createdAt"];
+    [query whereKey:@"owner" equalTo:[PFUser currentUser]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *vehicles, NSError *error) {
         if (vehicles != nil) {
             self.arrayOfVehicles = vehicles;

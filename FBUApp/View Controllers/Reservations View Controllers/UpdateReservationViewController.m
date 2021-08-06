@@ -7,6 +7,9 @@
 
 #import "UpdateReservationViewController.h"
 
+#import "UIImageView+AFNetworking.h"
+#import <Parse/Parse.h>
+
 #import "SelectVehicleViewController.h"
 #import "ReservationLocationViewController.h"
 #import "ReservationCalendarViewController.h"
@@ -14,6 +17,9 @@
 @interface UpdateReservationViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *vehicleView;
+@property (weak, nonatomic) IBOutlet UILabel *vehicleInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -21,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setReservation:self.reservation];
+    NSLog(@"At update: %@",self.reservation);
 }
 
 #pragma mark - Navigation
@@ -51,6 +59,17 @@
 
 - (IBAction)didTapLocation:(id)sender {
     [self performSegueWithIdentifier:@"updateLocation" sender:nil];
+}
+
+-(void)setReservation:(Reservation *)reservation{
+    PFFileObject *image = (PFFileObject*) self.reservation.vehicle.image;
+    NSURL *imageURL = [NSURL URLWithString:image.url];
+    [self.vehicleView setImageWithURL:imageURL];
+    
+        self.locationLabel.text = self.reservation.location;
+    self.vehicleInfoLabel.text = [NSString stringWithFormat:@"%@ %@ %@", self.reservation.vehicle.make,self.reservation.vehicle.model,self.reservation.vehicle.year ];
+    self.dateLabel.text = [Reservation createDateString:self.reservation.startRentDate withEndDate:self.reservation.endRentDate];
+    
 }
 
 @end
