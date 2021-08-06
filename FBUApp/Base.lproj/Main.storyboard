@@ -267,7 +267,7 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start New Rental - Choose Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjf-nk-biV">
-                                <rect key="frame" x="16" y="147" width="337" height="60"/>
+                                <rect key="frame" x="16" y="130" width="337" height="77"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -329,6 +329,7 @@
                         <viewLayoutGuide key="safeArea" id="IrS-35-TzL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Wjf-nk-biV" firstAttribute="top" secondItem="Qt5-te-j2O" secondAttribute="bottom" constant="20" id="2Dv-XN-wbg"/>
                             <constraint firstItem="k34-zB-68a" firstAttribute="trailing" secondItem="Qt5-te-j2O" secondAttribute="trailing" id="9MR-EE-7ms"/>
                             <constraint firstItem="k34-zB-68a" firstAttribute="trailing" secondItem="Amp-MT-BUp" secondAttribute="trailing" id="A6p-8s-ykQ"/>
                             <constraint firstItem="k34-zB-68a" firstAttribute="top" secondItem="Qt5-te-j2O" secondAttribute="bottom" id="Elg-mv-baa"/>
@@ -713,6 +714,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bt0-TO-P05" firstAttribute="trailing" secondItem="jdm-76-MNt" secondAttribute="trailing" id="079-Yr-pst"/>
+                            <constraint firstItem="Dif-cp-WQ4" firstAttribute="top" secondItem="MTJ-Z9-Np1" secondAttribute="bottom" constant="22" id="2BU-Ku-q5D"/>
                             <constraint firstItem="t2w-1K-98x" firstAttribute="top" secondItem="z1f-0k-6t6" secondAttribute="top" id="2J0-eB-pxS"/>
                             <constraint firstItem="rnH-OK-YB1" firstAttribute="centerX" secondItem="5Mc-UG-z9q" secondAttribute="centerX" id="9tb-X7-4R9"/>
                             <constraint firstItem="MTJ-Z9-Np1" firstAttribute="centerX" secondItem="5Mc-UG-z9q" secondAttribute="centerX" id="Acy-Oe-6kA"/>
@@ -1979,13 +1981,13 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59G-HZ-kyZ">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="150"/>
                                 <connections>
                                     <segue destination="bUs-XB-W4p" kind="embed" id="qM1-dj-yiu"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHY-8q-VB2">
-                                <rect key="frame" x="0.0" y="130" width="390" height="130"/>
+                                <rect key="frame" x="0.0" y="150" width="390" height="110"/>
                                 <connections>
                                     <segue destination="brY-pu-B1Y" kind="embed" id="ry7-ic-56m"/>
                                 </connections>
@@ -2001,7 +2003,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Rental Dates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sR-9e-Tp2">
-                                <rect key="frame" x="32" y="180" width="301" height="30"/>
+                                <rect key="frame" x="32" y="190" width="301" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2036,7 +2038,7 @@
                             <constraint firstItem="KeM-x1-Kxk" firstAttribute="top" secondItem="b8U-SD-gsN" secondAttribute="bottom" constant="5" id="MEk-Dk-4jA"/>
                             <constraint firstItem="b8U-SD-gsN" firstAttribute="top" secondItem="A1V-OZ-xPK" secondAttribute="top" constant="5" id="NbV-Ey-Iul"/>
                             <constraint firstItem="59G-HZ-kyZ" firstAttribute="top" secondItem="Ida-4s-QZy" secondAttribute="top" id="Opr-z7-WLc"/>
-                            <constraint firstItem="0sR-9e-Tp2" firstAttribute="top" secondItem="59G-HZ-kyZ" secondAttribute="bottom" constant="50" id="PL9-49-SRo"/>
+                            <constraint firstItem="0sR-9e-Tp2" firstAttribute="top" secondItem="59G-HZ-kyZ" secondAttribute="bottom" constant="40" id="PL9-49-SRo"/>
                             <constraint firstItem="eTJ-W1-EYQ" firstAttribute="top" secondItem="NHY-8q-VB2" secondAttribute="bottom" constant="1" id="RuR-Qe-4Zi"/>
                             <constraint firstItem="0sR-9e-Tp2" firstAttribute="leading" secondItem="A1V-OZ-xPK" secondAttribute="leading" constant="32" id="SLB-SM-qxX"/>
                             <constraint firstItem="eTJ-W1-EYQ" firstAttribute="trailing" secondItem="NHY-8q-VB2" secondAttribute="trailing" id="Vww-oo-6FH"/>
@@ -2620,11 +2622,11 @@
             <objects>
                 <viewController id="bUs-XB-W4p" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eki-uE-Bpn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" alpha="0.34999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1878506" translatesAutoresizingMaskIntoConstraints="NO" id="5k1-UK-TYq">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
@@ -2641,11 +2643,11 @@
             <objects>
                 <viewController id="brY-pu-B1Y" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jD5-Xn-ZhV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="105"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jxf-Ew-zFA">
-                                <rect key="frame" x="0.0" y="-10" width="390" height="140"/>
+                                <rect key="frame" x="0.0" y="-10" width="390" height="115"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </view>
@@ -2661,15 +2663,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cMc-tT-cBH"/>
-        <segue reference="yTN-B8-AYf"/>
+        <segue reference="J9x-Ee-FVy"/>
+        <segue reference="vcg-B5-aaW"/>
         <segue reference="Ili-VQ-fpO"/>
         <segue reference="A7e-D1-ojQ"/>
         <segue reference="3EK-Vw-FB5"/>
-        <segue reference="5aq-PP-Hoh"/>
-        <segue reference="nXx-gZ-clR"/>
+        <segue reference="zAb-x1-uy7"/>
+        <segue reference="fSy-ez-UHx"/>
         <segue reference="WDn-vb-zPQ"/>
-        <segue reference="E54-eY-0hS"/>
+        <segue reference="wC5-Id-FY7"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1878506" width="1920" height="1200"/>
