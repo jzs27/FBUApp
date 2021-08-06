@@ -80,7 +80,7 @@
     
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     
-    CGSize size = CGSizeMake(1500, 1500);
+    CGSize size = CGSizeMake(1500, 1000);
     UIImage *img = [self resizeImage:originalImage withSize:size];
     self.vehicleView.image = img;
     self.image= img;
